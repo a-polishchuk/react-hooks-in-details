@@ -14,8 +14,7 @@ export function SyntaxBasics() {
   const pieceOfState = useState();
   const [anotherValue, setAnotherValue] = pieceOfState;
 
-  // setting initial value,
-  // will be used only during the first render
+  // setting initial value, will be used only during the first render
   const [pair, setPair] = useState(initialValue);
 
   // NOTE: could be both primitive type and object
@@ -52,10 +51,4 @@ export function UpdatingState() {
       <button onClick={toggleLoading}>Toggle loading</button>
     </div>
   );
-}
-
-export function VsClassComponents() {
-  // State variables can hold objects and arrays just
-  // unlike this.setState in a class, updating a state variable always
-  // replaces it instead of merging it.
 }
