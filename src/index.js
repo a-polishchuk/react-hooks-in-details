@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { EmptyDepsList } from './useEffect/emptyDepsList';
+import { Example } from './useState/useCounter';
 
 ReactDOM.render(
   <React.StrictMode>
-    <EmptyDepsList />
+    <Example />
   </React.StrictMode>,
   document.getElementById('root')
 );
