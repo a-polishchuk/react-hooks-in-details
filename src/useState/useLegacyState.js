@@ -25,3 +25,60 @@ export function useLegacyState(initialState) {
 
   return [state, mergeState];
 }
+
+function TextField({ label, value, onChange }) {
+  return (
+    <div>
+      <label>{label}</label>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </div>
+  );
+}
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  phone: '',
+  email: '',
+};
+
+export function Example() {
+  const [state, setState] = useLegacyState(initialState);
+
+  const clearState = () => setState(initialState);
+
+  return (
+    <>
+      <form>
+        <TextField
+          label="First name"
+          value={state.firstName}
+          onChange={(firstName) => setState({ firstName })}
+        />
+        <TextField
+          label="Last name"
+          value={state.lastName}
+          onChange={(lastName) => setState({ lastName })}
+        />
+        <TextField
+          label="Phone"
+          value={state.phone}
+          onChange={(phone) => setState({ phone })}
+        />
+        <TextField
+          label="Email"
+          value={state.email}
+          onChange={(email) => setState({ email })}
+        />
+      </form>
+      <div>
+        <button onClick={clearState}>CLEAR</button>
+      </div>
+      <div>{JSON.stringify(state)}</div>
+    </>
+  );
+}
