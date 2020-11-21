@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 /**
  * This effect will not be executed on initial render.
@@ -15,25 +15,28 @@ export function useUpdateEffect(onUpdate) {
   }, [onUpdate]);
 }
 
-export function UpdateEffectExample() {
-  const [, setTrigger] = useState();
+export function Example() {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log('component is mounted');
+    console.log('  component is mounted');
   }, []);
 
-  useUpdateEffect(() => {
-    console.log('component is updated');
-  }, []);
+  const updateCallback = useCallback(() => {
+    console.log(`  component is updated (${count})`);
+  }, [count]);
 
-  // NOTE: you can use this pattern to manually force component re-render
-  const forceRerender = () => {
-    setTrigger({});
+  useUpdateEffect(updateCallback);
+
+  const triggerUpdate = () => {
+    setCount((prevValue) => prevValue + 1);
   };
+
+  console.log('render');
 
   return (
     <div>
-      <button onClick={forceRerender}>Force Rerender</button>
+      <button onClick={triggerUpdate}>{count}</button>
     </div>
   );
 }

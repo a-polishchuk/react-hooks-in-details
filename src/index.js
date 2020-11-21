@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Example } from './misc/useLocalStorageState';
+import { Example } from './useEffect/useUpdateEffect';
 
 ReactDOM.render(
   <React.StrictMode>
