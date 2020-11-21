@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Example } from './useEffect/useUpdateEffect';
+import { Example } from './useEffect/useStateWithCallback';
 
 ReactDOM.render(
   <React.StrictMode>
