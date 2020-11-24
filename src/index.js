@@ -1,10 +1,4 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import { Example } from './useEffect/useStateWithCallback';
+import { Clicker } from './Chapter-1';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Example />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Clicker />, document.getElementById('root'));
