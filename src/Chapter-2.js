@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-const DEFAULT_AGE = 21;
-
 function FormField({ name, label, value, onChange, type = 'text' }) {
   return (
     <div>
@@ -16,16 +14,16 @@ function FormField({ name, label, value, onChange, type = 'text' }) {
   );
 }
 
-export function FormExample() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [age, setAge] = useState(DEFAULT_AGE);
+const initialState = {
+  firstName: '',
+  lastName: '',
+  age: 21,
+};
 
-  const clear = () => {
-    setFirstName('');
-    setLastName('');
-    setAge(DEFAULT_AGE);
-  };
+export function FormExample() {
+  const [data, setData] = useState(initialState);
+
+  const clear = () => setData(initialState);
 
   return (
     <>
@@ -33,31 +31,42 @@ export function FormExample() {
         <FormField
           name="firstName"
           label="First name"
-          value={firstName}
-          onChange={(newValue) => setFirstName(newValue)}
+          value={data.firstName}
+          onChange={(firstName) =>
+            setData((prevData) => ({
+              ...prevData,
+              firstName,
+            }))
+          }
         />
         <FormField
           name="lastName"
           label="Last name"
-          value={lastName}
-          onChange={(newValue) => setLastName(newValue)}
+          value={data.lastName}
+          onChange={(lastName) =>
+            setData((prevData) => ({
+              ...prevData,
+              lastName,
+            }))
+          }
         />
         <FormField
           name="age"
           label="Age"
-          value={age}
-          onChange={(newValue) => setAge(newValue ? parseInt(newValue) : '')}
+          value={data.age}
+          onChange={(age) =>
+            setData((prevData) => ({
+              ...prevData,
+              age: age ? parseInt(age) : '',
+            }))
+          }
           type="number"
         />
       </form>
       <div>
         <button onClick={clear}>CLEAR</button>
       </div>
-      <div>
-        firstName: {firstName},<br />
-        lastName: {lastName}, <br />
-        age: {age}
-      </div>
+      <div>{JSON.stringify(data)}</div>
     </>
   );
 }
