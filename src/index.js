@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import { Clicker } from './Chapter-1';
+import { FormExample } from './Chapter-2';
 
-ReactDOM.render(<Clicker />, document.getElementById('root'));
+ReactDOM.render(<FormExample />, document.getElementById('root'));
