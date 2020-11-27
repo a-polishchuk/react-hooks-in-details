@@ -41,13 +41,18 @@ function HeaderRow({ maxPow }) {
   return <tr>{cells}</tr>;
 }
 
+const MAX_NUMBER = 30;
 const MAX_POW = 5;
 
 export function Example() {
   const [data, setData] = useState(() => {
     console.log('useState initialization');
-    return someHeavyFunc(20, MAX_POW);
+    return someHeavyFunc(MAX_NUMBER, MAX_POW);
   });
+
+  const [, setTrigger] = useState();
+
+  const rerender = () => setTrigger({});
 
   const removeFirst = () => {
     setData((prevValue) => {
@@ -62,6 +67,7 @@ export function Example() {
     <>
       <p>
         <button onClick={removeFirst}>REMOVE FIRST</button>
+        <button onClick={rerender}>RERENDER</button>
       </p>
       <table>
         <thead>
