@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import { FormExample } from './Chapter-2';
+import { Example } from './useState/useCounter';
 
-ReactDOM.render(<FormExample />, document.getElementById('root'));
+ReactDOM.render(<Example />, document.getElementById('root'));
