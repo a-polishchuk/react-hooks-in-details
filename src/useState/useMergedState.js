@@ -11,10 +11,24 @@ import { useState } from 'react';
 // NOTE: However, we recommend to split state into multiple state variables
 // based on which values tend to change together.
 
-export function useLegacyState(initialState) {
-  const [state, setState] = useState(initialState);
+function isObject(o) {
+  return !!o && typeof o === 'object' && !Array.isArray(o);
+}
+
+function validateObject(o) {
+  if (!isObject(o)) {
+    throw new Error('Only objects allowed!');
+  }
+}
+
+export function useMergedState(initialState) {
+  const [state, setState] = useState(() => {
+    validateObject(initialState);
+    return initialState;
+  });
 
   const mergeState = (changes) => {
+    validateObject(changes);
     setState((prevState) => {
       return {
         ...prevState,
@@ -47,7 +61,7 @@ const initialState = {
 };
 
 export function Example() {
-  const [state, setState] = useLegacyState(initialState);
+  const [state, setState] = useMergedState(initialState);
 
   const clearState = () => setState(initialState);
 
