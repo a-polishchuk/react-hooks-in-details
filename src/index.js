@@ -1,4 +1,10 @@
 import ReactDOM from 'react-dom';
-import { Example } from './useState/storingFunctions';
+import { List } from './useCallback/useCallbackBasics';
 
-ReactDOM.render(<Example />, document.getElementById('root'));
+const items = [
+  { id: 1, name: 'First' },
+  { id: 2, name: 'Second' },
+  { id: 3, name: 'Third' },
+];
+
+ReactDOM.render(<List items={items} />, document.getElementById('root'));
