@@ -1,6 +1,12 @@
 import React, { useCallback } from 'react';
 import { useRerender } from '../useState/useRerender';
 
+const items = [
+  { id: 1, name: 'First' },
+  { id: 2, name: 'Second' },
+  { id: 3, name: 'Third' },
+];
+
 const Item = React.memo(({ item, onClick }) => {
   const { name } = item;
   console.log(`> ${name}`);

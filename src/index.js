@@ -1,10 +1,4 @@
 import ReactDOM from 'react-dom';
-import { List } from './useCallback/useCallbackBasics';
+import { Counter } from './Chapter-6';
 
-const items = [
-  { id: 1, name: 'First' },
-  { id: 2, name: 'Second' },
-  { id: 3, name: 'Third' },
-];
-
-ReactDOM.render(<List items={items} />, document.getElementById('root'));
+ReactDOM.render(<Counter />, document.getElementById('root'));
