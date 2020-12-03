@@ -57,11 +57,11 @@ export function Example() {
   const [marginLeft, marginTop] = useKeyboardMargins(50);
 
   useLayoutEffect(() => {
-    setStyle({
-      ...initialStyle,
+    setStyle((prevStyle) => ({
+      ...prevStyle,
       marginLeft,
       marginTop,
-    });
+    }));
   }, [marginLeft, marginTop]);
 
   const dummies = generateDummies(10000);
