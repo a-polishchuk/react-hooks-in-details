@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import { Counter } from './Chapter-6';
+import { Example } from './useEffect/useLayoutEffect';
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
+ReactDOM.render(<Example />, document.getElementById('root'));
