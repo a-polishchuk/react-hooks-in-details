@@ -1,10 +1,6 @@
 import { useState, useRef } from 'react';
 import PinInput from './PinInput';
 
-const buttonStyle = {
-  margin: 5,
-};
-
 const EMPTY_ARRAY = ['', '', '', '', '', ''];
 
 export function Example() {
@@ -21,15 +17,9 @@ export function Example() {
     <div>
       <PinInput ref={pinInputRef} digits={digits} onChange={setDigits} />
       <p>
-        <button style={buttonStyle} onClick={focus}>
-          FOCUS
-        </button>
-        <button style={buttonStyle} onClick={clear}>
-          CLEAR
-        </button>
-        <button style={buttonStyle} onClick={submit}>
-          SUBMIT
-        </button>
+        <button onClick={focus}>FOCUS</button>
+        <button onClick={clear}>CLEAR</button>
+        <button onClick={submit}>SUBMIT</button>
       </p>
     </div>
   );

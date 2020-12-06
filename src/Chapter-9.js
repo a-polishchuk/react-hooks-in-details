@@ -1,36 +1,35 @@
 import { useState, useRef } from 'react';
-import PinInput from './useRef/PinInput';
+import PinInput from './PinInput';
 
-const styles = {
-  button: {
-    margin: 5,
-  },
-};
-
-const EMPTY_ARRAY = ['', '', '', '', '', ''];
+const EMPTY_DIGITS = ['', '', '', ''];
 
 export function Example() {
-  const [digits, setDigits] = useState(EMPTY_ARRAY);
-  const pinInputRef = useRef();
+  const [digits, setDigits] = useState(EMPTY_DIGITS);
+  const [pinVisible, setPinVisible] = useState(true);
+  const ref = useRef();
 
-  const focus = () => pinInputRef.current.focus();
+  const focus = () => {
+    ref.current?.focus();
+  };
 
-  const clear = () => setDigits(EMPTY_ARRAY);
+  const clear = () => {
+    setDigits(EMPTY_DIGITS);
+  };
 
-  const submit = () => console.log(digits);
+  const toggleVisibility = () => {
+    setPinVisible((prevValue) => !prevValue);
+  };
 
   return (
     <div>
-      <PinInput ref={pinInputRef} digits={digits} onChange={setDigits} />
+      {pinVisible ? (
+        <PinInput ref={ref} digits={digits} onChange={setDigits} />
+      ) : null}
       <p>
-        <button style={styles.button} onClick={focus}>
-          FOCUS
-        </button>
-        <button style={styles.button} onClick={clear}>
-          CLEAR
-        </button>
-        <button style={styles.button} onClick={submit}>
-          SUBMIT
+        <button onClick={focus}>FOCUS</button>
+        <button onClick={clear}>CLEAR</button>
+        <button onClick={toggleVisibility}>
+          {pinVisible ? 'HIDE' : 'SHOW'}
         </button>
       </p>
     </div>

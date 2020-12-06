@@ -1,4 +1,4 @@
-import { useRef, useImperativeHandle, forwardRef } from 'react';
+import { useImperativeHandle, useRef, forwardRef } from 'react';
 
 const inputStyle = {
   width: 30,
@@ -16,7 +16,7 @@ function updateArray(array, index, value) {
 
 function PinInput(props, ref) {
   const { digits, onChange } = props;
-  const inputRefs = useRef(new Array(6));
+  const inputRefs = useRef(new Array(digits.length));
 
   useImperativeHandle(ref, () => ({
     focus: () => {
@@ -60,12 +60,8 @@ function PinInput(props, ref) {
           key={index}
           style={inputStyle}
           value={digit}
-          onChange={(event) => {
-            handleChange(index, event.target.value);
-          }}
-          onKeyDown={(event) => {
-            handleKeyDown(index, event.nativeEvent.key);
-          }}
+          onChange={(event) => handleChange(index, event.target.value)}
+          onKeyDown={(event) => handleKeyDown(index, event.nativeEvent.key)}
           ref={(ref) => {
             inputRefs.current[index] = ref;
           }}
