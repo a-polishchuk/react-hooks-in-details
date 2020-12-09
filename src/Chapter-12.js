@@ -1,10 +1,23 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState, useRef } from 'react';
+
+const palette = [
+  '#FFAABB',
+  '#AAFFBB',
+  '#AACCBB',
+  '#BBAABB',
+  '#EEBBEE',
+  '#EEBBAA',
+  '#AAAAFF',
+  '#FFAA99',
+  '#99FF99',
+  '#44FF44',
+  '#11FFFF',
+  '#DDFFFF',
+];
 
 function randomCssColor() {
-  const r = Math.random() * 255;
-  const g = Math.random() * 255;
-  const b = Math.random() * 255;
-  return `rgb(${r},${g},${b})`;
+  const index = Math.ceil(Math.random() * (palette.length - 1));
+  return palette[index];
 }
 
 function Line({ width, left, top }) {
@@ -13,8 +26,8 @@ function Line({ width, left, top }) {
     left,
     top,
     width,
-    height: 1,
-    backgroundColor: 'black',
+    height: '0px',
+    border: '1px dashed #00000044',
   };
   return <div style={style} />;
 }
@@ -27,7 +40,7 @@ function Node({
   left = 50,
   top = 50,
 }) {
-  const [trigger, setTrigger] = useState({});
+  const rendersCounter = useRef(0);
   const [borderColor, setBorderColor] = useState('black');
   const height = cellHeight * Math.pow(2, maxLevel - level);
 
@@ -38,34 +51,23 @@ function Node({
     height,
     backgroundColor: randomCssColor(),
     position: 'absolute',
-    border: `1px solid ${borderColor}`,
+    border: `2px solid ${borderColor}`,
     borderRadius: 10,
     transition: 'all 500ms linear',
+    zIndex: 100,
+    color: 'black',
   };
-
-  // const style = useMemo(
-  //   () => ({
-  //     left,
-  //     top,
-  //     width: cellWidth,
-  //     height,
-  //     backgroundColor: randomCssColor(),
-  //     position: 'absolute',
-  //     border: '1px solid black',
-  //     borderRadius: 10,
-  //     transition: 'background-color 500ms linear',
-  //   }),
-  //   [cellWidth, height, left, top, trigger]
-  // );
 
   const onClick = (event) => {
     event.stopPropagation();
-    // setTrigger({});
     setBorderColor(randomCssColor());
   };
 
+  rendersCounter.current++;
+
   return (
     <div style={style} onClick={onClick}>
+      {rendersCounter.current}
       {level < maxLevel ? (
         <>
           <Line left={cellWidth} top={height / 4} width={cellWidth} />
