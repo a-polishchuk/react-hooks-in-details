@@ -1,5 +1,20 @@
 import { useState } from 'react';
 
+function useMergedState(initialState) {
+  const [state, setState] = useState(initialState);
+
+  const mergeState = (changes) => {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        ...changes,
+      };
+    });
+  };
+
+  return [state, mergeState];
+}
+
 function FormField({ name, label, value, onChange, type = 'text' }) {
   return (
     <div>
@@ -21,7 +36,7 @@ const initialState = {
 };
 
 export function FormExample() {
-  const [data, setData] = useState(initialState);
+  const [data, setData] = useMergedState(initialState);
 
   const clear = () => setData(initialState);
 
@@ -32,34 +47,19 @@ export function FormExample() {
           name="firstName"
           label="First name"
           value={data.firstName}
-          onChange={(firstName) =>
-            setData((prevData) => ({
-              ...prevData,
-              firstName,
-            }))
-          }
+          onChange={(firstName) => setData({ firstName })}
         />
         <FormField
           name="lastName"
           label="Last name"
           value={data.lastName}
-          onChange={(lastName) =>
-            setData((prevData) => ({
-              ...prevData,
-              lastName,
-            }))
-          }
+          onChange={(lastName) => setData({ lastName })}
         />
         <FormField
           name="age"
           label="Age"
           value={data.age}
-          onChange={(age) =>
-            setData((prevData) => ({
-              ...prevData,
-              age: age ? parseInt(age) : '',
-            }))
-          }
+          onChange={(age) => setData({ age: age ? parseInt(age) : '' })}
           type="number"
         />
       </form>
