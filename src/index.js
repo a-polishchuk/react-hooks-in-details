@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import { Example } from './Chapter-4';
+import { Calculator } from './Chapter-5';
 
-ReactDOM.render(<Example />, document.getElementById('root'));
+ReactDOM.render(<Calculator />, document.getElementById('root'));
