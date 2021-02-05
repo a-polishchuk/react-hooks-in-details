@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 import { useEffect, useLayoutEffect, useState, useMemo } from 'react';
 
 function useCharacterPosition(step) {
@@ -6,27 +5,28 @@ function useCharacterPosition(step) {
   const [top, setTop] = useState(0);
 
   useEffect(() => {
-    const handleKeydown = (event) => {
+    const handleKeyDown = (event) => {
+      // eslint-disable-next-line default-case
       switch (event.key) {
         case 'ArrowLeft':
-          setLeft((prevValue) => prevValue - step);
+          setLeft((prev) => prev - step);
           break;
         case 'ArrowRight':
-          setLeft((prevValue) => prevValue + step);
+          setLeft((prev) => prev + step);
           break;
         case 'ArrowUp':
-          setTop((prevValue) => prevValue - step);
+          setTop((prev) => prev - step);
           break;
         case 'ArrowDown':
-          setTop((prevValue) => prevValue + step);
+          setTop((prev) => prev + step);
           break;
       }
     };
 
-    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', handleKeydown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [step]);
 
@@ -54,22 +54,23 @@ export function Example() {
   const [left, top] = useCharacterPosition(50);
   // const [style, setStyle] = useState(initialStyle);
 
-  // useLayoutEffect(() => {
-  //   setStyle((prevStyle) => ({
-  //     ...prevStyle,
-  //     left,
-  //     top,
-  //   }));
-  // }, [left, top]);
-
-  const style = useMemo(
-    () => ({
+  const style = useMemo(() => {
+    return {
       ...initialStyle,
       left,
       top,
-    }),
-    [left, top]
-  );
+    };
+  }, [left, top]);
+
+  // useLayoutEffect(() => {
+  //   setStyle((prev) => {
+  //     return {
+  //       ...prev,
+  //       left,
+  //       top,
+  //     };
+  //   });
+  // }, [left, top]);
 
   return (
     <>
@@ -77,7 +78,7 @@ export function Example() {
         [{left}, {top}]
       </h2>
       <div style={style} />
-      {/* {generateDummies(10000)} */}
+      {generateDummies(10000)}
     </>
   );
 }

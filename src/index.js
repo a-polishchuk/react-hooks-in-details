@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom';
-import { Counter } from './Chapter-6';
+import { Example } from './Chapter-7';
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
+ReactDOM.render(<Example />, document.getElementById('root'));
