@@ -9,6 +9,7 @@ import { Calculator as Chapter5 } from './Chapter-5';
 import { Counter as Chapter6 } from './Chapter-6';
 import { Example as Chapter7 } from './Chapter-7';
 import { Example as Chapter8 } from './Chapter-8';
+import { Chapter9 } from './Chapter-9';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -19,6 +20,7 @@ const content = {
   ch_6: { name: 'Chapter 6', component: Chapter6 },
   ch_7: { name: 'Chapter 7', component: Chapter7 },
   ch_8: { name: 'Chapter 8', component: Chapter8 },
+  ch_9: { name: 'Chapter 9', component: Chapter9 },
 };
 
 ReactDOM.render(

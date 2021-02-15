@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import './MasterDetail.css';
 import { ConsoleViewer } from '../ConsoleViewer/ConsoleViewer';
+import './MasterDetail.css';
 
 export function MasterDetail({ content }) {
   const [chapterId, setChapterId] = useState('');

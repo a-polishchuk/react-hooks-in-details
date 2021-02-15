@@ -8,25 +8,18 @@ const inputStyle = {
   margin: 5,
 };
 
-function updateArray(array, index, value) {
+function updateArray(array, index, newValue) {
   const copy = [...array];
-  copy[index] = value;
+  copy[index] = newValue;
   return copy;
 }
 
-function PinInput(props, ref) {
-  const { digits, onChange } = props;
+function PinInput({ digits, onChange }, ref) {
   const inputRefs = useRef(new Array(digits.length));
 
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRefs.current[0].focus();
-    },
-  }));
-
-  const handleChange = (index, text) => {
+  const handleChange = (index, newValue) => {
     const oldDigit = digits[index];
-    const newDigit = text.trim().replace(oldDigit, '');
+    const newDigit = newValue.trim().replace(oldDigit, '');
 
     if (newDigit < '0' || newDigit > '9') {
       return;
@@ -52,6 +45,12 @@ function PinInput(props, ref) {
       inputRefs.current[index - 1].focus();
     }
   };
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRefs.current[0].focus();
+    },
+  }));
 
   return (
     <div>

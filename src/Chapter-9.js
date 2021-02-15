@@ -1,11 +1,10 @@
 import { useState, useRef } from 'react';
 import PinInput from './PinInput';
 
-const EMPTY_DIGITS = ['', '', '', ''];
+const initialDigits = ['', '', '', ''];
 
-export function Example() {
-  const [digits, setDigits] = useState(EMPTY_DIGITS);
-  const [pinVisible, setPinVisible] = useState(true);
+export function Chapter9() {
+  const [digits, setDigits] = useState(initialDigits);
   const ref = useRef();
 
   const focus = () => {
@@ -13,24 +12,15 @@ export function Example() {
   };
 
   const clear = () => {
-    setDigits(EMPTY_DIGITS);
-  };
-
-  const toggleVisibility = () => {
-    setPinVisible((prevValue) => !prevValue);
+    setDigits(initialDigits);
   };
 
   return (
     <div>
-      {pinVisible ? (
-        <PinInput ref={ref} digits={digits} onChange={setDigits} />
-      ) : null}
+      <PinInput ref={ref} digits={digits} onChange={setDigits} />
       <p>
         <button onClick={focus}>FOCUS</button>
         <button onClick={clear}>CLEAR</button>
-        <button onClick={toggleVisibility}>
-          {pinVisible ? 'HIDE' : 'SHOW'}
-        </button>
       </p>
     </div>
   );
