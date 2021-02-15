@@ -1,0 +1,49 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 15% auto;
+  grid-template-rows: auto 20%;
+}
+
+.master {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  padding: 5px;
+  border-right: cadetblue solid 1px;
+  background-color: cornsilk;
+}
+.master-button {
+  background-color: #fff;
+  border: cadetblue solid 2px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 10px;
+  color: cadetblue;
+}
+.master-button:focus {
+  outline: 0;
+}
+.selected {
+  background-color: rgb(215, 250, 252);
+  font-weight: 700;
+}
+
+.detail {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 10px;
+  position: relative;
+  overflow: scroll;
+}
+
+.bottom {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: cornsilk;
+  border-top: cadetblue solid 1px;
+}

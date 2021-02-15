@@ -45,7 +45,7 @@ const initialStyle = {
 function generateDummies(count) {
   const dummies = [];
   for (let i = 0; i < count; i++) {
-    dummies.push(<div key={i}>i == {i}</div>);
+    dummies.push(<span key={i}>i == {i}</span>);
   }
   return dummies;
 }
@@ -78,7 +78,7 @@ export function Example() {
         [{left}, {top}]
       </h2>
       <div style={style} />
-      {generateDummies(10000)}
+      {/* {generateDummies(10000)} */}
     </>
   );
 }

@@ -1,0 +1,25 @@
+.console-container {
+  transition: all 1s linear;
+  position: relative;
+  height: 100%;
+}
+
+.console-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.console-scroll {
+  height: 100%;
+  overflow: scroll;
+}
+
+.console-timestamp {
+  color: cadetblue;
+  font-weight: 600;
+}
+
+.console-footer {
+  height: 10px;
+}
