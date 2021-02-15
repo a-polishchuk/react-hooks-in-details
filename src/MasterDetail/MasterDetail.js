@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './MasterDetail.css';
-import { Console } from '../Console/Console';
+import { ConsoleViewer } from '../ConsoleViewer/ConsoleViewer';
 
 export function MasterDetail({ content }) {
   const [chapterId, setChapterId] = useState('');
@@ -30,7 +30,7 @@ export function MasterDetail({ content }) {
       </div>
       <div className="detail">{Detail ? <Detail /> : null}</div>
       <div className="bottom">
-        <Console />
+        <ConsoleViewer />
       </div>
     </div>
   );

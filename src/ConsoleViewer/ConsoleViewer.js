@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import format from 'date-fns/format';
-import './Console.css';
+import './ConsoleViewer.css';
 
-export function Console() {
+export function ConsoleViewer() {
   const [messages, setMessages] = useState([]);
   const footer = useRef();
 
