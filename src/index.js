@@ -21,7 +21,4 @@ const content = {
   ch_8: { name: 'Chapter 8', component: Chapter8 },
 };
 
-ReactDOM.render(
-  <MasterDetail content={content} />,
-  document.getElementById('root')
-);
+ReactDOM.render(<Chapter8 />, document.getElementById('root'));

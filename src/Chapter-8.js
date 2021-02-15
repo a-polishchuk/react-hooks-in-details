@@ -1,7 +1,7 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
-import { useCounter } from './useState/useCounter';
+import { useEffect, useCallback, useRef } from 'react';
+import { useCounter } from './Chapter-3';
 
-export function useUpdateEffect(callback) {
+function useUpdateEffect(callback) {
   const firstRender = useRef(true);
 
   useEffect(() => {
@@ -20,13 +20,13 @@ export function Example() {
     console.log('mounted');
   }, []);
 
+  console.log(`render, value: ${value}`);
+
   const callback = useCallback(() => {
     console.log(`  value updated: ${value}`);
   }, [value]);
 
   useUpdateEffect(callback);
-
-  console.log(`render, value: ${value}`);
 
   return <button onClick={increment}>RERENDER</button>;
 }
