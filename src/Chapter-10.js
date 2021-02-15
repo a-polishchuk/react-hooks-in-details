@@ -18,7 +18,7 @@ function SimpleText({ text }) {
 
 const LoggedSimpleText = logRender(SimpleText);
 
-export function Example() {
+export function Chapter10() {
   const [digits, setDigits] = useState(['', '', '']);
   const inputRef = useRef();
   const focus = () => inputRef.current?.focus();
