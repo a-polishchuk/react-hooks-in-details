@@ -15,6 +15,7 @@
   padding: 5px;
   border-right: cadetblue solid 1px;
   background-color: cornsilk;
+  overflow: scroll;
 }
 .master-button {
   background-color: #fff;

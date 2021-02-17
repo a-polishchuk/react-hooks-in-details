@@ -1,0 +1,27 @@
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.contacts-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+  border: cadetblue solid 1px;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.contacts-selected {
+  border: cadetblue solid 2px;
+}
+
+.contacts-tile-img {
+  width: 128px;
+  height: 128px;
+  border-radius: 10px;
+  object-fit: cover;
+}
