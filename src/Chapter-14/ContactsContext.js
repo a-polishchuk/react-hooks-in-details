@@ -60,6 +60,7 @@ function contactsReducer(state, action) {
     case Types.ROLLBACK:
       return initialState;
     default:
+      console.log(`action type ${action.type} was not recognized`);
       return state;
   }
 }

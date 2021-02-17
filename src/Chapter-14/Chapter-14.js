@@ -25,6 +25,7 @@ function reducer(state, action) {
     case Types.CLEAR:
       return initialState;
     default:
+      console.log(`actiont type: ${action.type} was not recognized`);
       return state;
   }
 }
