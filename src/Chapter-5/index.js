@@ -12,25 +12,26 @@ const onChange = (setter) => {
   };
 };
 
-export function Example() {
+export default function Chapter5() {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
-
   const [action, setAction] = useState(() => add);
   const [sign, setSign] = useState('+');
 
-  const applyAction = (fn, fnSign) => () => {
-    setAction(() => fn);
-    setSign(fnSign);
+  const applyAction = (fn, fnSign) => {
+    return () => {
+      setAction(() => fn);
+      setSign(fnSign);
+    };
   };
 
   return (
-    <div>
+    <>
       <p>
         <button onClick={applyAction(add, '+')}>ADD</button>
         <button onClick={applyAction(subtract, '-')}>SUBTRACT</button>
-        <button onClick={applyAction(multiply, '*')}>MULTIPLY</button>
         <button onClick={applyAction(divide, '/')}>DIVIDE</button>
+        <button onClick={applyAction(multiply, '*')}>MULTIPLY</button>
       </p>
       <p>
         <input type="number" value={a} onChange={onChange(setA)} />
@@ -38,6 +39,6 @@ export function Example() {
         <input type="number" value={b} onChange={onChange(setB)} />
         <span> = {action ? action(a, b) : ''}</span>
       </p>
-    </div>
+    </>
   );
 }

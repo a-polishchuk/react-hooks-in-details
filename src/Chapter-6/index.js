@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useCounter } from './Chapter-3';
+import { useCounter } from '../Chapter-3';
 
 function updateClicksCount(clicksCount) {
   return new Promise((resolve) => {
@@ -12,7 +12,7 @@ function updateClicksCount(clicksCount) {
   });
 }
 
-export function Counter() {
+export default function Chapter6() {
   const [count, increment] = useCounter(0, 1);
 
   useEffect(() => {

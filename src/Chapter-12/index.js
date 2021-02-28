@@ -92,7 +92,7 @@ const Node = React.memo(
   }
 );
 
-export function Chapter12() {
+export default function Chapter12() {
   return React.createElement(Node, {
     maxLevel: 4,
     cellWidth: 50,

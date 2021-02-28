@@ -4,7 +4,7 @@ import { Label } from './Label';
 import { ThemeLabel } from './ThemeLabel';
 import { UserPanel } from './User/UserPanel';
 
-export function Chapter13() {
+export default function Chapter13() {
   return (
     <div>
       <ThemeProvider>

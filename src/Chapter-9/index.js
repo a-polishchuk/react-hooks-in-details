@@ -3,7 +3,7 @@ import PinInput from './PinInput';
 
 const initialDigits = ['', '', '', ''];
 
-export function Chapter9() {
+export default function Chapter9() {
   const [digits, setDigits] = useState(initialDigits);
   const ref = useRef();
 

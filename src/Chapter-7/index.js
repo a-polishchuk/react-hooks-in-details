@@ -50,7 +50,7 @@ function generateDummies(count) {
   return dummies;
 }
 
-export function Example() {
+export default function Chapter7() {
   const [left, top] = useCharacterPosition(50);
   // const [style, setStyle] = useState(initialStyle);
 

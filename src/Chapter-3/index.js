@@ -4,17 +4,16 @@ export function useCounter(initialValue = 0, delta = 1) {
   const [count, setCount] = useState(initialValue);
 
   const increment = () => {
-    setCount((prevCount) => prevCount + delta);
+    setCount((prevValue) => prevValue + delta);
   };
-
   const decrement = () => {
-    setCount((prevCount) => prevCount - delta);
+    setCount((prevValue) => prevValue - delta);
   };
 
   return [count, increment, decrement];
 }
 
-function YearsCounter({ initialValue }) {
+export function YearsCounter({ initialValue }) {
   const [count, inc, dec] = useCounter(initialValue, 1);
   return (
     <div>
@@ -37,7 +36,7 @@ function DecadesCounter({ initialValue }) {
   );
 }
 
-export function Example() {
+export default function Chapter3() {
   return (
     <div>
       <YearsCounter initialValue={1970} />

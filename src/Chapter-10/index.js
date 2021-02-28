@@ -1,5 +1,5 @@
 import { useState, useRef, forwardRef } from 'react';
-import PinInput from './PinInput';
+import PinInput from '../Chapter-9/PinInput';
 
 function logRender(WrappedComponent) {
   return forwardRef(function (props, ref) {
@@ -16,7 +16,7 @@ function SimpleText({ text }) {
 const LoggedSimpleText = logRender(SimpleText);
 const LoggedPinInput = logRender(PinInput);
 
-export function Chapter10() {
+export default function Chapter10() {
   const [digits, setDigits] = useState(['', '', '']);
   const inputRef = useRef();
 

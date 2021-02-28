@@ -35,7 +35,7 @@ const initialState = {
   age: 21,
 };
 
-export function FormExample() {
+export default function Chapter2() {
   const [data, setData] = useMergedState(initialState);
 
   const clear = () => setData(initialState);

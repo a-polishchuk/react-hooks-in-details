@@ -1,21 +1,21 @@
 import ReactDOM from 'react-dom';
 import { MasterDetail } from './MasterDetail/MasterDetail';
 
-import { Clicker as Chapter1 } from './Chapter-1';
-import { FormExample as Chapter2 } from './Chapter-2';
-import { Example as Chapter3 } from './Chapter-3';
-import { Example as Chapter4 } from './Chapter-4';
-import { Calculator as Chapter5 } from './Chapter-5';
-import { Counter as Chapter6 } from './Chapter-6';
-import { Example as Chapter7 } from './Chapter-7';
-import { Example as Chapter8 } from './Chapter-8';
-import { Chapter9 } from './Chapter-9';
-import { Chapter10 } from './Chapter-10';
-import { Chapter11 } from './Chapter-11';
-import { Chapter12 } from './Chapter-12';
-import { Chapter13 } from './Chapter-13/Chapter-13';
-import { Chapter14 } from './Chapter-14/Chapter-14';
-import { ContactBook } from './Chapter-14/ContactBook';
+import Chapter1 from './Chapter-1';
+import Chapter2 from './Chapter-2';
+import Chapter3 from './Chapter-3';
+import Chapter4 from './Chapter-4';
+import Chapter5 from './Chapter-5';
+import Chapter6 from './Chapter-6';
+import Chapter7 from './Chapter-7';
+import Chapter8 from './Chapter-8';
+import Chapter9 from './Chapter-9';
+import Chapter10 from './Chapter-10';
+import Chapter11 from './Chapter-11';
+import Chapter12 from './Chapter-12';
+import Chapter13 from './Chapter-13';
+import Chapter14 from './Chapter-14';
+import ContactBook from './Chapter-14/ContactBook';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },

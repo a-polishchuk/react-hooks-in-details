@@ -39,7 +39,7 @@ function HeaderRow({ maxPow }) {
 const MAX_NUMBER = 30;
 const MAX_POW = 5;
 
-export function Example() {
+export default function Chapter4() {
   const [data, setData] = useState(() => {
     console.log('useState initialization');
     return someHeavyFunc(MAX_NUMBER, MAX_POW);

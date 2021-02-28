@@ -30,7 +30,7 @@ function reducer(state, action) {
   }
 }
 
-export function Chapter14() {
+export default function Chapter14() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const increment = () => dispatch({ type: Types.INCREMENT });

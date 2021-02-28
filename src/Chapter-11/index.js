@@ -38,6 +38,6 @@ const items = [
   { id: '3', name: 'Third' },
 ];
 
-export function Chapter11() {
+export default function Chapter11() {
   return <List items={items} />;
 }

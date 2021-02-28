@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function Clicker() {
+export default function Chapter1() {
   const [clicks, setClicks] = useState(0);
   const [showClicks, setShowClicks] = useState(true);
 

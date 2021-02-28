@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from 'react';
-import { useCounter } from './Chapter-3';
+import { useCounter } from '../Chapter-3';
 
 function useUpdateEffect(callback) {
   const firstRender = useRef(true);
@@ -13,7 +13,7 @@ function useUpdateEffect(callback) {
   }, [callback]);
 }
 
-export function Example() {
+export default function Chapter8() {
   const [value, increment] = useCounter();
 
   useEffect(() => {
