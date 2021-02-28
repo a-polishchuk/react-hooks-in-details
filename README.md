@@ -1,4 +1,4 @@
-### React Hooks in Details
+# React Hooks in Details
 
 This repo contains examples source code for my Udemu course "React Hooks в Деталях".
 You can check it out here:
