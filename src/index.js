@@ -16,7 +16,9 @@ import Chapter12 from './Chapter-12';
 import Chapter13 from './Chapter-13';
 import Chapter14 from './Chapter-14';
 import ContactBook from './Chapter-14/ContactBook';
+import Chapter15 from './Chapter-15';
 import Chapter16 from './Chapter-16';
+import Chapter17 from './Chapter-17';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -34,7 +36,9 @@ const content = {
   ch_13: { name: 'Chapter 13', component: Chapter13 },
   ch_14: { name: 'Chapter 14', component: Chapter14 },
   ch_14_1: { name: 'Chapter 14 - Contact Book', component: ContactBook },
+  ch_15: { name: 'Chapter 15', component: Chapter15 },
   ch_16: { name: 'Chapter 16', component: Chapter16 },
+  ch_17: { name: 'Chapter 17', component: Chapter17 },
 };
 
 ReactDOM.render(

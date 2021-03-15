@@ -12,15 +12,17 @@ function createMappedState(mapper) {
   };
 }
 
-const useLowercaseState = createMappedState((newValue) =>
-  newValue.toLowerCase()
-);
+const useLowercaseState = createMappedState((newValue) => {
+  return newValue?.toLowerCase();
+});
 
-const useUppercaseState = createMappedState((newValue) =>
-  newValue.toUpperCase()
-);
+const useUppercaseState = createMappedState((newValue) => {
+  return newValue?.toUpperCase();
+});
 
-const useTrimmedState = createMappedState((newValue) => newValue.trim());
+const useTrimmedState = createMappedState((newValue) => {
+  return newValue?.trim();
+});
 
 function Field({ label, value, setValue }) {
   return (
@@ -38,7 +40,7 @@ function Field({ label, value, setValue }) {
 export default function Chapter16() {
   const [lowercase, setLowercase] = useLowercaseState('SOME VALUE');
   const [uppercase, setUppercase] = useUppercaseState('some value');
-  const [trimmed, setTrimmed] = useTrimmedState(' some value    ');
+  const [trimmed, setTrimmed] = useTrimmedState('  SOME VALUE    ');
 
   return (
     <>
