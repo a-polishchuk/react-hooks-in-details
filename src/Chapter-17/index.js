@@ -1,11 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useReducer } from 'react';
 
 function useToggle(initialValue) {
-  const [value, setValue] = useState(initialValue || false);
-  const toggle = useCallback(() => {
-    setValue((prevValue) => !prevValue);
-  }, []);
-  return [value, toggle];
+  // const [value, setValue] = useState(initialValue || false);
+  // const toggle = useCallback(() => {
+  //   setValue((prevValue) => !prevValue);
+  // }, []);
+  // return [value, toggle];
+
+  return useReducer((state) => !state, initialValue || false);
 }
 
 function ToggleButton({ toggled, handleToggle }) {

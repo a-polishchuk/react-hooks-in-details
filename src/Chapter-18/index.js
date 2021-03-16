@@ -1,61 +1,68 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
-// Usage
-function App() {
-  // State for storing mouse coordinates
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
-
-  // Event handler utilizing useCallback ...
-  // ... so that reference never changes.
-  const handler = useCallback(
-    ({ clientX, clientY }) => {
-      // Update coordinates
-      setCoords({ x: clientX, y: clientY });
-    },
-    [setCoords]
-  );
-
-  // Add event listener using our hook
-  useEventListener('mousemove', handler);
-
-  return (
-    <h1>
-      The mouse position is ({coords.x}, {coords.y})
-    </h1>
-  );
-}
-
-// Hook
 function useEventListener(eventName, handler, element = window) {
-  // Create a ref that stores handler
   const savedHandler = useRef();
 
-  // Update ref.current value if handler changes.
-  // This allows our effect below to always get latest handler ...
-  // ... without us needing to pass it in effect deps array ...
-  // ... and potentially cause effect to re-run every render.
   useEffect(() => {
     savedHandler.current = handler;
   }, [handler]);
 
-  useEffect(
-    () => {
-      // Make sure element supports addEventListener
-      // On
-      const isSupported = element && element.addEventListener;
-      if (!isSupported) return;
+  useEffect(() => {
+    const isSupported = element && element.addEventListener;
+    if (!isSupported) {
+      return;
+    }
 
-      // Create event listener that calls handler function stored in ref
-      const eventListener = (event) => savedHandler.current(event);
+    const eventListener = (event) => {
+      savedHandler.current(event);
+    };
+    element.addEventListener(eventName, eventListener);
 
-      // Add event listener
-      element.addEventListener(eventName, eventListener);
+    return () => {
+      element.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element]);
+}
 
-      // Remove event listener on cleanup
-      return () => {
-        element.removeEventListener(eventName, eventListener);
-      };
+export default function Chapter18() {
+  const [coords, setCoords] = useState([]);
+
+  const [lastPos, setLastPos] = useState({ x: 0, y: 0 });
+
+  const onMouseMove = useCallback(
+    (event) => {
+      const { clientX, clientY } = event;
+      const newPoint = { x: clientX, y: clientY };
+      setLastPos(newPoint);
+      setCoords((array) => [...array, newPoint]);
     },
-    [eventName, element] // Re-run if eventName or element changes
+    [setCoords]
+  );
+  useEventListener('mousemove', onMouseMove);
+
+  const onKeyPressed = useCallback((event) => {
+    if (event.key === 'Backspace') {
+      setCoords([]);
+    }
+  }, []);
+  useEventListener('keydown', onKeyPressed);
+
+  return (
+    <>
+      <h2>Chapter 18: useEventListener</h2>
+      <h2>{JSON.stringify(lastPos)}</h2>
+      {coords.map((point, index) => {
+        const style = {
+          position: 'absolute',
+          left: point.x - 5,
+          top: point.y - 5,
+          width: 10,
+          height: 10,
+          backgroundColor: '#F66',
+          borderRadius: 5,
+        };
+        return <div key={index} style={style} />;
+      })}
+    </>
   );
 }
