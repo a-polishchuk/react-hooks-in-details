@@ -20,6 +20,7 @@ import Chapter15 from './Chapter-15';
 import Chapter16 from './Chapter-16';
 import Chapter17 from './Chapter-17';
 import Chapter18 from './Chapter-18';
+import Chapter19 from './Chapter-19';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -41,6 +42,7 @@ const content = {
   ch_16: { name: 'Chapter 16', component: Chapter16 },
   ch_17: { name: 'Chapter 17', component: Chapter17 },
   ch_18: { name: 'Chapter 18', component: Chapter18 },
+  ch_19: { name: 'Chapter 19', component: Chapter19 },
 };
 
 ReactDOM.render(
