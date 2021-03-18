@@ -10,12 +10,15 @@ function useEventListener(eventName, handler, element = window) {
   useEffect(() => {
     const isSupported = element && element.addEventListener;
     if (!isSupported) {
-      return;
+      throw new Error('addEventListener is not supported by ' + element);
     }
 
     const eventListener = (event) => {
-      savedHandler.current(event);
+      if (savedHandler.current) {
+        savedHandler.current(event);
+      }
     };
+
     element.addEventListener(eventName, eventListener);
 
     return () => {
@@ -27,30 +30,25 @@ function useEventListener(eventName, handler, element = window) {
 export default function Chapter18() {
   const [coords, setCoords] = useState([]);
 
-  const [lastPos, setLastPos] = useState({ x: 0, y: 0 });
+  const onMouseMove = useCallback((event) => {
+    const { clientX, clientY } = event;
+    const newPoint = { x: clientX, y: clientY };
+    setCoords((array) => [...array, newPoint]);
+  }, []);
 
-  const onMouseMove = useCallback(
-    (event) => {
-      const { clientX, clientY } = event;
-      const newPoint = { x: clientX, y: clientY };
-      setLastPos(newPoint);
-      setCoords((array) => [...array, newPoint]);
-    },
-    [setCoords]
-  );
   useEventListener('mousemove', onMouseMove);
 
-  const onKeyPressed = useCallback((event) => {
+  const onKeyDown = useCallback((event) => {
     if (event.key === 'Backspace') {
       setCoords([]);
     }
   }, []);
-  useEventListener('keydown', onKeyPressed);
+
+  useEventListener('keydown', onKeyDown);
 
   return (
     <>
-      <h2>Chapter 18: useEventListener</h2>
-      <h2>{JSON.stringify(lastPos)}</h2>
+      <h2>Chapter18: useEventListener</h2>
       {coords.map((point, index) => {
         const style = {
           position: 'absolute',
