@@ -47,10 +47,10 @@ const content = {
   ch_17: { name: 'Chapter 17', component: Chapter17 },
   ch_18: { name: 'Chapter 18', component: Chapter18 },
   ch_19: { name: 'Chapter 19', component: Chapter19 },
-  ch_20: { name: 'Chapter 20', component: Chapter20 },
-  ch_21: { name: 'Chapter 21', component: Chapter21 },
-  ch_22: { name: 'Chapter 22', component: Chapter22 },
-  ch_23: { name: 'Chapter 23', component: Chapter23 },
+  // ch_20: { name: 'Chapter 20', component: Chapter20 },
+  // ch_21: { name: 'Chapter 21', component: Chapter21 },
+  // ch_22: { name: 'Chapter 22', component: Chapter22 },
+  // ch_23: { name: 'Chapter 23', component: Chapter23 },
 };
 
 ReactDOM.render(
