@@ -1,14 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-
-function usePrevious(value) {
-  const refContainer = useRef(value);
-
-  useEffect(() => {
-    refContainer.current = value;
-  }, [value]);
-
-  return refContainer.current;
-}
+import { useEffect, useState } from 'react';
+import { usePrevious } from './usePrevious';
 
 function useHistory(value) {
   const [history, setHistory] = useState([]);
@@ -51,15 +42,15 @@ function Row({ array, onClick }) {
 
 export default function Chapter24() {
   const [currentDigit, setCurrentDigit] = useState(0);
-  // const previousDigit = usePrevious(currentDigit);
+  const previousDigit = usePrevious(currentDigit);
   const history = useHistory(currentDigit);
 
   return (
     <>
       <h2>Chapter 24: usePrevious</h2>
-      {/* <h3>
+      <h3>
         Current digit: {previousDigit} {'>>'} {currentDigit}
-      </h3> */}
+      </h3>
       <h3>History: {history.join(' > ')}</h3>
       {DIGITS.map((row) => (
         <Row array={row} onClick={setCurrentDigit} />

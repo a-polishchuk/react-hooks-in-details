@@ -23,7 +23,7 @@ import Chapter18 from './Chapter-18';
 import Chapter19 from './Chapter-19';
 import Chapter20 from './Chapter-20';
 import Chapter21 from './Chapter-21';
-// import Chapter22 from './Chapter-22';
+import Chapter22 from './Chapter-22';
 // import Chapter23 from './Chapter-23';
 // import Chapter24 from './Chapter-24';
 
@@ -50,7 +50,7 @@ const content = {
   ch_19: { name: 'Chapter 19', component: Chapter19 },
   ch_20: { name: 'Chapter 20', component: Chapter20 },
   ch_21: { name: 'Chapter 21', component: Chapter21 },
-  // ch_22: { name: 'Chapter 22', component: Chapter22 },
+  ch_22: { name: 'Chapter 22', component: Chapter22 },
   // ch_23: { name: 'Chapter 23', component: Chapter23 },
   // ch_24: { name: 'Chapter 24', component: Chapter24 },
 };
