@@ -28,6 +28,7 @@ import Chapter23 from './Chapter-23';
 import Chapter24 from './Chapter-24';
 import Chapter25 from './Chapter-25';
 import Chapter26 from './Chapter-26';
+import Chapter27 from './Chapter-27';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -48,15 +49,17 @@ const content = {
   ch_15: { name: 'Chapter 15', component: Chapter15 },
   ch_16: { name: 'Chapter 16', component: Chapter16 },
   ch_17: { name: 'Chapter 17', component: Chapter17 },
-  ch_18: { name: 'Chapter 18', component: Chapter18 },
-  ch_19: { name: 'Chapter 19', component: Chapter19 },
-  ch_20: { name: 'Chapter 20', component: Chapter20 },
-  ch_21: { name: 'Chapter 21', component: Chapter21 },
-  ch_22: { name: 'Chapter 22', component: Chapter22 },
-  ch_23: { name: 'Chapter 23', component: Chapter23 },
-  ch_24: { name: 'Chapter 24', component: Chapter24 },
-  ch_25: { name: 'Chapter 25', component: Chapter25 },
-  ch_26: { name: 'Chapter 26', component: Chapter26 },
+
+  ch_18: { name: 'useEventListener', component: Chapter18 },
+  ch_19: { name: 'useWhatCausedRender', component: Chapter19 },
+  ch_20: { name: 'useDebounce, useThrottle', component: Chapter20 },
+  ch_21: { name: 'useLocalStorage', component: Chapter21 },
+  ch_22: { name: 'useWindowSize', component: Chapter22 },
+  ch_23: { name: 'useAsync, useAnimatedText', component: Chapter23 },
+  ch_24: { name: 'usePrevious', component: Chapter24 },
+  ch_25: { name: 'useHistory', component: Chapter25 },
+  ch_26: { name: 'useInterval', component: Chapter26 },
+  ch_27: { name: 'useElementSize', component: Chapter27 },
 };
 
 ReactDOM.render(

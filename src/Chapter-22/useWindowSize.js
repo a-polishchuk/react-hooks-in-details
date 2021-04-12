@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useEventListener } from '../Chapter-18';
+import { useEventListener } from '../Chapter-18/useEventListener';
 
 const INITIAL_SIZE = [0, 0];
 

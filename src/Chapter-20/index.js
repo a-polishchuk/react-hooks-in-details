@@ -1,42 +1,7 @@
-import { useCallback, useEffect, useState, useRef, memo } from 'react';
-import { useEventListener } from '../Chapter-18';
-
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const timeoutHandle = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => {
-      clearTimeout(timeoutHandle);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
-function useThrottle(value, delay) {
-  const [throttledValue, setThrottledValue] = useState(value);
-  const valueRef = useRef(value);
-
-  useEffect(() => {
-    valueRef.current = value;
-  }, [value]);
-
-  useEffect(() => {
-    const intervalHandle = setInterval(() => {
-      setThrottledValue(valueRef.current);
-    }, delay);
-
-    return () => {
-      clearInterval(intervalHandle);
-    };
-  }, [delay]);
-
-  return throttledValue;
-}
+import { useCallback, useEffect, useState, memo } from 'react';
+import { useEventListener } from '../Chapter-18/useEventListener';
+import { useDebounce } from './useDebounce';
+import { useThrottle } from './useThrottle';
 
 const SIZE = 10;
 
