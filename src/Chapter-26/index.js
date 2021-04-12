@@ -1,4 +1,5 @@
 import { memo, useCallback, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import { useWindowSize } from '../Chapter-22/useWindowSize';
 import { useInterval } from './useInterval';
 import './style.css';
@@ -6,47 +7,52 @@ import './style.css';
 const PALETTE = ['#23d696', '#fd743a', '#c293df', '#d6ef3d', '#ba1d44'];
 
 export default function Chapter26() {
-  const [screenWidth, screenHeight] = useWindowSize();
   const [particles, setParticles] = useState([]);
+  const [maxLeft, maxTop] = useWindowSize();
 
-  const addParticle = useCallback(() => {
+  const spawnParticle = useCallback(() => {
     setParticles((array) => {
       const newItem = {
-        left: Math.random() * screenWidth,
-        top: Math.random() * screenHeight,
+        id: uuid(),
+        left: Math.random() * maxLeft,
+        top: Math.random() * maxTop,
         size: 10 + Math.random() * 30,
         speed: Math.random() * 10,
         color: getRandomElement(PALETTE),
       };
       return [...array, newItem];
     });
-  }, [screenHeight, screenWidth]);
+  }, [maxLeft, maxTop]);
 
-  useInterval(addParticle, 500);
+  const clearInterval = useInterval(spawnParticle, 500);
+
+  const stopSpawning = () => {
+    clearInterval();
+  };
 
   return (
     <>
       <h2>Chapter 26: useInterval</h2>
-      {particles.map((p, index) => (
-        <Particle key={index} {...p} />
+      <button onClick={stopSpawning}>Stop spawning</button>
+      {particles.map((p) => (
+        <Particle key={p.id} {...p} />
       ))}
     </>
   );
 }
 
-const Particle = memo(({ left, top, speed, color, size }) => (
-  <div
-    style={{
-      position: 'absolute',
-      left,
-      top,
-      width: size,
-      height: size,
-      backgroundColor: color,
-      animation: `spin ${speed}s linear infinite`,
-    }}
-  />
-));
+const Particle = memo(({ left, top, speed, color, size }) => {
+  const style = {
+    position: 'absolute',
+    left,
+    top,
+    width: size,
+    height: size,
+    backgroundColor: color,
+    animation: `spin ${speed}s linear infinite`,
+  };
+  return <div style={style} />;
+});
 
 function getRandomElement(array) {
   const index = Math.round(Math.random() * array.length);

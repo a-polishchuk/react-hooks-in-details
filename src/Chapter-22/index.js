@@ -5,7 +5,11 @@ const PREVIEW_WIDTH = 200;
 
 export default function Chapter22() {
   const [screenWidth, screenHeight] = useWindowSize();
-  const previewHeight = (PREVIEW_WIDTH * screenHeight) / screenWidth;
+
+  // checking if screenWidth is > 0 to avoid previewHeight === NaN
+  const previewHeight = screenWidth
+    ? (PREVIEW_WIDTH * screenHeight) / screenWidth
+    : 0;
 
   return (
     <>

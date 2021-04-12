@@ -35,7 +35,7 @@ export default function RateRow({ score, onChange }) {
           }
         };
         return (
-          <div style={style} onClick={onClick}>
+          <div key={digit} style={style} onClick={onClick}>
             {digit}
           </div>
         );

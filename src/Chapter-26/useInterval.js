@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export function useInterval(callback, delay) {
   const callbackRef = useRef(callback);
+  const intervalHandleRef = useRef();
 
   useEffect(() => {
     callbackRef.current = callback;
@@ -14,8 +15,16 @@ export function useInterval(callback, delay) {
       }
     }, delay);
 
+    intervalHandleRef.current = intervalHandle;
+
     return () => {
       clearInterval(intervalHandle);
     };
   }, [delay]);
+
+  return useCallback(() => {
+    if (intervalHandleRef.current) {
+      clearInterval(intervalHandleRef.current);
+    }
+  }, []);
 }
