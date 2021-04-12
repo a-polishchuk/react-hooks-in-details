@@ -29,7 +29,9 @@ export function MasterDetail({ content }) {
         })}
       </div>
       <div className="detail">{Detail ? <Detail /> : null}</div>
-      <div className="bottom">{/* <ConsoleViewer /> */}</div>
+      <div className="bottom">
+        <ConsoleViewer />
+      </div>
     </div>
   );
 }
