@@ -2,10 +2,10 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useTimeout } from './useTimeout';
 
-const AREA_SIZE = 400;
+const AREA_SIZE = 600;
 const SQUARE_SIZE = 30;
 const FIVE_SECONDS = 5000;
-const SQUARES_COUNT = 15;
+const SQUARES_COUNT = 25;
 
 const styles = {
   area: {
@@ -42,7 +42,21 @@ export default function Chapter27() {
     setGameOver(true);
   }, []);
 
-  useTimeout(onTimeout, FIVE_SECONDS);
+  const { cancel: cancelTimeout, restart: restartTimeout } = useTimeout(
+    onTimeout,
+    FIVE_SECONDS
+  );
+
+  const restartGame = () => {
+    setSquares(generateSquares(SQUARES_COUNT));
+    setGameOver(false);
+    restartTimeout();
+  };
+
+  const stopGame = () => {
+    cancelTimeout();
+    setGameOver(true);
+  };
 
   const onHit = useCallback((squareId) => {
     setSquares((array) =>
@@ -62,20 +76,26 @@ export default function Chapter27() {
     <>
       <h2>Chapter 27: useTimeout</h2>
       {gameOver ? (
-        <p>Game over! Your score: {score}</p>
+        <>
+          <p>Game over! Your score: {score}</p>
+          <button onClick={restartGame}>Restart</button>
+        </>
       ) : (
-        <div style={styles.area}>
-          {squares.map((s) => (
-            <Square
-              key={s.id}
-              id={s.id}
-              left={s.left}
-              top={s.top}
-              wasHit={s.wasHit}
-              onHit={onHit}
-            />
-          ))}
-        </div>
+        <>
+          <button onClick={stopGame}>Stop</button>
+          <div style={styles.area}>
+            {squares.map((s) => (
+              <Square
+                key={s.id}
+                id={s.id}
+                left={s.left}
+                top={s.top}
+                wasHit={s.wasHit}
+                onHit={onHit}
+              />
+            ))}
+          </div>
+        </>
       )}
     </>
   );

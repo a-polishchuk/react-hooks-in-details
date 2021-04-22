@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 export function useTimeout(callback, timeout) {
   const timeoutHandleRef = useRef();
+  const [restartTrigger, setRestartTrigger] = useState();
 
   useEffect(() => {
     const timeoutHandle = setTimeout(callback, timeout);
@@ -9,32 +10,17 @@ export function useTimeout(callback, timeout) {
     return () => {
       clearTimeout(timeoutHandle);
     };
-  }, [callback, timeout]);
+  }, [callback, timeout, restartTrigger]);
 
-  return useCallback(() => {
+  const cancel = useCallback(() => {
     if (timeoutHandleRef.current) {
       clearInterval(timeoutHandleRef.current);
     }
   }, []);
-}
 
-// TODO: add support for timeout cancellation here as well
-export function useTimeoutNoRestart(callback, timeout) {
-  const callbackRef = useRef(callback);
+  const restart = useCallback(() => {
+    setRestartTrigger({});
+  }, []);
 
-  useEffect(() => {
-    callbackRef.current = callback;
-  }, [callback]);
-
-  useEffect(() => {
-    const timeoutHandle = setTimeout(() => {
-      if (callbackRef.current) {
-        callbackRef.current();
-      }
-    }, timeout);
-
-    return () => {
-      clearTimeout(timeoutHandle);
-    };
-  }, [timeout]);
+  return { cancel, restart };
 }

@@ -29,6 +29,7 @@ import Chapter24 from './Chapter-24';
 import Chapter25 from './Chapter-25';
 import Chapter26 from './Chapter-26';
 import Chapter27 from './Chapter-27';
+import Chapter28 from './Chapter-28';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -60,6 +61,7 @@ const content = {
   ch_25: { name: 'useHistory', component: Chapter25 },
   ch_26: { name: 'useInterval', component: Chapter26 },
   ch_27: { name: 'useTimeout', component: Chapter27 },
+  ch_28: { name: 'useIsMounted', component: Chapter28 },
 };
 
 ReactDOM.render(
