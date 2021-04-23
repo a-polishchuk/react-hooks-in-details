@@ -1,116 +1,68 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
-import { useTimeout } from './useTimeout';
+import { useElementSize } from '../Chapter-26/useElementSize';
+import { useInterval } from './useInterval';
+import './style.css';
 
-const AREA_SIZE = 600;
-const SQUARE_SIZE = 30;
-const FIVE_SECONDS = 5000;
-const SQUARES_COUNT = 25;
-
-const styles = {
-  area: {
-    border: '1px solid #000',
-    width: AREA_SIZE,
-    height: AREA_SIZE,
-    position: 'relative',
-  },
-};
-
-function generateSquares(count) {
-  const squares = [];
-  for (let i = 0; i < count; i++) {
-    squares.push({
-      id: uuid(),
-      left: Math.random() * (AREA_SIZE - SQUARE_SIZE),
-      top: Math.random() * (AREA_SIZE - SQUARE_SIZE),
-      wasHit: false,
-    });
-  }
-  return squares;
-}
+const PALETTE = ['#23d696', '#fd743a', '#c293df', '#d6ef3d', '#ba1d44'];
+const MIN_SIZE = 10;
+const MAX_SIZE = 40;
 
 export default function Chapter27() {
-  const [squares, setSquares] = useState([]);
-  const [gameOver, setGameOver] = useState(false);
-  const score = squares.filter((s) => s.wasHit).length;
+  const [particles, setParticles] = useState([]);
+  const containerRef = useRef();
+  const { width, height } = useElementSize(containerRef);
+  const maxLeft = width - MAX_SIZE;
+  const maxTop = height - MAX_SIZE;
+  console.log(width + ' x ' + height);
 
-  useEffect(() => {
-    setSquares(generateSquares(SQUARES_COUNT));
-  }, []);
+  const spawnParticle = useCallback(() => {
+    setParticles((array) => {
+      const newItem = {
+        id: uuid(),
+        left: Math.random() * maxLeft,
+        top: Math.random() * maxTop,
+        size: MIN_SIZE + Math.random() * (MAX_SIZE - MIN_SIZE),
+        speed: Math.random() * 10,
+        color: getRandomElement(PALETTE),
+      };
+      return [...array, newItem];
+    });
+  }, [maxLeft, maxTop]);
 
-  const onTimeout = useCallback(() => {
-    setGameOver(true);
-  }, []);
+  const clearInterval = useInterval(spawnParticle, 500);
 
-  const { cancel: cancelTimeout, restart: restartTimeout } = useTimeout(
-    onTimeout,
-    FIVE_SECONDS
-  );
-
-  const restartGame = () => {
-    setSquares(generateSquares(SQUARES_COUNT));
-    setGameOver(false);
-    restartTimeout();
+  const stopSpawning = () => {
+    clearInterval();
   };
-
-  const stopGame = () => {
-    cancelTimeout();
-    setGameOver(true);
-  };
-
-  const onHit = useCallback((squareId) => {
-    setSquares((array) =>
-      array.map((s) => {
-        if (s.id !== squareId) {
-          return s;
-        }
-        return {
-          ...s,
-          wasHit: true,
-        };
-      })
-    );
-  }, []);
 
   return (
     <>
-      <h2>Chapter 27: useTimeout</h2>
-      {gameOver ? (
-        <>
-          <p>Game over! Your score: {score}</p>
-          <button onClick={restartGame}>Restart</button>
-        </>
-      ) : (
-        <>
-          <button onClick={stopGame}>Stop</button>
-          <div style={styles.area}>
-            {squares.map((s) => (
-              <Square
-                key={s.id}
-                id={s.id}
-                left={s.left}
-                top={s.top}
-                wasHit={s.wasHit}
-                onHit={onHit}
-              />
-            ))}
-          </div>
-        </>
-      )}
+      <h2>Chapter 27: useInterval</h2>
+      <button onClick={stopSpawning}>Stop spawning</button>
+      <div className="spawnArea" ref={containerRef}>
+        {particles.map((p) => (
+          <Particle key={p.id} {...p} />
+        ))}
+      </div>
     </>
   );
 }
 
-const Square = memo(({ id, left, top, wasHit, onHit }) => (
-  <div
-    onMouseEnter={() => onHit(id)}
-    style={{
-      position: 'absolute',
-      left,
-      top,
-      width: SQUARE_SIZE,
-      height: SQUARE_SIZE,
-      backgroundColor: wasHit ? '#8008' : '#800',
-    }}
-  />
-));
+const Particle = memo(({ left, top, speed, color, size }) => {
+  const style = {
+    position: 'absolute',
+    left,
+    top,
+    width: size,
+    height: size,
+    backgroundColor: color,
+    animation: `spin ${speed}s linear infinite`,
+  };
+  return <div style={style} />;
+});
+
+function getRandomElement(array) {
+  const index = Math.round(Math.random() * array.length);
+  return array[index];
+}

@@ -1,14 +1,4 @@
-import { useCallback, useState, useReducer } from 'react';
-
-function useToggle(initialValue) {
-  // const [value, setValue] = useState(initialValue || false);
-  // const toggle = useCallback(() => {
-  //   setValue((prevValue) => !prevValue);
-  // }, []);
-  // return [value, toggle];
-
-  return useReducer((state) => !state, initialValue || false);
-}
+import { useToggle } from './useToggle';
 
 function ToggleButton({ toggled, handleToggle }) {
   const caption = toggled ? 'ON' : 'OFF';

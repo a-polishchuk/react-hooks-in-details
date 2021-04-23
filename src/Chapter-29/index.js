@@ -1,31 +1,44 @@
-import { useRef } from 'react';
-import { useHovered } from './useHovered';
+import { useState } from 'react';
+import TabHeader from './TabHeader';
+import RandomCat from './RandomCat';
+import RandomDog from './RandomDog';
 
-const style = {
-  fontSize: 128,
+const Tabs = {
+  cat: 'cat',
+  dog: 'dog',
 };
 
-function Kolobok() {
-  const spanRef = useRef();
-  const isHovered = useHovered(spanRef);
-
-  return (
-    <span ref={spanRef} style={style}>
-      {isHovered ? '\u{1F604}' : '\u{1F642}'}
-    </span>
-  );
-}
+const styles = {
+  headerRow: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  tabContent: {
+    padding: 10,
+  },
+};
 
 export default function Chapter29() {
-  const array = [];
-  for (let i = 0; i < 5; i++) {
-    array.push(<Kolobok key={i} />);
-  }
+  const [tab, setTab] = useState(Tabs.cat);
+
+  const showCat = () => {
+    setTab(Tabs.cat);
+  };
+
+  const showDog = () => {
+    setTab(Tabs.dog);
+  };
 
   return (
     <>
-      <h2>Chapter 29: useHovered</h2>
-      {array}
+      <h2>Chapter 29: useMountedRef</h2>
+      <div style={styles.headerRow}>
+        <TabHeader text="Cat" isActive={tab === Tabs.cat} onClick={showCat} />
+        <TabHeader text="Dog" isActive={tab === Tabs.dog} onClick={showDog} />
+      </div>
+      <div style={styles.tabContent}>
+        {tab === Tabs.cat ? <RandomCat /> : <RandomDog />}
+      </div>
     </>
   );
 }
