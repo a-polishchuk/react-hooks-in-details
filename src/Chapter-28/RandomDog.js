@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useIsMountedRef } from './useIsMountedRef';
+import { useMountedRef } from './useMountedRef';
 import ImagePlaceholder from './ImagePlaceholder';
 
 const styles = {
@@ -13,7 +13,7 @@ const styles = {
 };
 
 export default function RandomDog() {
-  const isMountedRef = useIsMountedRef();
+  const isMountedRef = useMountedRef();
   const [imageUrl, setImageUrl] = useState();
   const [requestTrigger, setRequestTrigger] = useState();
   const [isLooking, setIsLooking] = useState(true);

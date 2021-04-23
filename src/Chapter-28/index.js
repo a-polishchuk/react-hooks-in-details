@@ -31,7 +31,7 @@ export default function Chapter28() {
 
   return (
     <>
-      <h2>Chapter 28: useIsMounted</h2>
+      <h2>Chapter 28: useMountedRef</h2>
       <div style={styles.headerRow}>
         <TabHeader text="Cat" isActive={tab === Tabs.cat} onClick={showCat} />
         <TabHeader text="Dog" isActive={tab === Tabs.dog} onClick={showDog} />
