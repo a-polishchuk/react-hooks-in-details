@@ -2,14 +2,15 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useTimeout } from './useTimeout';
 
-const AREA_SIZE = 600;
+const AREA_SIZE = 400;
 const SQUARE_SIZE = 30;
 const FIVE_SECONDS = 5000;
 const SQUARES_COUNT = 25;
 
 const styles = {
   area: {
-    border: '1px solid #000',
+    marginTop: 20,
+    border: '2px dashed gray',
     width: AREA_SIZE,
     height: AREA_SIZE,
     position: 'relative',

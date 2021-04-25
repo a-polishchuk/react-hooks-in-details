@@ -12,5 +12,5 @@
   width: 100%;
   height: 400px;
   position: relative;
-  background-color: #bbf;
+  border: 2px dashed gray;
 }

@@ -1,30 +1,40 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 export function useInterval(callback, delay) {
   const callbackRef = useRef(callback);
-  const intervalHandleRef = useRef();
+  const [intervalHandle, setIntervalHandle] = useState(null);
+  const [trigger, setTrigger] = useState();
 
   useEffect(() => {
     callbackRef.current = callback;
   }, [callback]);
 
   useEffect(() => {
-    const intervalHandle = setInterval(() => {
+    const interval = setInterval(() => {
       if (callbackRef.current) {
         callbackRef.current();
       }
     }, delay);
 
-    intervalHandleRef.current = intervalHandle;
+    setIntervalHandle(interval);
 
     return () => {
-      clearInterval(intervalHandle);
+      clearInterval(interval);
     };
-  }, [delay]);
+  }, [delay, trigger]);
 
-  return useCallback(() => {
-    if (intervalHandleRef.current) {
-      clearInterval(intervalHandleRef.current);
+  const isRunning = !!intervalHandle;
+
+  const stop = useCallback(() => {
+    if (intervalHandle) {
+      clearInterval(intervalHandle);
+      setIntervalHandle(null);
     }
+  }, [intervalHandle]);
+
+  const restart = useCallback(() => {
+    setTrigger({});
   }, []);
+
+  return { isRunning, stop, restart };
 }

@@ -10,11 +10,10 @@ const MAX_SIZE = 40;
 
 export default function Chapter27() {
   const [particles, setParticles] = useState([]);
-  const containerRef = useRef();
-  const { width, height } = useElementSize(containerRef);
-  const maxLeft = width - MAX_SIZE;
-  const maxTop = height - MAX_SIZE;
-  console.log(width + ' x ' + height);
+  const spawnAreaRef = useRef();
+  const areaSize = useElementSize(spawnAreaRef);
+  const maxLeft = areaSize.width - MAX_SIZE;
+  const maxTop = areaSize.height - MAX_SIZE;
 
   const spawnParticle = useCallback(() => {
     setParticles((array) => {
@@ -30,17 +29,27 @@ export default function Chapter27() {
     });
   }, [maxLeft, maxTop]);
 
-  const clearInterval = useInterval(spawnParticle, 500);
+  const { isRunning, stop, restart } = useInterval(spawnParticle, 500);
 
   const stopSpawning = () => {
-    clearInterval();
+    stop();
+  };
+
+  const resumeSpawning = () => {
+    restart();
   };
 
   return (
     <>
       <h2>Chapter 27: useInterval</h2>
-      <button onClick={stopSpawning}>Stop spawning</button>
-      <div className="spawnArea" ref={containerRef}>
+
+      {isRunning ? (
+        <button onClick={stopSpawning}>STOP</button>
+      ) : (
+        <button onClick={resumeSpawning}>RESUME</button>
+      )}
+
+      <div className="spawnArea" ref={spawnAreaRef}>
         {particles.map((p) => (
           <Particle key={p.id} {...p} />
         ))}
