@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { VictoryChart, VictoryLine, VictoryTheme, VictoryAxis } from 'victory';
+import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
 import { useHistory } from './useHistory';
 import RateRow from '../Chapter-24/RateRow';
 
