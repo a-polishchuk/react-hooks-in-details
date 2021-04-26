@@ -1,29 +1,22 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
+import { useElementSize } from '../Chapter-26/useElementSize';
 import { useTimeout } from './useTimeout';
+import SpawnArea from './SpawnArea';
+import GameOver from './GameOver';
 
-const AREA_SIZE = 400;
 const SQUARE_SIZE = 30;
 const FIVE_SECONDS = 5000;
 const SQUARES_COUNT = 25;
 
-const styles = {
-  area: {
-    marginTop: 20,
-    border: '2px dashed gray',
-    width: AREA_SIZE,
-    height: AREA_SIZE,
-    position: 'relative',
-  },
-};
-
-function generateSquares(count) {
+function generateSquares(count, areaSize) {
   const squares = [];
   for (let i = 0; i < count; i++) {
     squares.push({
       id: uuid(),
-      left: Math.random() * (AREA_SIZE - SQUARE_SIZE),
-      top: Math.random() * (AREA_SIZE - SQUARE_SIZE),
+      left: Math.random() * (areaSize.width - SQUARE_SIZE),
+      top: Math.random() * (areaSize.height - SQUARE_SIZE),
+      size: SQUARE_SIZE,
       wasHit: false,
     });
   }
@@ -33,11 +26,15 @@ function generateSquares(count) {
 export default function Chapter28() {
   const [squares, setSquares] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const areaRef = useRef();
+  const areaSize = useElementSize(areaRef);
   const score = squares.filter((s) => s.wasHit).length;
 
   useEffect(() => {
-    setSquares(generateSquares(SQUARES_COUNT));
-  }, []);
+    if (areaSize.width > 0 && areaSize.height > 0) {
+      setSquares(generateSquares(SQUARES_COUNT, areaSize));
+    }
+  }, [areaSize]);
 
   const onTimeout = useCallback(() => {
     setGameOver(true);
@@ -49,7 +46,7 @@ export default function Chapter28() {
   );
 
   const restartGame = () => {
-    setSquares(generateSquares(SQUARES_COUNT));
+    setSquares(generateSquares(SQUARES_COUNT, areaSize));
     setGameOver(false);
     restartTimeout();
   };
@@ -59,7 +56,7 @@ export default function Chapter28() {
     setGameOver(true);
   };
 
-  const onHit = useCallback((squareId) => {
+  const handleHit = useCallback((squareId) => {
     setSquares((array) =>
       array.map((s) => {
         if (s.id !== squareId) {
@@ -77,41 +74,13 @@ export default function Chapter28() {
     <>
       <h2>Chapter 28: useTimeout</h2>
       {gameOver ? (
-        <>
-          <p>Game over! Your score: {score}</p>
-          <button onClick={restartGame}>Restart</button>
-        </>
+        <GameOver score={score} restartGame={restartGame} />
       ) : (
         <>
           <button onClick={stopGame}>Stop</button>
-          <div style={styles.area}>
-            {squares.map((s) => (
-              <Square
-                key={s.id}
-                id={s.id}
-                left={s.left}
-                top={s.top}
-                wasHit={s.wasHit}
-                onHit={onHit}
-              />
-            ))}
-          </div>
+          <SpawnArea ref={areaRef} squares={squares} onHit={handleHit} />
         </>
       )}
     </>
   );
 }
-
-const Square = memo(({ id, left, top, wasHit, onHit }) => (
-  <div
-    onMouseEnter={() => onHit(id)}
-    style={{
-      position: 'absolute',
-      left,
-      top,
-      width: SQUARE_SIZE,
-      height: SQUARE_SIZE,
-      backgroundColor: wasHit ? '#8008' : '#800',
-    }}
-  />
-));
