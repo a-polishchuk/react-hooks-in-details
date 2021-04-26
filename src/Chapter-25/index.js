@@ -29,8 +29,6 @@ export default function Chapter25() {
     y: value,
   }));
 
-  const tickValues = history.map((score, index) => index);
-
   return (
     <>
       <h2>Chapter 25: useHistory</h2>
@@ -42,7 +40,6 @@ export default function Chapter25() {
           padding={0}
           height={40}
         >
-          <VictoryAxis tickValues={tickValues} />
           <VictoryLine style={styles.lineChart} data={chartData} />
         </VictoryChart>
       </div>
