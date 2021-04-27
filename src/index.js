@@ -27,11 +27,11 @@ import Chapter22 from './Chapter-22';
 import Chapter23 from './Chapter-23';
 import Chapter24 from './Chapter-24';
 import Chapter25 from './Chapter-25';
-// import Chapter26 from './Chapter-26';
-// import Chapter27 from './Chapter-27';
-// import Chapter28 from './Chapter-28';
-// import Chapter29 from './Chapter-29';
-// import Chapter30 from './Chapter-30';
+import Chapter26 from './Chapter-26';
+import Chapter27 from './Chapter-27';
+import Chapter28 from './Chapter-28';
+import Chapter29 from './Chapter-29';
+import Chapter30 from './Chapter-30';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -61,11 +61,11 @@ const content = {
   ch_23: { name: 'useAsync, useAnimatedText', component: Chapter23 },
   ch_24: { name: 'usePrevious', component: Chapter24 },
   ch_25: { name: 'useHistory', component: Chapter25 },
-  // ch_26: { name: 'useElementSize', component: Chapter26 },
-  // ch_27: { name: 'useInterval', component: Chapter27 },
-  // ch_28: { name: 'useTimeout', component: Chapter28 },
-  // ch_29: { name: 'useMountedRef', component: Chapter29 },
-  // ch_30: { name: 'useHovered', component: Chapter30 },
+  ch_26: { name: 'useElementSize', component: Chapter26 },
+  ch_27: { name: 'useInterval', component: Chapter27 },
+  ch_28: { name: 'useTimeout', component: Chapter28 },
+  ch_29: { name: 'useMountedRef', component: Chapter29 },
+  ch_30: { name: 'useHovered', component: Chapter30 },
 };
 
 ReactDOM.render(

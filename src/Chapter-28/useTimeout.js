@@ -1,26 +1,39 @@
-import { useCallback, useEffect, useState, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export function useTimeout(callback, timeout) {
-  const timeoutHandleRef = useRef();
+  const callbackRef = useRef();
+  const [timeoutHandle, setTimeoutHandle] = useState(null);
   const [restartTrigger, setRestartTrigger] = useState();
 
   useEffect(() => {
-    const timeoutHandle = setTimeout(callback, timeout);
-    timeoutHandleRef.current = timeoutHandle;
+    callbackRef.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      setTimeoutHandle(null);
+      if (callbackRef.current) {
+        callbackRef.current();
+      }
+    }, timeout);
+    setTimeoutHandle(handle);
     return () => {
-      clearTimeout(timeoutHandle);
+      clearTimeout(handle);
     };
-  }, [callback, timeout, restartTrigger]);
+  }, [timeout, restartTrigger]);
+
+  const isRunning = !!timeoutHandle;
 
   const cancel = useCallback(() => {
-    if (timeoutHandleRef.current) {
-      clearInterval(timeoutHandleRef.current);
+    if (timeoutHandle) {
+      clearTimeout(timeoutHandle);
+      setTimeoutHandle(null);
     }
-  }, []);
+  }, [timeoutHandle]);
 
   const restart = useCallback(() => {
     setRestartTrigger({});
   }, []);
 
-  return { cancel, restart };
+  return { isRunning, cancel, restart };
 }

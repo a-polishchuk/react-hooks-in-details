@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import axios from 'axios';
 import TabHeader from './TabHeader';
-import RandomCat from './RandomCat';
-import RandomDog from './RandomDog';
+import AsyncPicture from './AsyncPicture';
 
 const Tabs = {
   cat: 'cat',
@@ -37,8 +37,26 @@ export default function Chapter29() {
         <TabHeader text="Dog" isActive={tab === Tabs.dog} onClick={showDog} />
       </div>
       <div style={styles.tabContent}>
-        {tab === Tabs.cat ? <RandomCat /> : <RandomDog />}
+        {tab === Tabs.cat ? (
+          <AsyncPicture key="cat-picture" getImageFunc={fetchRandomCat} />
+        ) : (
+          <AsyncPicture key="dog-picture" getImageFunc={fetchRandomDog} />
+        )}
       </div>
     </>
   );
+}
+
+async function fetchRandomCat() {
+  const response = await axios.get(
+    'https://api.thecatapi.com/v1/images/search'
+  );
+
+  return response.data[0].url;
+}
+
+async function fetchRandomDog() {
+  const response = await axios.get('https://dog.ceo/api/breeds/image/random');
+
+  return response.data.message;
 }
