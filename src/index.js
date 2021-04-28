@@ -32,6 +32,7 @@ import Chapter27 from './Chapter-27';
 import Chapter28 from './Chapter-28';
 import Chapter29 from './Chapter-29';
 import Chapter30 from './Chapter-30';
+import Chapter31 from './Chapter-31';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -55,10 +56,10 @@ const content = {
   ch_17: { name: 'useToggle 2.0', component: Chapter17 },
   ch_18: { name: 'useEventListener', component: Chapter18 },
   ch_19: { name: 'useWhatCausedRender', component: Chapter19 },
-  ch_20: { name: 'useDebounce, useThrottle', component: Chapter20 },
+  ch_20: { name: 'useDebounce + useThrottle', component: Chapter20 },
   ch_21: { name: 'useLocalStorage', component: Chapter21 },
   ch_22: { name: 'useWindowSize', component: Chapter22 },
-  ch_23: { name: 'useAsync, useAnimatedText', component: Chapter23 },
+  ch_23: { name: 'useAsync + useAnimatedText', component: Chapter23 },
   ch_24: { name: 'usePrevious', component: Chapter24 },
   ch_25: { name: 'useHistory', component: Chapter25 },
   ch_26: { name: 'useElementSize', component: Chapter26 },
@@ -66,6 +67,7 @@ const content = {
   ch_28: { name: 'useTimeout', component: Chapter28 },
   ch_29: { name: 'useMountedRef', component: Chapter29 },
   ch_30: { name: 'useHovered', component: Chapter30 },
+  ch_31: { name: 'useAsync 2.0', component: Chapter31 },
 };
 
 ReactDOM.render(
