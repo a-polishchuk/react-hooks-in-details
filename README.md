@@ -2,8 +2,10 @@
 
 В этом репозитории собраны все примеры кода из моего Udemy курса "React Hooks в Деталях".
 
-По этой ссылке вы можете приобрести его со скидкой в 40%
-https://www.udemy.com/course/react-hooks-in-details/?couponCode=9B4375779DC68B8BCB05
+Вы сможете найти мой курс по этой ссылке
+https://www.udemy.com/course/react-hooks-in-details/?referralCode=5D58785B8119D2107758
+
+Он доступен по самой низкой возможной цене.
 
 ## How to run examples
 
