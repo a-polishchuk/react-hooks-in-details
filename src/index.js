@@ -18,6 +18,7 @@ import Chapter14 from './Chapter-14';
 import ContactBook from './Chapter-14/ContactBook';
 import Chapter15 from './Chapter-15';
 import Chapter16 from './Chapter-16';
+
 import Chapter17 from './Chapter-17';
 import Chapter18 from './Chapter-18';
 import Chapter19 from './Chapter-19';
@@ -33,6 +34,8 @@ import Chapter28 from './Chapter-28';
 import Chapter29 from './Chapter-29';
 import Chapter30 from './Chapter-30';
 import Chapter31 from './Chapter-31';
+
+import KeysExample from './Bonus/KeysExample';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -68,6 +71,8 @@ const content = {
   ch_29: { name: 'useMountedRef', component: Chapter29 },
   ch_30: { name: 'useHovered', component: Chapter30 },
   ch_31: { name: 'useAsync 2.0', component: Chapter31 },
+
+  bonus_1: { name: 'Keys', component: KeysExample },
 };
 
 ReactDOM.render(
