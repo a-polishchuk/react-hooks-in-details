@@ -35,7 +35,8 @@ import Chapter29 from './Chapter-29';
 import Chapter30 from './Chapter-30';
 import Chapter31 from './Chapter-31';
 
-import KeysExample from './Bonus/KeysExample';
+import OrderedListExample from './Bonus/KeysExample/OrderedListExample';
+import GeneratedKeyExample from './Bonus/KeysExample/GeneratedKeyExample';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -72,7 +73,8 @@ const content = {
   ch_30: { name: 'useHovered', component: Chapter30 },
   ch_31: { name: 'useAsync 2.0', component: Chapter31 },
 
-  bonus_1: { name: 'Keys', component: KeysExample },
+  bonus_1: { name: 'Keys: Ordered List', component: OrderedListExample },
+  bonus_2: { name: 'Keys: Generated Key', component: GeneratedKeyExample },
 };
 
 ReactDOM.render(
