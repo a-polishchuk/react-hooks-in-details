@@ -17,7 +17,7 @@ export default function GeneratedKeyExample() {
     <>
       <h2>How React keys really works?</h2>
       <Margin>
-        <LoggedLifecycle key={randomKey} />
+        <LoggedLifecycle key={randomKey} name="Random Key" />
       </Margin>
       <Margin>
         <button onClick={triggerRender}>Trigger one more render</button>
