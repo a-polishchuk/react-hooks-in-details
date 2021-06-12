@@ -38,6 +38,7 @@ import Chapter31 from './Chapter-31';
 import OrderedListExample from './Bonus/KeysExample/OrderedListExample';
 import GeneratedKeyExample from './Bonus/KeysExample/GeneratedKeyExample';
 import ConditionalKeyExample from './Bonus/KeysExample/ConditionalKeyExample';
+import UpdatesBatchingExample from './Bonus/UpdatesBatching';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -77,6 +78,7 @@ const content = {
   bonus_1: { name: 'Keys: Ordered List', component: OrderedListExample },
   bonus_2: { name: 'Keys: Generated Key', component: GeneratedKeyExample },
   bonus_3: { name: 'Keys: Conditional', component: ConditionalKeyExample },
+  bonus_4: { name: 'Updates batching', component: UpdatesBatchingExample },
 };
 
 ReactDOM.render(
