@@ -29,13 +29,13 @@ export default function UpdatesBatchingExample() {
 
   useEffect(() => {
     const button = buttonRef.current;
-    const onWindowClick = () => {
+    const onButtonClick = () => {
       setClicksCount((value) => value + 1);
       setEvenClick((value) => !value);
     };
-    button.addEventListener('click', onWindowClick);
+    button.addEventListener('click', onButtonClick);
     return () => {
-      button.removeEventListener('click', onWindowClick);
+      button.removeEventListener('click', onButtonClick);
     };
   }, []);
 

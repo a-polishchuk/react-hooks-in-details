@@ -39,7 +39,7 @@ import OrderedListExample from './Bonus/KeysExample/OrderedListExample';
 import GeneratedKeyExample from './Bonus/KeysExample/GeneratedKeyExample';
 import ConditionalKeyExample from './Bonus/KeysExample/ConditionalKeyExample';
 import UpdatesBatchingExample from './Bonus/UpdatesBatching';
-import ChildrenExample from './Bonus/Children';
+import DomManipulationExample from './Bonus/DomManipulation';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -80,7 +80,7 @@ const content = {
   bonus_2: { name: 'Keys: Generated Key', component: GeneratedKeyExample },
   bonus_3: { name: 'Keys: Conditional', component: ConditionalKeyExample },
   bonus_4: { name: 'Updates batching', component: UpdatesBatchingExample },
-  // bonus_5: { name: 'Children', component: ChildrenExample },
+  bonus_5: { name: 'DOM manipulation', component: DomManipulationExample },
 };
 
 ReactDOM.render(
