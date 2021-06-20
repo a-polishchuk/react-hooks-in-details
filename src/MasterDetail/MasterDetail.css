@@ -5,8 +5,8 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 15% auto;
-  grid-template-rows: auto 20%;
+  grid-template-columns: 25% auto;
+  grid-template-rows: auto 20% 11%;
 }
 
 .master {

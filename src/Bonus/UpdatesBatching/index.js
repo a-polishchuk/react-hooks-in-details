@@ -43,8 +43,13 @@ export default function UpdatesBatchingExample() {
     <>
       <h2>Updates batching</h2>
       <p>
-        <div>Clicks count: {clicksCount}</div>
-        <div>Is event click: {isEvenClick.toString()}</div>
+        <span>
+          Clicks count: <b>{clicksCount}</b>
+        </span>
+        <br />
+        <span>
+          Is event click: <b>{isEvenClick.toString()}</b>
+        </span>
       </p>
       <p>
         <button onClick={handleUpdate}>Update state</button>
