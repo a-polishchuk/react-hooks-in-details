@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { Children } from 'react';
 
 const styles = {
   row: {
@@ -16,27 +16,42 @@ const styles = {
 };
 
 function FlexRow({ children }) {
-  console.log();
+  console.log(children);
 
   return (
     <div style={styles.row}>
-      {children.map((child) => (
-        <div style={styles.cell}>{child}</div>
+      {Children.map(children, (child, index) => (
+        <div key={index} style={styles.cell}>
+          {child}
+        </div>
       ))}
     </div>
   );
 }
 
-const MemoRow = memo(FlexRow);
+function Cell() {
+  return <div style={styles.redBlock} />;
+}
 
 export default function ChildrenExample() {
   return (
-    <MemoRow>
-      <div style={styles.redBlock} />
-      <div style={styles.redBlock} />
-      <div style={styles.redBlock} />
-      <div style={styles.redBlock} />
-      <div style={styles.redBlock} />
-    </MemoRow>
+    <>
+      <h2>Children</h2>
+      <FlexRow></FlexRow>
+      <FlexRow>
+        <Cell />
+      </FlexRow>
+      <FlexRow>
+        <Cell />
+        <Cell />
+      </FlexRow>
+      <FlexRow>
+        <Cell />
+        <Cell />
+        <Cell />
+        <Cell />
+        <Cell />
+      </FlexRow>
+    </>
   );
 }
