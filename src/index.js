@@ -42,6 +42,7 @@ import UpdatesBatchingExample from './Bonus/UpdatesBatching';
 import DomManipulationExample from './Bonus/DomManipulation';
 import StrictModeExample from './Bonus/StrictMode';
 import ChildrenExample from './Bonus/Children';
+import EventsExample from './Bonus/Events';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -85,6 +86,7 @@ const content = {
   bonus_5: { name: 'DOM manipulation', component: DomManipulationExample },
   bonus_6: { name: 'Strict Mode', component: StrictModeExample },
   bonus_7: { name: 'Children', component: ChildrenExample },
+  bonus_8: { name: 'Events', component: EventsExample },
 };
 
 ReactDOM.render(
