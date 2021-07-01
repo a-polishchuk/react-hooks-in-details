@@ -43,6 +43,7 @@ import DomManipulationExample from './Bonus/DomManipulation';
 import StrictModeExample from './Bonus/StrictMode';
 import ChildrenExample from './Bonus/Children';
 import EventsExample from './Bonus/Events';
+import EventDelegationExample from './Bonus/EventDelegation';
 
 const content = {
   ch_1: { name: 'Chapter 1', component: Chapter1 },
@@ -87,6 +88,7 @@ const content = {
   bonus_6: { name: 'Strict Mode', component: StrictModeExample },
   bonus_7: { name: 'Children', component: ChildrenExample },
   bonus_8: { name: 'Events', component: EventsExample },
+  bonus_9: { name: 'Event delegation', component: EventDelegationExample },
 };
 
 ReactDOM.render(
