@@ -13,8 +13,10 @@ export default function EventsTest({ capturePhase, stopPropagation }) {
   const blueTimeoutRef = useRef(null);
 
   const [path, setPath] = useState(null);
+  const [eventPhase, setEventPhase] = useState();
 
   const handleClick = (event, setter, timeoutRef) => {
+    setEventPhase(event.eventPhase);
     if (stopPropagation) {
       event.stopPropagation();
     }
@@ -49,37 +51,55 @@ export default function EventsTest({ capturePhase, stopPropagation }) {
   };
 
   return (
-    <div id="container" style={styles.container}>
-      <div id="red" style={styles.redArea} {...clickProps(handleRedClick)}>
-        <div
-          id="green"
-          style={styles.greenArea}
-          {...clickProps(handleGreenClick)}
-        >
+    <>
+      <p>
+        Event phase: <strong>{getEventPhaseText(eventPhase)}</strong>
+      </p>
+      <div id="container" style={styles.container}>
+        <div id="red" style={styles.redArea} {...clickProps(handleRedClick)}>
           <div
-            id="blue"
-            style={styles.blueArea}
-            {...clickProps(handleBlueClick)}
-          />
+            id="green"
+            style={styles.greenArea}
+            {...clickProps(handleGreenClick)}
+          >
+            <div
+              id="blue"
+              style={styles.blueArea}
+              {...clickProps(handleBlueClick)}
+            />
+          </div>
         </div>
-      </div>
 
-      <div style={styles.flex1}>
-        {redClicked && <div style={styles.redText}>RED</div>}
-        {greenClicked && <div style={styles.greenText}>GREEN</div>}
-        {blueClicked && <div style={styles.blueText}>BLUE</div>}
-      </div>
+        <div style={styles.flex1}>
+          {redClicked && <div style={styles.redText}>RED</div>}
+          {greenClicked && <div style={styles.greenText}>GREEN</div>}
+          {blueClicked && <div style={styles.blueText}>BLUE</div>}
+        </div>
 
-      <ul style={styles.flex1}>
-        {path?.map((element, index) => {
-          const { nodeName, id } = element;
-          return (
-            <li key={index}>
-              {nodeName ?? 'WINDOW'} {id && <b>#{id}</b>}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+        <ul style={styles.flex1}>
+          {path?.map((element, index) => {
+            const { nodeName, id } = element;
+            return (
+              <li key={index}>
+                {nodeName ?? 'WINDOW'} {id && <b>#{id}</b>}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
+}
+
+function getEventPhaseText(eventPhase) {
+  switch (eventPhase) {
+    case 1:
+      return 'Capture';
+    case 2:
+      return 'Target';
+    case 3:
+      return 'Bubble';
+    default:
+      return null;
+  }
 }
