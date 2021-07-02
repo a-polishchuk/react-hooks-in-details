@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 function getRandomCssColor() {
   const r = Math.random() * 255;
@@ -19,6 +19,8 @@ function Cell({ id, col, row, selected }) {
   return <div id={id} style={style} />;
 }
 
+const MemoCell = memo(Cell);
+
 function Grid({ cols, rows }) {
   const [selectedId, setSelectedId] = useState();
 
@@ -35,7 +37,13 @@ function Grid({ cols, rows }) {
     for (let r = 1; r <= rows; r++) {
       const id = `${c}x${r}`;
       cells.push(
-        <Cell key={id} id={id} col={c} row={r} selected={id === selectedId} />
+        <MemoCell
+          key={id}
+          id={id}
+          col={c}
+          row={r}
+          selected={id === selectedId}
+        />
       );
     }
   }
@@ -52,5 +60,5 @@ function Grid({ cols, rows }) {
 }
 
 export default function EventDelegationExample() {
-  return <Grid cols={3} rows={3} />;
+  return <Grid cols={30} rows={20} />;
 }
