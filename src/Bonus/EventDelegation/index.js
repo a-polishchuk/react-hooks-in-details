@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 function getRandomCssColor() {
   const r = Math.random() * 255;
@@ -7,7 +7,7 @@ function getRandomCssColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function Cell({ id, col, row, selected }) {
+function Cell({ id, col, row, selected, onClick }) {
   const cellColor = getRandomCssColor();
   const borderColor = selected ? 'white' : cellColor;
   const style = {
@@ -16,7 +16,10 @@ function Cell({ id, col, row, selected }) {
     backgroundColor: cellColor,
     border: `4px solid ${borderColor}`,
   };
-  return <div id={id} style={style} />;
+  const handleClick = () => {
+    onClick(id);
+  };
+  return <div id={id} style={style} onClick={handleClick} />;
 }
 
 const MemoCell = memo(Cell);
@@ -32,6 +35,10 @@ function Grid({ cols, rows }) {
     gridTemplateRows: `repeat(${rows}, 1fr)`,
   };
 
+  const handleCellClick = useCallback((cellId) => {
+    setSelectedId(cellId);
+  }, []);
+
   const cells = [];
   for (let c = 1; c <= cols; c++) {
     for (let r = 1; r <= rows; r++) {
@@ -43,20 +50,17 @@ function Grid({ cols, rows }) {
           col={c}
           row={r}
           selected={id === selectedId}
+          onClick={handleCellClick}
         />
       );
     }
   }
 
-  const handleClick = (event) => {
-    setSelectedId(event.target.id);
-  };
+  // const handleContainerClick = (event) => {
+  //   setSelectedId(event.target.id);
+  // };
 
-  return (
-    <div style={style} onClick={handleClick}>
-      {cells}
-    </div>
-  );
+  return <div style={style}>{cells}</div>;
 }
 
 export default function EventDelegationExample() {
