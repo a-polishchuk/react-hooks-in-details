@@ -1,4 +1,4 @@
-import { useToggle } from '../../../Chapter-17/useToggle';
+import { useToggle } from '../../../HooksCollection/Chapter-17/useToggle';
 import LoggedLifecycle from '../GeneratedKeyExample/LoggedLifecycle';
 
 export default function ConditionalKeyExample() {

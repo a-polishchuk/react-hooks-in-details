@@ -1,33 +1,38 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import './MasterDetail.css';
 
-export function MasterDetail({ content }) {
-  const [chapterId, setChapterId] = useState('');
-  const selectedChapter = chapterId ? content[chapterId] : null;
-  const Detail = selectedChapter?.component;
-  const entries = Object.entries(content);
+const Context = createContext();
+
+export function useMasterDetailContext() {
+  return useContext(Context);
+}
+
+export default function MasterDetail({ children }) {
+  const [selectedTitle, setSelectedTitle] = useState();
+  const [DetailComponent, setDetailComponent] = useState();
+
+  const selectChapter = (title, component) => {
+    setSelectedTitle(title);
+    setDetailComponent(() => component);
+  };
+
+  const contextValue = {
+    selectedTitle,
+    setSelectedTitle,
+    DetailComponent,
+    selectChapter,
+  };
 
   useEffect(() => {
-    document.title = content[chapterId]?.name ?? 'React Hooks in Details';
-  }, [chapterId, content]);
+    document.title = selectedTitle || 'React Hooks in Details';
+  }, [selectedTitle]);
 
   return (
     <div className="container">
       <div className="master">
-        {entries.map(([key, value]) => {
-          const isSelected = chapterId === key;
-          const className = `master-button ${isSelected ? 'selected' : null}`;
-
-          return (
-            <div key={key}>
-              <button className={className} onClick={() => setChapterId(key)}>
-                {value.name}
-              </button>
-            </div>
-          );
-        })}
+        <Context.Provider value={contextValue}>{children}</Context.Provider>
       </div>
-      <div className="detail">{Detail ? <Detail /> : null}</div>
+      <div className="detail">{DetailComponent && <DetailComponent />}</div>
     </div>
   );
 }
