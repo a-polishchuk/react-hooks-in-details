@@ -18,7 +18,6 @@ export default function MasterDetail({ children }) {
 
   const contextValue = {
     selectedTitle,
-    setSelectedTitle,
     DetailComponent,
     selectChapter,
   };
