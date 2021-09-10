@@ -1,5 +1,4 @@
-import useSWR from 'swr';
-import { fetcher } from './fetcher';
+import { useUser } from './useUser';
 import './Profile.css';
 
 function ProfileRow({ param, value }) {
@@ -12,30 +11,37 @@ function ProfileRow({ param, value }) {
 }
 
 function Profile({ userId }) {
-  const { data } = useSWR(
-    `https://jsonplaceholder.typicode.com/users/${userId}`,
-    fetcher
-  );
+  const { loading, data, error } = useUser(userId);
 
-  if (!data) {
+  if (loading) {
     return <div className="profile">Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="profile">
+        <div className="error">Oops! Something went wrong...</div>
+      </div>
+    );
   }
 
   const { name, email, phone, website, company } = data;
 
   return (
-    <table className="profile">
-      <tbody>
-        <ProfileRow param="Name" value={name} />
-        <ProfileRow param="Email" value={email} />
-        <ProfileRow param="Phone" value={phone} />
-        <ProfileRow
-          param="Website"
-          value={<a href={'http://' + website}>{website}</a>}
-        />
-        <ProfileRow param="Company" value={company.name} />
-      </tbody>
-    </table>
+    <div className="profile">
+      <table>
+        <tbody>
+          <ProfileRow param="Name" value={name} />
+          <ProfileRow param="Email" value={email} />
+          <ProfileRow param="Phone" value={phone} />
+          <ProfileRow
+            param="Website"
+            value={<a href={'http://' + website}>{website}</a>}
+          />
+          <ProfileRow param="Company" value={company.name} />
+        </tbody>
+      </table>
+    </div>
   );
 }
 

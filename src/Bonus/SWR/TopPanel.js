@@ -1,5 +1,4 @@
-import useSWR from 'swr';
-import { fetcher } from './fetcher';
+import { useUser } from './useUser';
 import './TopPanel.css';
 
 function Avatar({ name }) {
@@ -11,12 +10,9 @@ function Avatar({ name }) {
 }
 
 function TopPanel({ userId }) {
-  const { data } = useSWR(
-    `https://jsonplaceholder.typicode.com/users/${userId}`,
-    fetcher
-  );
+  const { loading, data } = useUser(userId);
 
-  if (!data) {
+  if (loading) {
     return <div className="top-panel">Loading...</div>;
   }
 
