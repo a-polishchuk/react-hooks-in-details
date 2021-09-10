@@ -1,0 +1,19 @@
+.profile {
+  margin-top: 10px;
+  flex: 1;
+  border: 2px dashed #bbbbbb;
+}
+
+.profile td {
+  padding: 10px;
+}
+
+.param-cell {
+  width: 100px;
+  background-color: #eeeeee66;
+}
+
+.value-cell {
+  width: 200px;
+  font-weight: 600;
+}

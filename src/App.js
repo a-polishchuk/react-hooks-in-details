@@ -44,6 +44,7 @@ import {
   Children,
   Events,
   EventDelegation,
+  SWR,
 } from './Bonus';
 
 export default function App() {
@@ -108,6 +109,7 @@ export default function App() {
         <Chapter title="Children" component={Children} />
         <Chapter title="Events" component={Events} />
         <Chapter title="Event delegation" component={EventDelegation} />
+        <Chapter title="SWR" component={SWR} />
       </Section>
     </MasterDetail>
   );

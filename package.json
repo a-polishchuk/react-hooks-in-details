@@ -11,6 +11,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "swr": "^1.0.0",
     "uuid": "^8.3.2",
     "victory": "^35.5.0",
     "web-vitals": "^0.2.4"
