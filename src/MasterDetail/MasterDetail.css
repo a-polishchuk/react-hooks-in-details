@@ -2,16 +2,15 @@
   position: absolute;
   left: 0;
   top: 0;
-  display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 25% auto;
-  grid-template-rows: auto 20%;
+  display: flex;
 }
 
 .master {
-  grid-column: 1;
-  grid-row: 1 / 3;
+  width: 25%;
+  min-width: 250px;
+  max-width: 350px;
   padding: 10px;
   border-right: #bbbbbb solid 2px;
   overflow: scroll;
@@ -50,8 +49,7 @@
 }
 
 .detail {
-  grid-column: 2;
-  grid-row: 1 / 3;
+  flex: 1;
   padding: 10px;
   position: relative;
   overflow: scroll;
