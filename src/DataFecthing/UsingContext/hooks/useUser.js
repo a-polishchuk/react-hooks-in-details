@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export function useUserOldSchool(userId) {
+export function useUser(userId) {
   const [data, setData] = useState();
   const [error, setError] = useState();
 

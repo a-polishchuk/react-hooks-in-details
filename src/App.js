@@ -34,7 +34,7 @@ import {
   Chapter30,
   Chapter31,
 } from './HooksCollection';
-import { SWR } from './DataFecthing';
+import { DataFetchingContext, DataFetchingSwr } from './DataFecthing';
 import {
   OrderedList,
   GeneratedKey,
@@ -98,7 +98,8 @@ export default function App() {
       </Section>
 
       <Section title="Data fecthing">
-        <Chapter title="SWR" component={SWR} />
+        <Chapter title="Context" component={DataFetchingContext} />
+        <Chapter title="SWR" component={DataFetchingSwr} />
       </Section>
 
       <Section title="Bonus">

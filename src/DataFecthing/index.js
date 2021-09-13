@@ -1,3 +1,4 @@
-import SWR from './SWR';
+import DataFetchingContext from './UsingContext';
+import DataFetchingSwr from './UsingSwr';
 
-export { SWR };
+export { DataFetchingContext, DataFetchingSwr };
