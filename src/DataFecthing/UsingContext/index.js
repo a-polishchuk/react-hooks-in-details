@@ -4,7 +4,7 @@ import Profile from './Profile';
 
 const USER_ID = 1;
 
-function SwrExample() {
+export default function UsingContext() {
   return (
     <UserContextProvider userId={USER_ID}>
       <TopPanel />
@@ -12,5 +12,3 @@ function SwrExample() {
     </UserContextProvider>
   );
 }
-
-export default SwrExample;
