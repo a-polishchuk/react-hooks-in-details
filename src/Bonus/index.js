@@ -7,7 +7,6 @@ import StrictMode from './StrictMode';
 import Children from './Children';
 import Events from './Events';
 import EventDelegation from './EventDelegation';
-import SWR from './SWR';
 
 export {
   OrderedList,
@@ -19,5 +18,4 @@ export {
   Children,
   Events,
   EventDelegation,
-  SWR,
 };

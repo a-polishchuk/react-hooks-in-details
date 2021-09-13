@@ -34,6 +34,7 @@ import {
   Chapter30,
   Chapter31,
 } from './HooksCollection';
+import { SWR } from './DataFecthing';
 import {
   OrderedList,
   GeneratedKey,
@@ -44,7 +45,6 @@ import {
   Children,
   Events,
   EventDelegation,
-  SWR,
 } from './Bonus';
 
 export default function App() {
