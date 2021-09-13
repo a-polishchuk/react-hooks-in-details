@@ -1,5 +1,5 @@
-import { useUser } from './useUser';
-import './TopPanel.css';
+import { useUser } from '../hooks/useUser';
+import './index.css';
 
 function Avatar({ name }) {
   const initials = name

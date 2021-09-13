@@ -72,7 +72,7 @@ export default function App() {
 
       <Section title="Advanced hooks and concepts">
         <Chapter title="useCallback" component={Chapter11} />
-        <Chapter title="How render works" component={Chapter12} />
+        <Chapter title="useMemo + How render works" component={Chapter12} />
         <Chapter title="useContext" component={Chapter13} />
         <Chapter title="useReducer" component={Chapter14} />
         <Chapter title="useDebugValue" component={Chapter15} />
@@ -97,6 +97,10 @@ export default function App() {
         <Chapter title="useAsync 2.0" component={Chapter31} />
       </Section>
 
+      <Section title="Data fecthing">
+        <Chapter title="SWR" component={SWR} />
+      </Section>
+
       <Section title="Bonus">
         <Section title="Keys">
           <Chapter title="Ordered list" component={OrderedList} />
@@ -109,7 +113,6 @@ export default function App() {
         <Chapter title="Children" component={Children} />
         <Chapter title="Events" component={Events} />
         <Chapter title="Event delegation" component={EventDelegation} />
-        <Chapter title="SWR" component={SWR} />
       </Section>
     </MasterDetail>
   );

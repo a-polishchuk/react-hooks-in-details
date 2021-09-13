@@ -1,5 +1,5 @@
-import { useUser } from './useUser';
-import './Profile.css';
+import { useUser } from '../hooks/useUser';
+import './index.css';
 
 function ProfileRow({ param, value }) {
   return (
