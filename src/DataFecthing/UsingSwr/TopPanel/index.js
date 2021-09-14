@@ -1,40 +1,20 @@
-import { useUser } from '../hooks/useUser';
-import { useLastUpdated } from '../hooks/useLastUpdated';
+import Avatar from './Avatar';
+import UserName from './UserName';
+import LastUpdated from './LastUpdated';
 import './index.css';
 
-function Avatar({ name }) {
-  const initials = name
-    .split(' ')
-    .map((w) => w.charAt(0))
-    .join('');
-  return <div className="avatar">{initials}</div>;
-}
-
-function LastUpdated() {
-  const { data } = useLastUpdated();
-  return (
-    <div className="last-updated">
-      Last updated:
-      <br />
-      <strong>{data?.toLocaleTimeString()}</strong>
-    </div>
-  );
-}
-
-function TopPanel({ userId }) {
-  const { loading, data } = useUser(userId);
-
-  if (loading) {
-    return <div className="top-panel">Loading...</div>;
-  }
-
+export default function TopPanel() {
   return (
     <div className="top-panel">
-      <Avatar name={data.name} />
-      <div className="user-name">{data.name}</div>
-      <LastUpdated />
+      <div className="avatar-container">
+        <Avatar />
+      </div>
+      <div className="user-name-container">
+        <UserName />
+      </div>
+      <div className="last-updated-container">
+        <LastUpdated />
+      </div>
     </div>
   );
 }
-
-export default TopPanel;

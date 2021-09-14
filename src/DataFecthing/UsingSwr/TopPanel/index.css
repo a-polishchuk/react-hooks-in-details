@@ -6,27 +6,14 @@
   border: 2px dashed #bbbbbb;
   padding-left: 10px;
 }
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: green;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+.top-panel .avatar-container {
+  margin-left: 10px;
   margin-right: 10px;
 }
-
-.user-name {
+.top-panel .user-name-container {
   flex: 1;
 }
-
-.last-updated {
+.top-panel .last-updated-container {
+  margin-left: 10px;
   margin-right: 10px;
-  padding: 10px;
-  background-color: #eeeeee;
-  text-align: center;
 }

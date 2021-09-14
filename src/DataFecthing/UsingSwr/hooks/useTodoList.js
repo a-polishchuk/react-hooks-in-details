@@ -1,8 +1,8 @@
 import { useRequest } from './useRequest';
 import { useAppContext } from '../AppContext';
 
-export function useUser() {
+export function useTodoList() {
   const { userId } = useAppContext();
 
-  return useRequest(`users/${userId}`);
+  return useRequest(`todos?userId=${userId}`);
 }

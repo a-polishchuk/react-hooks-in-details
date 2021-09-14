@@ -10,8 +10,8 @@ function ProfileRow({ param, value }) {
   );
 }
 
-function Profile({ userId }) {
-  const { loading, data, error } = useUser(userId);
+function Profile() {
+  const { loading, data, error } = useUser();
 
   if (loading) {
     return <div className="profile">Loading...</div>;

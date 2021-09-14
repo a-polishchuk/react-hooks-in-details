@@ -1,0 +1,14 @@
+.todo-list {
+  margin-top: 10px;
+  border: 2px dashed #bbbbbb;
+  padding: 20px;
+}
+
+.todo-list th {
+  padding: 10px;
+  background-color: #eeeeee;
+}
+
+.todo-list td {
+  padding: 10px;
+}
