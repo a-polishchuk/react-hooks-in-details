@@ -7,7 +7,6 @@ const USER_ID = 2;
 
 const SWR_CONFIG = {
   fetcher,
-  // refreshInterval: 3000, // refetch data every 3 seconds
 };
 
 export default function UsingSwr() {

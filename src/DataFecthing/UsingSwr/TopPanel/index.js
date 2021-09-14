@@ -1,4 +1,5 @@
 import { useUser } from '../hooks/useUser';
+import { useLastUpdated } from '../hooks/useLastUpdated';
 import './index.css';
 
 function Avatar({ name }) {
@@ -7,6 +8,17 @@ function Avatar({ name }) {
     .map((w) => w.charAt(0))
     .join('');
   return <div className="avatar">{initials}</div>;
+}
+
+function LastUpdated() {
+  const { data } = useLastUpdated();
+  return (
+    <div className="last-updated">
+      Last updated:
+      <br />
+      <strong>{data?.toLocaleTimeString()}</strong>
+    </div>
+  );
 }
 
 function TopPanel({ userId }) {
@@ -19,7 +31,8 @@ function TopPanel({ userId }) {
   return (
     <div className="top-panel">
       <Avatar name={data.name} />
-      <span>{data.name}</span>
+      <div className="user-name">{data.name}</div>
+      <LastUpdated />
     </div>
   );
 }

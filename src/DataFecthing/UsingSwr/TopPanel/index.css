@@ -19,3 +19,14 @@
   font-size: 24px;
   margin-right: 10px;
 }
+
+.user-name {
+  flex: 1;
+}
+
+.last-updated {
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #eeeeee;
+  text-align: center;
+}
