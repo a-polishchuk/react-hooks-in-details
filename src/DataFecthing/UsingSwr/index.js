@@ -1,5 +1,5 @@
 import { SWRConfig } from 'swr';
-import { fetcher } from './hooks/fetcher';
+import { fetcher } from './api/fetcher';
 import { AppContextProvider } from './AppContext';
 import TopPanel from './TopPanel';
 import Profile from './Profile';

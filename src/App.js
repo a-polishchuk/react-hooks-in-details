@@ -34,7 +34,11 @@ import {
   Chapter30,
   Chapter31,
 } from './HooksCollection';
-import { DataFetchingContext, DataFetchingSwr } from './DataFecthing';
+import {
+  DataFetchingContext,
+  DataFetchingSwr,
+  DataFetchingReactQuery,
+} from './DataFecthing';
 import {
   OrderedList,
   GeneratedKey,
@@ -100,6 +104,7 @@ export default function App() {
       <Section title="Data fecthing">
         <Chapter title="Context" component={DataFetchingContext} />
         <Chapter title="SWR" component={DataFetchingSwr} />
+        <Chapter title="React Query" component={DataFetchingReactQuery} />
       </Section>
 
       <Section title="Bonus">
