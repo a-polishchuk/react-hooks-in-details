@@ -1,15 +1,8 @@
 import { useUserContext } from '../UserContext';
+import Avatar from './Avatar';
 import './index.css';
 
-function Avatar({ name }) {
-  const initials = name
-    .split(' ')
-    .map((w) => w.charAt(0))
-    .join('');
-  return <div className="avatar">{initials}</div>;
-}
-
-function TopPanel() {
+export default function TopPanel() {
   const { loading, data } = useUserContext();
 
   if (loading) {
@@ -18,10 +11,8 @@ function TopPanel() {
 
   return (
     <div className="top-panel">
-      <Avatar name={data.name} />
+      <Avatar />
       <span>{data.name}</span>
     </div>
   );
 }
-
-export default TopPanel;
