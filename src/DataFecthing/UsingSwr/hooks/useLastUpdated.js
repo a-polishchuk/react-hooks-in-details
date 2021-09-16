@@ -1,5 +1,10 @@
 import useSWR from 'swr';
-import { fetchLastUpdated } from '../api/fetchLastUpdated';
+
+function fetchLastUpdated() {
+  return new Promise((resolve) => {
+    resolve(new Date());
+  });
+}
 
 const SWR_CONFIG = {
   refreshInterval: 3000,
