@@ -5,7 +5,7 @@ import './index.css';
 
 export default function TopPanel() {
   return (
-    <div className="top-panel">
+    <div className="rq-top-panel">
       <div className="avatar-container">
         <Avatar />
       </div>

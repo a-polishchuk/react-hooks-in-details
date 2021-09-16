@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
+const USER_ID = 3;
 const AppContext = createContext();
 
 export function useAppContext() {
@@ -7,7 +8,7 @@ export function useAppContext() {
 }
 
 export function AppContextProvider({ children }) {
-  const [userId, setUserId] = useState(2);
+  const [userId, setUserId] = useState(USER_ID);
 
   const value = {
     userId,

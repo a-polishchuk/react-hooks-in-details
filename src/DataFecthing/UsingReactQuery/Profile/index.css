@@ -1,24 +1,24 @@
-.profile {
+.rq-profile {
   margin-top: 10px;
   flex: 1;
   border: 2px dashed #bbbbbb;
 }
 
-.profile td {
+.rq-profile td {
   padding: 10px;
 }
 
-.param-cell {
+.rq-param-cell {
   width: 150px;
   background-color: #eeeeee66;
 }
 
-.value-cell {
+.rq-value-cell {
   width: 200px;
   font-weight: 600;
 }
 
-.error {
+.rq-error {
   font-size: 36px;
   color: red;
   padding: 20px;

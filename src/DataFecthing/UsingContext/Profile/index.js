@@ -4,8 +4,8 @@ import './index.css';
 function ProfileRow({ param, value }) {
   return (
     <tr>
-      <td className="param-cell">{param}</td>
-      <td className="value-cell">{value}</td>
+      <td className="dfc-param-cell">{param}</td>
+      <td className="dfc-value-cell">{value}</td>
     </tr>
   );
 }
@@ -14,13 +14,13 @@ function Profile() {
   const { loading, data, error } = useUserContext();
 
   if (loading) {
-    return <div className="profile">Loading...</div>;
+    return <div className="dfc-profile">Loading...</div>;
   }
 
   if (error) {
     return (
-      <div className="profile">
-        <div className="error">Oops! Something went wrong...</div>
+      <div className="dfc-profile">
+        <div className="dfc-error">Oops! Something went wrong...</div>
       </div>
     );
   }
@@ -28,7 +28,7 @@ function Profile() {
   const { name, email, phone, website, company } = data;
 
   return (
-    <div className="profile">
+    <div className="dfc-profile">
       <table>
         <tbody>
           <ProfileRow param="Name" value={name} />

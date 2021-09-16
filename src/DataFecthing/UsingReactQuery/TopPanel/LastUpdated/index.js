@@ -6,7 +6,7 @@ export default function LastUpdated() {
   const formattedTime = data?.toLocaleTimeString() ?? '--';
 
   return (
-    <div className="last-updated">
+    <div className="rq-last-updated">
       Last updated:
       <br />
       <strong>{formattedTime}</strong>

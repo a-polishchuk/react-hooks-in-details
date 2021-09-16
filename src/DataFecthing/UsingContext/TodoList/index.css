@@ -1,18 +1,18 @@
-.rq-todo-list {
+.dfc-todo-list {
   margin-top: 10px;
   border: 2px dashed #bbbbbb;
   padding: 20px;
 }
 
-.rq-todo-list th {
+.dfc-todo-list th {
   padding: 10px;
   background-color: #eeeeee;
 }
 
-.rq-todo-list tr:nth-child(even) {
+.dfc-todo-list tr:nth-child(even) {
   background: #eeeeee66;
 }
 
-.rq-todo-list td {
+.dfc-todo-list td {
   padding: 10px;
 }

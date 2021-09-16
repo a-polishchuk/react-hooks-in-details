@@ -1,4 +1,4 @@
-.top-panel {
+.rq-top-panel {
   height: 75px;
   display: flex;
   flex-direction: row;
@@ -6,14 +6,17 @@
   border: 2px dashed #bbbbbb;
   padding-left: 10px;
 }
-.top-panel .avatar-container {
+
+.rq-top-panel .avatar-container {
   margin-left: 10px;
   margin-right: 10px;
 }
-.top-panel .user-name-container {
+
+.rq-top-panel .user-name-container {
   flex: 1;
 }
-.top-panel .last-updated-container {
+
+.rq-top-panel .last-updated-container {
   margin-left: 10px;
   margin-right: 10px;
 }

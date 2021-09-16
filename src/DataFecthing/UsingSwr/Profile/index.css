@@ -1,23 +1,23 @@
-.profile {
+.swr-profile {
   margin-top: 10px;
   border: 2px dashed #bbbbbb;
 }
 
-.profile td {
+.swr-profile td {
   padding: 10px;
 }
 
-.param-cell {
+.swr-param-cell {
   width: 150px;
   background-color: #eeeeee66;
 }
 
-.value-cell {
+.swr-value-cell {
   width: 200px;
   font-weight: 600;
 }
 
-.error {
+.swr-error {
   font-size: 36px;
   color: red;
   padding: 20px;

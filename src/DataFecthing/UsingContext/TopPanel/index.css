@@ -1,21 +1,8 @@
-.top-panel {
+.dfc-top-panel {
   height: 75px;
   display: flex;
   flex-direction: row;
   align-items: center;
   border: 2px dashed #bbbbbb;
   padding-left: 10px;
-}
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: green;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  margin-right: 10px;
 }

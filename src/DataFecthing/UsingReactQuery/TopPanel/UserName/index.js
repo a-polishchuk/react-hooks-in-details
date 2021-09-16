@@ -6,8 +6,8 @@ export default function UserName() {
 
   return (
     <div>
-      <div className="user-name">{data?.name}</div>
-      <div className="user-name-email">{data?.email}</div>
+      <div className="rq-user-name">{data?.name}</div>
+      <div className="rq-user-name-email">{data?.email}</div>
     </div>
   );
 }

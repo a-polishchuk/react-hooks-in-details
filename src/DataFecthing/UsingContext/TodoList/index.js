@@ -1,4 +1,4 @@
-import { useTodoList } from '../hooks/useTodoList';
+import { useTodoContext } from '../TodoContext';
 import './index.css';
 
 function TodoRow({ number, data }) {
@@ -13,11 +13,11 @@ function TodoRow({ number, data }) {
 }
 
 function TodoList() {
-  const { loading, data } = useTodoList();
+  const { loading, data } = useTodoContext();
   const todos = loading ? [] : data;
 
   return (
-    <div className="rq-todo-list">
+    <div className="dfc-todo-list">
       <table>
         <thead>
           <tr>

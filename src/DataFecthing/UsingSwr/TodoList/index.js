@@ -1,3 +1,4 @@
+import Button from 'components/Button';
 import { useTodoList } from '../hooks/useTodoList';
 import './index.css';
 
@@ -13,15 +14,26 @@ function TodoRow({ number, data }) {
 }
 
 function TodoList() {
-  const { loading, data } = useTodoList();
+  const { loading, data, mutate } = useTodoList();
   const todos = loading ? [] : data;
 
+  const handleRefresh = () => {
+    mutate();
+  };
+
   return (
-    <div className="todo-list">
+    <div className="swr-todo-list">
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th></th>
+            <th className="title">Todos List</th>
+            <th>
+              <Button text="Refresh" onClick={handleRefresh} />
+            </th>
+          </tr>
+          <tr>
+            <th>#</th>
             <th>Title</th>
             <th>Completed</th>
           </tr>

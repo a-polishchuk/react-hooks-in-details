@@ -4,8 +4,8 @@ import './index.css';
 function ProfileRow({ param, value }) {
   return (
     <tr>
-      <td className="param-cell">{param}</td>
-      <td className="value-cell">{value}</td>
+      <td className="swr-param-cell">{param}</td>
+      <td className="swr-value-cell">{value}</td>
     </tr>
   );
 }
@@ -14,13 +14,13 @@ function Profile() {
   const { loading, data, error } = useUser();
 
   if (loading) {
-    return <div className="profile">Loading...</div>;
+    return <div className="swr-profile">Loading...</div>;
   }
 
   if (error) {
     return (
-      <div className="profile">
-        <div className="error">Oops! Something went wrong...</div>
+      <div className="swr-profile">
+        <div className="swr-error">Oops! Something went wrong...</div>
       </div>
     );
   }
@@ -28,7 +28,7 @@ function Profile() {
   const { name, email, phone, website, company } = data;
 
   return (
-    <div className="profile">
+    <div className="swr-profile">
       <table>
         <tbody>
           <ProfileRow param="Name" value={name} />
