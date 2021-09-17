@@ -21,7 +21,7 @@ function TodoList() {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Title</th>
             <th>Completed</th>
           </tr>

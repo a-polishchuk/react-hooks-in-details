@@ -9,9 +9,9 @@ const USER_ID = 1;
 export default function UsingContext() {
   return (
     <UserContextProvider userId={USER_ID}>
-      <TopPanel />
-      <Profile />
       <TodoContextProvider userId={USER_ID}>
+        <TopPanel />
+        <Profile />
         <TodoList />
       </TodoContextProvider>
     </UserContextProvider>

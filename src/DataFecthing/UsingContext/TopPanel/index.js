@@ -1,18 +1,20 @@
-import { useUserContext } from '../UserContext';
 import Avatar from './Avatar';
+import UserName from './UserName';
+import TodoCounter from './TodoCounter';
 import './index.css';
 
 export default function TopPanel() {
-  const { loading, data } = useUserContext();
-
-  if (loading) {
-    return <div className="dfc-top-panel">Loading...</div>;
-  }
-
   return (
     <div className="dfc-top-panel">
-      <Avatar />
-      <span>{data.name}</span>
+      <div className="avatar-container">
+        <Avatar />
+      </div>
+      <div className="user-name-container">
+        <UserName />
+      </div>
+      <div className="todo-counter-container">
+        <TodoCounter />
+      </div>
     </div>
   );
 }

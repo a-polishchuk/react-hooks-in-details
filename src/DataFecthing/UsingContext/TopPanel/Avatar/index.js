@@ -3,8 +3,9 @@ import './index.css';
 
 export default function Avatar() {
   const { data } = useUserContext();
+  const userName = data?.name ?? '';
 
-  const initials = data.name
+  const initials = userName
     .split(' ')
     .map((w) => w.charAt(0))
     .join('');

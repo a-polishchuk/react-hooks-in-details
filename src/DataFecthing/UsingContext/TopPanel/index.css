@@ -5,4 +5,19 @@
   align-items: center;
   border: 2px dashed #bbbbbb;
   padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dfc-top-panel .avatar-container {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dfc-top-panel .user-name-container {
+  flex: 1;
+}
+
+.dfc-top-panel .todo-counter-container {
+  margin-left: 10px;
+  margin-right: 10px;
 }
