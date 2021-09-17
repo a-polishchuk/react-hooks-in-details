@@ -1,6 +1,8 @@
 import Avatar from './Avatar';
 import UserName from './UserName';
+import TodoCounter from './TodoCounter';
 import LastUpdated from './LastUpdated';
+import RefreshAll from './RefreshAll';
 import './index.css';
 
 export default function TopPanel() {
@@ -12,8 +14,14 @@ export default function TopPanel() {
       <div className="user-name-container">
         <UserName />
       </div>
-      <div className="last-updated-container">
+      <div className="widget-container">
+        <TodoCounter />
+      </div>
+      <div className="widget-container">
         <LastUpdated />
+      </div>
+      <div className="widget-container">
+        <RefreshAll />
       </div>
     </div>
   );

@@ -4,6 +4,10 @@
   padding: 20px;
 }
 
+.rq-todo-list .title {
+  font-size: 24px;
+}
+
 .rq-todo-list th {
   padding: 10px;
   background-color: #eeeeee;
