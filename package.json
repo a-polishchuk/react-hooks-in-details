@@ -12,6 +12,7 @@
     "react-dom": "^17.0.1",
     "react-query": "^3.23.2",
     "react-scripts": "4.0.0",
+    "react-use": "^17.3.1",
     "swr": "^1.0.0",
     "uuid": "^8.3.2",
     "victory": "^35.5.0",
