@@ -39,7 +39,7 @@ import {
   DataFetchingSwr,
   DataFetchingReactQuery,
 } from './DataFecthing';
-import SnakeGame from './miniprojects/SnakeGame';
+import VeganDragon from './miniprojects/VeganDragon';
 import {
   OrderedList,
   GeneratedKey,
@@ -109,7 +109,7 @@ export default function App() {
       </Section>
 
       <Section title="Mini projects">
-        <Chapter title="Vegan Dragon" component={SnakeGame} />
+        <Chapter title="Vegan Dragon" component={VeganDragon} />
       </Section>
 
       <Section title="Bonus">

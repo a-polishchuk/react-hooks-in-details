@@ -1,5 +1,5 @@
-import { useSnakeContext } from '../SnakeContext';
-import SnakeCell from './SnakeCell';
+import { useSnakeContext } from '../GameContext/GameContext';
+import Cell from './Cell';
 import { styles } from './styles';
 
 function mapCells(grid) {
@@ -9,7 +9,7 @@ function mapCells(grid) {
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       cells.push(
-        <SnakeCell
+        <Cell
           key={`[${i}, ${j}]`}
           row={i + 1}
           col={j + 1}
@@ -21,7 +21,7 @@ function mapCells(grid) {
   return cells;
 }
 
-export default function SnakeGrid() {
+export default function Grid() {
   const { grid } = useSnakeContext();
 
   return (

@@ -1,5 +1,4 @@
 export const MOVE_DELAY = 500;
-
 export const SPAWN_DELAY = 3000;
 
 export const VEGETABLES = [
@@ -29,4 +28,11 @@ export const ActionType = {
   MOVE: 'move',
   SPAWN_VEGETABLE: 'spawn_vegetable',
   RESET: 'reset',
+};
+
+export const GameStatus = {
+  IDLE: 'idle',
+  PLAYING: 'playing',
+  PAUSED: 'paused',
+  FINISHED: 'finshed',
 };

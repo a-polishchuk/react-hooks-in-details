@@ -18,11 +18,11 @@ function getStyle(gridRow, gridColumn, isSnake) {
   };
 }
 
-function SnakeCell({ row, col, content }) {
+function Cell({ row, col, content }) {
   const isSnake = content === CellType.SNAKE || content === CellType.SNAKE_HEAD;
   const style = getStyle(row, col, isSnake);
 
   return <div style={style}>{content === CellType.SNAKE ? '' : content}</div>;
 }
 
-export default memo(SnakeCell);
+export default memo(Cell);

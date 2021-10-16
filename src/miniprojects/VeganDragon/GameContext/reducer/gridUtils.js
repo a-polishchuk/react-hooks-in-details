@@ -1,4 +1,4 @@
-import { Direction } from './constants';
+import { Direction } from '../../constants';
 
 export function getNextCell(row, col, rows, cols, direction) {
   let newRow = row;

@@ -1,4 +1,4 @@
-import { ActionType, CellType, Direction, VEGETABLES } from './constants';
+import { ActionType, CellType, GameStatus, VEGETABLES } from './constants';
 import { getNextCell, getPrevCell } from './gridUtils';
 
 const GRID_SIZE = 10;
@@ -8,6 +8,7 @@ const SNAKE_HEAD = {
 };
 
 export const INITIAL_STATE = {
+  gameStatus: GameStatus.IDLE,
   rows: GRID_SIZE,
   cols: GRID_SIZE,
   vegetables: [],
