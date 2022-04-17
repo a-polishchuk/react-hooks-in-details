@@ -1,4 +1,4 @@
-import { ActionType, CellType, GameStatus, VEGETABLES } from './constants';
+import { ActionType, CellType, GameStatus, VEGETABLES } from '../../constants';
 import { getNextCell, getPrevCell } from './gridUtils';
 
 const GRID_SIZE = 10;

@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { useInterval } from 'react-use';
 import { reducer, INITIAL_STATE } from './reducer';
-import { ActionType, GameStatus, MOVE_DELAY, SPAWN_DELAY } from './constants';
+import { ActionType, GameStatus, MOVE_DELAY, SPAWN_DELAY } from '../constants';
 import { useDirectionRef } from './useDirectionRef';
 import GameContext from './GameContext';
 

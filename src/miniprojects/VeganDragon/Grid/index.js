@@ -1,4 +1,4 @@
-import { useSnakeContext } from '../GameContext/GameContext';
+import { useGameContext } from '../GameContext/GameContext';
 import Cell from './Cell';
 import { styles } from './styles';
 
@@ -22,7 +22,7 @@ function mapCells(grid) {
 }
 
 export default function Grid() {
-  const { grid } = useSnakeContext();
+  const { grid } = useGameContext();
 
   return (
     <div style={styles.gridContainer}>
