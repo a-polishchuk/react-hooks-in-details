@@ -7,6 +7,7 @@ import StrictMode from './StrictMode';
 import Children from './Children';
 import Events from './Events';
 import EventDelegation from './EventDelegation';
+import { RandomContainerTest } from './Conditional/RandomContainer';
 
 export {
   OrderedList,
@@ -18,4 +19,5 @@ export {
   Children,
   Events,
   EventDelegation,
+  RandomContainerTest,
 };

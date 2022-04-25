@@ -50,6 +50,7 @@ import {
   Children,
   Events,
   EventDelegation,
+  RandomContainerTest,
 } from './Bonus';
 
 export default function App() {
@@ -117,6 +118,9 @@ export default function App() {
           <Chapter title="Ordered list" component={OrderedList} />
           <Chapter title="Generated key" component={GeneratedKey} />
           <Chapter title="Conditional" component={ConditionalKey} />
+        </Section>
+        <Section title="Conditional">
+          <Chapter title="Random container" component={RandomContainerTest} />
         </Section>
         <Chapter title="Updated batching" component={UpdatesBatching} />
         <Chapter title="DOM manipulation" component={DomManipulation} />
