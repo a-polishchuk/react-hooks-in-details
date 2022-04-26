@@ -52,6 +52,7 @@ import {
   EventDelegation,
   RandomContainerTest,
   MemoContainerTest,
+  DataRequestTest,
 } from './Bonus';
 
 export default function App() {
@@ -123,6 +124,9 @@ export default function App() {
         <Section title="Lifecycle">
           <Chapter title="Random container" component={RandomContainerTest} />
           <Chapter title="Memoized container" component={MemoContainerTest} />
+        </Section>
+        <Section title="Conditional rendering">
+          <Chapter title="Data request" component={DataRequestTest} />
         </Section>
         <Chapter title="Updated batching" component={UpdatesBatching} />
         <Chapter title="DOM manipulation" component={DomManipulation} />
