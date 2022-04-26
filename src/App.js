@@ -53,6 +53,7 @@ import {
   RandomContainerTest,
   MemoContainerTest,
   DataRequestTest,
+  SwitchTest,
 } from './Bonus';
 
 export default function App() {
@@ -127,6 +128,7 @@ export default function App() {
         </Section>
         <Section title="Conditional rendering">
           <Chapter title="Data request" component={DataRequestTest} />
+          <Chapter title="Switch" component={SwitchTest} />
         </Section>
         <Chapter title="Updated batching" component={UpdatesBatching} />
         <Chapter title="DOM manipulation" component={DomManipulation} />

@@ -11,6 +11,7 @@ import EventDelegation from './EventDelegation';
 import { RandomContainerTest } from './Lifecycle/RandomContainer';
 import { MemoContainerTest } from './Lifecycle/MemoContainer';
 import { DataRequestTest } from './Conditional/DataRequestTest';
+import { SwitchTest } from './Conditional/SwitchTest';
 
 export {
   OrderedList,
@@ -25,4 +26,5 @@ export {
   RandomContainerTest,
   MemoContainerTest,
   DataRequestTest,
+  SwitchTest,
 };
