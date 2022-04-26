@@ -7,7 +7,9 @@ import StrictMode from './StrictMode';
 import Children from './Children';
 import Events from './Events';
 import EventDelegation from './EventDelegation';
-import { RandomContainerTest } from './Conditional/RandomContainer';
+
+import { RandomContainerTest } from './Lifecycle/RandomContainer';
+import { MemoContainerTest } from './Lifecycle/MemoContainer';
 
 export {
   OrderedList,
@@ -20,4 +22,5 @@ export {
   Events,
   EventDelegation,
   RandomContainerTest,
+  MemoContainerTest,
 };

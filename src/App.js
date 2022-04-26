@@ -51,6 +51,7 @@ import {
   Events,
   EventDelegation,
   RandomContainerTest,
+  MemoContainerTest,
 } from './Bonus';
 
 export default function App() {
@@ -119,8 +120,9 @@ export default function App() {
           <Chapter title="Generated key" component={GeneratedKey} />
           <Chapter title="Conditional" component={ConditionalKey} />
         </Section>
-        <Section title="Conditional">
+        <Section title="Lifecycle">
           <Chapter title="Random container" component={RandomContainerTest} />
+          <Chapter title="Memoized container" component={MemoContainerTest} />
         </Section>
         <Chapter title="Updated batching" component={UpdatesBatching} />
         <Chapter title="DOM manipulation" component={DomManipulation} />

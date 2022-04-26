@@ -27,7 +27,7 @@ function paragraphStyle(color) {
 }
 
 export function RandomContainerTest() {
-  const [, setDummyState] = useState();
+  const [, setDummyState] = useState(null);
 
   const rerender = () => {
     setDummyState({});
@@ -36,7 +36,7 @@ export function RandomContainerTest() {
   return (
     <>
       <LoggedLifecycle tag="Button" color="orange">
-        <Button text="Re-render" onClick={rerender} />
+        <Button text="RE-render" onClick={rerender} />
       </LoggedLifecycle>
       <RandomContainer>
         <LoggedLifecycle tag="First" color="red">
