@@ -14,7 +14,7 @@ const MemoRenderFunc = memo(({ renderContent }) => {
   return renderContent();
 });
 
-export function MemoContainerTest() {
+export default function MemoContainerTest() {
   const [, setDummyState] = useState(null);
 
   const rerender = () => {

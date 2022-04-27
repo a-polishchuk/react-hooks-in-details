@@ -26,7 +26,7 @@ function paragraphStyle(color) {
   };
 }
 
-export function RandomContainerTest() {
+export default function RandomContainerTest() {
   const [, setDummyState] = useState(null);
 
   const rerender = () => {

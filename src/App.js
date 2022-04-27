@@ -40,21 +40,7 @@ import {
   DataFetchingReactQuery,
 } from './DataFecthing';
 import VeganDragon from './miniprojects/VeganDragon';
-import {
-  OrderedList,
-  GeneratedKey,
-  ConditionalKey,
-  UpdatesBatching,
-  DomManipulation,
-  StrictMode,
-  Children,
-  Events,
-  EventDelegation,
-  RandomContainerTest,
-  MemoContainerTest,
-  DataRequestTest,
-  SwitchTest,
-} from './Bonus';
+import { BonusSection } from './menu/BonusSection';
 
 export default function App() {
   return (
@@ -116,27 +102,7 @@ export default function App() {
         <Chapter title="Vegan Dragon" component={VeganDragon} />
       </Section>
 
-      <Section title="Bonus">
-        <Section title="Keys">
-          <Chapter title="Ordered list" component={OrderedList} />
-          <Chapter title="Generated key" component={GeneratedKey} />
-          <Chapter title="Conditional" component={ConditionalKey} />
-        </Section>
-        <Section title="Lifecycle">
-          <Chapter title="Random container" component={RandomContainerTest} />
-          <Chapter title="Memoized container" component={MemoContainerTest} />
-        </Section>
-        <Section title="Conditional rendering">
-          <Chapter title="Data request" component={DataRequestTest} />
-          <Chapter title="Switch" component={SwitchTest} />
-        </Section>
-        <Chapter title="Updated batching" component={UpdatesBatching} />
-        <Chapter title="DOM manipulation" component={DomManipulation} />
-        <Chapter title="Strict mode" component={StrictMode} />
-        <Chapter title="Children" component={Children} />
-        <Chapter title="Events" component={Events} />
-        <Chapter title="Event delegation" component={EventDelegation} />
-      </Section>
+      <BonusSection />
     </MasterDetail>
   );
 }

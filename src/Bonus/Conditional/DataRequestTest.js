@@ -42,7 +42,7 @@ const containerStyle = {
   alignItems: 'center',
 };
 
-export function DataRequestTest() {
+export default function DataRequestTest() {
   return (
     <div style={containerStyle}>
       <DataRequest

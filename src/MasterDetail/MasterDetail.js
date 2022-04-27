@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  Suspense,
+} from 'react';
+import Loading from './Loading';
 import './MasterDetail.css';
 
 const Context = createContext();
@@ -31,7 +38,11 @@ export default function MasterDetail({ children }) {
       <div className="master">
         <Context.Provider value={contextValue}>{children}</Context.Provider>
       </div>
-      <div className="detail">{DetailComponent && <DetailComponent />}</div>
+      <div className="detail">
+        <Suspense fallback={<Loading />}>
+          {DetailComponent && <DetailComponent />}
+        </Suspense>
+      </div>
     </div>
   );
 }

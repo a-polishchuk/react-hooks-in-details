@@ -2,7 +2,7 @@ import Button from 'components/Button';
 import { useState, useRef } from 'react';
 import { Switch, Case, DefaultCase } from './Switch';
 
-export function SwitchTest() {
+export default function SwitchTest() {
   const [value, setValue] = useState(0);
   const inputRef = useRef(null);
 
