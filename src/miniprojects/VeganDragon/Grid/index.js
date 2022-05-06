@@ -22,7 +22,8 @@ function mapCells(grid) {
 }
 
 export default function Grid() {
-  const { grid } = useGameContext();
+  const [state] = useGameContext();
+  const { grid } = state;
 
   return (
     <div style={styles.gridContainer}>

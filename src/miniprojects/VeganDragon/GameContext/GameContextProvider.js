@@ -29,5 +29,9 @@ export default function GameContextProvider({ children }) {
     isPlaying ? SPAWN_DELAY : null
   );
 
-  return <GameContext.Provider value={state}>{children}</GameContext.Provider>;
+  return (
+    <GameContext.Provider value={[state, dispatch]}>
+      {children}
+    </GameContext.Provider>
+  );
 }

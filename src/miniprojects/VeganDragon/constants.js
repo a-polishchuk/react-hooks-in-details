@@ -1,5 +1,6 @@
 export const MOVE_DELAY = 500;
 export const SPAWN_DELAY = 3000;
+export const POINTS_INCREMENT = 100;
 
 export const VEGETABLES = [
   '\u{1F951}',
@@ -25,6 +26,9 @@ export const Direction = {
 };
 
 export const ActionType = {
+  PLAY: 'play',
+  PAUSE: 'pause',
+  FINISH: 'finish',
   MOVE: 'move',
   SPAWN_VEGETABLE: 'spawn_vegetable',
   RESET: 'reset',
@@ -34,5 +38,5 @@ export const GameStatus = {
   IDLE: 'idle',
   PLAYING: 'playing',
   PAUSED: 'paused',
-  FINISHED: 'finshed',
+  FINISHED: 'finished',
 };

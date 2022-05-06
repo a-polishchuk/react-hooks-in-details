@@ -1,4 +1,8 @@
-import { Direction } from '../../constants';
+import { CellType, Direction } from '../../constants';
+
+export function getRandomInt(max) {
+  return Math.round(Math.random() * max);
+}
 
 export function getNextCell(row, col, rows, cols, direction) {
   let newRow = row;
@@ -46,4 +50,32 @@ export function getPrevCell(row, col, rows, cols, direction) {
   }
 
   return [newRow, newCol];
+}
+
+export function buildGrid(rows, cols, snakeHead, vegetables) {
+  const grid = [];
+
+  for (let r = 0; r < rows; r++) {
+    const row = [];
+    for (let c = 0; c < cols; c++) {
+      row.push('');
+    }
+    grid.push(row);
+  }
+
+  for (const v of vegetables) {
+    grid[v.row][v.col] = v.character;
+  }
+
+  let segment = snakeHead;
+  while (segment) {
+    const { row, col } = segment;
+    grid[row][col] = CellType.SNAKE;
+    segment = segment.next;
+  }
+
+  const { row: headRow, col: headCol } = snakeHead;
+  grid[headRow][headCol] = CellType.SNAKE_HEAD;
+
+  return grid;
 }
