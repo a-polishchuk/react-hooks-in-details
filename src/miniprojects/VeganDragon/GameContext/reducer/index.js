@@ -1,7 +1,8 @@
 import { ActionType, GameStatus } from '../../constants';
 import { buildGrid } from './gridUtils';
-import { spawnVegetable } from './spawnVegetable';
+import { setGameStatus } from './setGameStatus';
 import { move } from './move';
+import { spawnVegetable } from './spawnVegetable';
 
 const GRID_SIZE = 10;
 const SNAKE_HEAD = {
@@ -19,13 +20,6 @@ export const INITIAL_STATE = {
   grid: buildGrid(GRID_SIZE, GRID_SIZE, SNAKE_HEAD, []),
 };
 
-function setGameStatus(state, gameStatus) {
-  return {
-    ...state,
-    gameStatus,
-  };
-}
-
 export function reducer(state, action) {
   switch (action.type) {
     case ActionType.PLAY:
@@ -34,12 +28,15 @@ export function reducer(state, action) {
       return setGameStatus(state, GameStatus.PAUSED);
     case ActionType.FINISH:
       return setGameStatus(state, GameStatus.FINISHED);
+    case ActionType.PLAY_AGAIN:
+      return {
+        ...INITIAL_STATE,
+        gameStatus: GameStatus.PLAYING,
+      };
     case ActionType.MOVE:
       return move(state, action.payload);
     case ActionType.SPAWN_VEGETABLE:
       return spawnVegetable(state);
-    case ActionType.RESET:
-      return INITIAL_STATE;
     default:
       return state;
   }

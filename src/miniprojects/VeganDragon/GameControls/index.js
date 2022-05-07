@@ -2,6 +2,7 @@ import Button from 'components/Button';
 import { Switch, Case } from 'Bonus/Conditional/Switch';
 import { useGameContext } from '../GameContext/GameContext';
 import { ActionType, GameStatus } from '../constants';
+import Modal from './Modal';
 
 const styles = {
   root: {
@@ -34,9 +35,25 @@ export default function GameControls() {
 
   const handlePlay = () => dispatch({ type: ActionType.PLAY });
   const handlePause = () => dispatch({ type: ActionType.PAUSE });
+  const handlePlayAgain = () => dispatch({ type: ActionType.PLAY_AGAIN });
 
-  // TODO: show game over screen
   // TODO: store high scores in a local storage
+
+  if (gameStatus === GameStatus.FINISHED) {
+    return (
+      <Modal
+        title="Game Over"
+        message={
+          <>
+            You scored <b>{points}</b> points.
+          </>
+        }
+        buttons={{
+          'Play Again': handlePlayAgain,
+        }}
+      />
+    );
+  }
 
   return (
     <div style={styles.root}>

@@ -1,10 +1,15 @@
+import { CellType, GameStatus, POINTS_INCREMENT } from '../../constants';
 import { getPrevCell, getNextCell, buildGrid } from './gridUtils';
-import { POINTS_INCREMENT } from '../../constants';
+import { setGameStatus } from './setGameStatus';
 
-function moveSnake(rows, cols, head, direction) {
-  const { row, col } = head;
+function moveSnake(state, direction) {
+  const { rows, cols, snakeHead, grid } = state;
+  const { row, col } = snakeHead;
   const [newRow, newCol] = getNextCell(row, col, rows, cols, direction);
-  return moveSegment(head, newRow, newCol);
+  if (grid[newRow][newCol] === CellType.SNAKE) {
+    return null;
+  }
+  return moveSegment(snakeHead, newRow, newCol);
 }
 
 function moveSegment(segment, row, col) {
@@ -16,8 +21,8 @@ function moveSegment(segment, row, col) {
 }
 
 // TODO: fix the position of new cell (get the direction from tail)
-// TODO: check game over condition
-function checkIntersection(rows, cols, snakeHead, vegetables, direction) {
+function checkIntersection(state, direction, snakeHead) {
+  const { rows, cols, vegetables } = state;
   let intersections = 0;
   let segment = snakeHead;
   let tail = snakeHead;
@@ -51,15 +56,12 @@ function checkIntersection(rows, cols, snakeHead, vegetables, direction) {
 }
 
 export function move(state, direction) {
-  const { rows, cols, snakeHead, vegetables, points } = state;
-  const newSnakeHead = moveSnake(rows, cols, snakeHead, direction);
-  const intersections = checkIntersection(
-    rows,
-    cols,
-    newSnakeHead,
-    vegetables,
-    direction
-  );
+  const { rows, cols, vegetables, points } = state;
+  const newSnakeHead = moveSnake(state, direction);
+  if (!newSnakeHead) {
+    return setGameStatus(state, GameStatus.FINISHED);
+  }
+  const intersections = checkIntersection(state, direction, newSnakeHead);
   return {
     ...state,
     snakeHead: newSnakeHead,

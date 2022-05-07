@@ -29,9 +29,9 @@ export const ActionType = {
   PLAY: 'play',
   PAUSE: 'pause',
   FINISH: 'finish',
+  PLAY_AGAIN: 'play_again',
   MOVE: 'move',
   SPAWN_VEGETABLE: 'spawn_vegetable',
-  RESET: 'reset',
 };
 
 export const GameStatus = {
