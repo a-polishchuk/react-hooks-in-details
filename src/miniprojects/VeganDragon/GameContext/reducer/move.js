@@ -21,6 +21,8 @@ function moveSegment(segment, row, col) {
 }
 
 // TODO: fix the position of new cell (get the direction from tail)
+// TODO: snake can't turn back (in the opposite direction, it can only move forward, left of right)
+
 function checkIntersection(state, direction, snakeHead) {
   const { rows, cols, vegetables } = state;
   let intersections = 0;

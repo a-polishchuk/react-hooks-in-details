@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 function isFunction(valueOrFunction) {
   return typeof valueOrFunction === 'function';
@@ -22,15 +22,20 @@ export function useLocalStorage(key, initialValue) {
     }
   });
 
-  const setValue = (newValue) => {
-    try {
-      const evaluated = isFunction(newValue) ? newValue(storedValue) : newValue;
-      window.localStorage.setItem(key, JSON.stringify(evaluated));
-      setStoredValue(evaluated);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const setValue = useCallback(
+    (newValue) => {
+      try {
+        const evaluated = isFunction(newValue)
+          ? newValue(storedValue)
+          : newValue;
+        window.localStorage.setItem(key, JSON.stringify(evaluated));
+        setStoredValue(evaluated);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    [key, storedValue]
+  );
 
   return [storedValue, setValue];
 }

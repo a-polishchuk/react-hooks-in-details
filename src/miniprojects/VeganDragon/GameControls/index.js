@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import Button from 'components/Button';
 import { Switch, Case } from 'Bonus/Conditional/Switch';
+import { useLocalStorage } from 'HooksCollection/Chapter-21/useLocalStorage';
 import { useGameContext } from '../GameContext/GameContext';
-import { ActionType, GameStatus } from '../constants';
+import { ActionType, GameStatus, HIGH_SCORE_KEY } from '../constants';
 import Modal from './Modal';
 
 const styles = {
@@ -14,8 +16,12 @@ const styles = {
     padding: 10,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  score: {
+    fontSize: 32,
+    fontWeight: 'bold',
   },
   buttons: {
     display: 'flex',
@@ -33,11 +39,20 @@ export default function GameControls() {
   const [state, dispatch] = useGameContext();
   const { gameStatus, points } = state;
 
+  const [highScore, setHighScore] = useLocalStorage(HIGH_SCORE_KEY, 0);
+  const [prevHighScore, setPrevHighScore] = useState(highScore);
+
+  useEffect(() => {
+    if (gameStatus === GameStatus.FINISHED) {
+      setPrevHighScore(highScore);
+      setHighScore(Math.max(highScore, points));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameStatus]);
+
   const handlePlay = () => dispatch({ type: ActionType.PLAY });
   const handlePause = () => dispatch({ type: ActionType.PAUSE });
   const handlePlayAgain = () => dispatch({ type: ActionType.PLAY_AGAIN });
-
-  // TODO: store high scores in a local storage
 
   if (gameStatus === GameStatus.FINISHED) {
     return (
@@ -45,7 +60,14 @@ export default function GameControls() {
         title="Game Over"
         message={
           <>
-            You scored <b>{points}</b> points.
+            You scored <b>{points}</b> points!
+            {points > prevHighScore ? (
+              <p>
+                <b>This is a new high score!</b>
+              </p>
+            ) : (
+              <p>High score: {prevHighScore}</p>
+            )}
           </>
         }
         buttons={{
@@ -57,6 +79,7 @@ export default function GameControls() {
 
   return (
     <div style={styles.root}>
+      <div style={styles.score}>{points} pts</div>
       <div style={styles.buttons}>
         <Switch value={gameStatus}>
           <Case value={GameStatus.IDLE}>
@@ -67,11 +90,6 @@ export default function GameControls() {
           </Case>
           <Case value={GameStatus.PAUSED}>
             <Button text="Resume" onClick={handlePlay} />
-          </Case>
-          <Case condition={(value) => value !== GameStatus.IDLE}>
-            <div style={styles.points}>
-              Points: <strong>{points}</strong>
-            </div>
           </Case>
         </Switch>
       </div>
