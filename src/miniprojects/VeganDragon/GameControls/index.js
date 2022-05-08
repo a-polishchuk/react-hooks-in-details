@@ -5,6 +5,7 @@ import { useLocalStorage } from 'HooksCollection/Chapter-21/useLocalStorage';
 import { useGameContext } from '../GameContext/GameContext';
 import { ActionType, GameStatus, HIGH_SCORE_KEY } from '../constants';
 import Modal from './Modal';
+import Score from './Score';
 
 const styles = {
   root: {
@@ -50,49 +51,66 @@ export default function GameControls() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameStatus]);
 
-  const handlePlay = () => dispatch({ type: ActionType.PLAY });
-  const handlePause = () => dispatch({ type: ActionType.PAUSE });
-  const handlePlayAgain = () => dispatch({ type: ActionType.PLAY_AGAIN });
-
   if (gameStatus === GameStatus.FINISHED) {
     return (
-      <Modal
-        title="Game Over"
-        message={
-          <>
-            You scored <b>{points}</b> points!
-            {points > prevHighScore ? (
-              <p>
-                <b>This is a new high score!</b>
-              </p>
-            ) : (
-              <p>High score: {prevHighScore}</p>
-            )}
-          </>
-        }
-        buttons={{
-          'Play Again': handlePlayAgain,
-        }}
+      <GameOverModal
+        points={points}
+        prevHighScore={prevHighScore}
+        onPlayAgain={() => dispatch({ type: ActionType.PLAY_AGAIN })}
       />
     );
   }
 
   return (
     <div style={styles.root}>
-      <div style={styles.score}>{points} pts</div>
+      <div style={styles.score}>
+        <Score value={points} delay={100} step={15} />
+      </div>
       <div style={styles.buttons}>
         <Switch value={gameStatus}>
           <Case value={GameStatus.IDLE}>
-            <Button text="Start" onClick={handlePlay} />
+            <Button
+              text="Start"
+              onClick={() => dispatch({ type: ActionType.PLAY })}
+            />
           </Case>
           <Case value={GameStatus.PLAYING}>
-            <Button text="Pause" onClick={handlePause} />
+            <Button
+              text="Pause"
+              onClick={() => dispatch({ type: ActionType.PAUSE })}
+            />
           </Case>
           <Case value={GameStatus.PAUSED}>
-            <Button text="Resume" onClick={handlePlay} />
+            <Button
+              text="Resume"
+              onClick={() => dispatch({ type: ActionType.PLAY })}
+            />
           </Case>
         </Switch>
       </div>
     </div>
+  );
+}
+
+function GameOverModal({ points, prevHighScore, onPlayAgain }) {
+  return (
+    <Modal
+      title="Game Over"
+      message={
+        <>
+          You scored <b>{points}</b> points!
+          {points > prevHighScore ? (
+            <p>
+              <b>This is a new high score!</b>
+            </p>
+          ) : (
+            <p>High score: {prevHighScore}</p>
+          )}
+        </>
+      }
+      buttons={{
+        'Play Again': onPlayAgain,
+      }}
+    />
   );
 }
