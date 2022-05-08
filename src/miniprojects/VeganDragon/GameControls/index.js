@@ -6,6 +6,7 @@ import { useGameContext } from '../GameContext/GameContext';
 import { ActionType, GameStatus, HIGH_SCORE_KEY } from '../constants';
 import Modal from './Modal';
 import Score from './Score';
+import CurrentDirection from './CurrentDirection';
 
 const styles = {
   root: {
@@ -23,6 +24,7 @@ const styles = {
   score: {
     fontSize: 32,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   buttons: {
     display: 'flex',
@@ -38,7 +40,7 @@ const styles = {
 
 export default function GameControls() {
   const [state, dispatch] = useGameContext();
-  const { gameStatus, points } = state;
+  const { gameStatus, points, direction } = state;
 
   const [highScore, setHighScore] = useLocalStorage(HIGH_SCORE_KEY, 0);
   const [prevHighScore, setPrevHighScore] = useState(highScore);
@@ -64,7 +66,13 @@ export default function GameControls() {
   return (
     <div style={styles.root}>
       <div style={styles.score}>
-        <Score value={points} delay={100} step={15} />
+        {gameStatus !== GameStatus.IDLE && (
+          <>
+            <Score value={points} delay={100} step={15} />
+            <br />
+            <CurrentDirection direction={direction} />
+          </>
+        )}
       </div>
       <div style={styles.buttons}>
         <Switch value={gameStatus}>

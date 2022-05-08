@@ -1,8 +1,9 @@
-import { ActionType, GameStatus } from '../../constants';
+import { ActionType, GameStatus, Direction } from '../../constants';
 import { buildGrid } from './gridUtils';
 import { setGameStatus } from './setGameStatus';
-import { move } from './move';
 import { spawnVegetable } from './spawnVegetable';
+import { setDirection } from './setDirection';
+import { move } from './move';
 
 const GRID_SIZE = 10;
 const SNAKE_HEAD = {
@@ -13,6 +14,7 @@ const SNAKE_HEAD = {
 export const INITIAL_STATE = {
   gameStatus: GameStatus.IDLE,
   points: 0,
+  direction: Direction.UP,
   rows: GRID_SIZE,
   cols: GRID_SIZE,
   vegetables: [],
@@ -37,6 +39,8 @@ export function reducer(state, action) {
       return move(state, action.payload);
     case ActionType.SPAWN_VEGETABLE:
       return spawnVegetable(state);
+    case ActionType.SET_DIRECTION:
+      return setDirection(state, action.payload);
     default:
       return state;
   }

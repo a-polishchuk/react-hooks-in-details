@@ -43,7 +43,7 @@ export default function Modal({ title, message, buttons }) {
         <div style={styles.message}>{message}</div>
         <div style={styles.buttons}>
           {Object.entries(buttons).map(([key, value]) => (
-            <Button text={key} onClick={value} />
+            <Button key={key} text={key} onClick={value} />
           ))}
         </div>
       </div>

@@ -2,8 +2,8 @@ import { CellType, GameStatus, POINTS_INCREMENT } from '../../constants';
 import { getNextCell, buildGrid, findDirection, findTail } from './gridUtils';
 import { setGameStatus } from './setGameStatus';
 
-function moveSnake(state, direction) {
-  const { rows, cols, snakeHead, grid } = state;
+function moveSnake(state) {
+  const { rows, cols, snakeHead, grid, direction } = state;
   const { row, col } = snakeHead;
   const [newRow, newCol] = getNextCell(row, col, rows, cols, direction);
   if (grid[newRow][newCol] === CellType.SNAKE) {
@@ -19,8 +19,6 @@ function moveSegment(segment, row, col) {
     next: segment.next && moveSegment(segment.next, segment.row, segment.col),
   };
 }
-
-// TODO: snake can't turn back (in the opposite direction, it can only move forward, left of right)
 
 function checkIntersection(state, oldSnakeHead, snakeHead) {
   const { rows, cols, vegetables } = state;
@@ -70,9 +68,9 @@ function checkIntersection(state, oldSnakeHead, snakeHead) {
   return intersections;
 }
 
-export function move(state, direction) {
+export function move(state) {
   const { rows, cols, vegetables, points, snakeHead } = state;
-  const newSnakeHead = moveSnake(state, direction);
+  const newSnakeHead = moveSnake(state);
   if (!newSnakeHead) {
     return setGameStatus(state, GameStatus.FINISHED);
   }

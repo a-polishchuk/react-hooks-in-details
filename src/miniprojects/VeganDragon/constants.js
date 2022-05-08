@@ -48,6 +48,7 @@ export const ActionType = {
   PLAY_AGAIN: 'play_again',
   MOVE: 'move',
   SPAWN_VEGETABLE: 'spawn_vegetable',
+  SET_DIRECTION: 'set_direction',
 };
 
 export const GameStatus = {
