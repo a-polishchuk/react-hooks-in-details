@@ -25,6 +25,20 @@ export const Direction = {
   RIGHT: 'right',
   DOWN: 'down',
   LEFT: 'left',
+  opposite: (direction) => {
+    switch (direction) {
+      case Direction.DOWN:
+        return Direction.UP;
+      case Direction.LEFT:
+        return Direction.RIGHT;
+      case Direction.UP:
+        return Direction.DOWN;
+      case Direction.RIGHT:
+        return Direction.LEFT;
+      default:
+        throw new Error(`Unknown direction ${direction}`);
+    }
+  },
 };
 
 export const ActionType = {

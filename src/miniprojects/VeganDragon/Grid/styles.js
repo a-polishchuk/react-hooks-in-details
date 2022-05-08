@@ -10,5 +10,6 @@ export const styles = {
     display: 'grid',
     gridTemplateRows: 'repeat(10, 1fr)',
     gridTemplateColumns: 'repeat(10, 1fr)',
+    border: '1px solid #DDD',
   },
 };

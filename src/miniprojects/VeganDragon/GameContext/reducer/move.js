@@ -1,5 +1,5 @@
 import { CellType, GameStatus, POINTS_INCREMENT } from '../../constants';
-import { getPrevCell, getNextCell, buildGrid } from './gridUtils';
+import { getNextCell, buildGrid, findDirection, findTail } from './gridUtils';
 import { setGameStatus } from './setGameStatus';
 
 function moveSnake(state, direction) {
@@ -20,14 +20,14 @@ function moveSegment(segment, row, col) {
   };
 }
 
-// TODO: fix the position of new cell (get the direction from tail)
 // TODO: snake can't turn back (in the opposite direction, it can only move forward, left of right)
 
-function checkIntersection(state, direction, snakeHead) {
+function checkIntersection(state, oldSnakeHead, snakeHead) {
   const { rows, cols, vegetables } = state;
   let intersections = 0;
   let segment = snakeHead;
   let tail = snakeHead;
+
   while (segment) {
     const { row, col } = segment;
     const index = vegetables.findIndex((veg) => {
@@ -40,13 +40,26 @@ function checkIntersection(state, direction, snakeHead) {
     tail = segment;
     segment = segment.next;
   }
-  for (let i = 0; i < intersections; i++) {
-    const [newRow, newCol] = getPrevCell(
+
+  if (intersections === 0) {
+    return 0;
+  }
+
+  const oldTail = findTail(oldSnakeHead);
+  tail.next = {
+    row: oldTail.row,
+    col: oldTail.col,
+  };
+  tail = tail.next;
+
+  const nextDirection = findDirection(tail, oldTail);
+  for (let i = 1; i < intersections; i++) {
+    const [newRow, newCol] = getNextCell(
       tail.row,
       tail.col,
       rows,
       cols,
-      direction
+      nextDirection
     );
     tail.next = {
       row: newRow,
@@ -58,12 +71,12 @@ function checkIntersection(state, direction, snakeHead) {
 }
 
 export function move(state, direction) {
-  const { rows, cols, vegetables, points } = state;
+  const { rows, cols, vegetables, points, snakeHead } = state;
   const newSnakeHead = moveSnake(state, direction);
   if (!newSnakeHead) {
     return setGameStatus(state, GameStatus.FINISHED);
   }
-  const intersections = checkIntersection(state, direction, newSnakeHead);
+  const intersections = checkIntersection(state, snakeHead, newSnakeHead);
   return {
     ...state,
     snakeHead: newSnakeHead,

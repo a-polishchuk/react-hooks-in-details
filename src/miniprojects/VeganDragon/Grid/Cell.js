@@ -5,8 +5,6 @@ function getStyle(gridRow, gridColumn, isSnake) {
   return {
     width: 40,
     height: 40,
-    margin: 2,
-    borderRadius: 4,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -14,7 +12,7 @@ function getStyle(gridRow, gridColumn, isSnake) {
     gridRow,
     gridColumn,
     backgroundColor: isSnake ? '#2B27' : '#FFF',
-    border: `2px solid ${isSnake ? '#2B2' : '#DDD'}`,
+    border: `1px solid ${isSnake ? '#2B2' : '#DDD'}`,
   };
 }
 

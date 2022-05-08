@@ -79,3 +79,22 @@ export function buildGrid(rows, cols, snakeHead, vegetables) {
 
   return grid;
 }
+
+export function findDirection(fromCell, toCell) {
+  if (fromCell === toCell) {
+    return null;
+  }
+  if (fromCell.row === toCell.row) {
+    return fromCell.col > toCell.col ? Direction.LEFT : Direction.RIGHT;
+  } else {
+    return fromCell.row > toCell.row ? Direction.UP : Direction.DOWN;
+  }
+}
+
+export function findTail(head) {
+  let segment = head;
+  while (segment.next) {
+    segment = segment.next;
+  }
+  return segment;
+}
