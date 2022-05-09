@@ -98,11 +98,11 @@ export default function App() {
         <Chapter title="React Query" component={DataFetchingReactQuery} />
       </Section>
 
+      <BonusSection />
+
       <Section title="Mini projects">
         <Chapter title="Vegan Dragon" component={VeganDragon} />
       </Section>
-
-      <BonusSection />
     </MasterDetail>
   );
 }

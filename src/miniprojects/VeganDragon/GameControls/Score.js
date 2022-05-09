@@ -1,5 +1,3 @@
-// TODO: replace with react-use verions of useEvent
-// TODO: set interval only when animating
 import { useInterval } from 'HooksCollection/Chapter-27/useInterval';
 import { useCallback, useState } from 'react';
 

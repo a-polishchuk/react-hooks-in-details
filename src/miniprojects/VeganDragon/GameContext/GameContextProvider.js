@@ -1,5 +1,6 @@
-import { useCallback, useReducer } from 'react';
-import { useEvent, useInterval } from 'react-use';
+import { useReducer } from 'react';
+import { useInterval } from 'HooksCollection/Chapter-27/useInterval';
+import { useEventListener } from 'HooksCollection/Chapter-18/useEventListener';
 import { reducer, INITIAL_STATE } from './reducer';
 import {
   ActionType,
@@ -40,37 +41,31 @@ function useSpawnInterval(dispatch, isPlaying) {
 }
 
 function useHandleDirection(dispatch, isPlaying) {
-  useEvent(
-    'keydown',
-    useCallback(
-      (event) => {
-        if (!isPlaying) {
-          return;
-        }
-        const setDirection = (direction) => {
-          dispatch({
-            type: ActionType.SET_DIRECTION,
-            payload: direction,
-          });
-        };
-        switch (event.code) {
-          case 'ArrowUp':
-            setDirection(Direction.UP);
-            break;
-          case 'ArrowRight':
-            setDirection(Direction.RIGHT);
-            break;
-          case 'ArrowDown':
-            setDirection(Direction.DOWN);
-            break;
-          case 'ArrowLeft':
-            setDirection(Direction.LEFT);
-            break;
-          default:
-            break;
-        }
-      },
-      [dispatch, isPlaying]
-    )
-  );
+  useEventListener('keydown', (event) => {
+    if (!isPlaying) {
+      return;
+    }
+    const setDirection = (direction) => {
+      dispatch({
+        type: ActionType.SET_DIRECTION,
+        payload: direction,
+      });
+    };
+    switch (event.code) {
+      case 'ArrowUp':
+        setDirection(Direction.UP);
+        break;
+      case 'ArrowRight':
+        setDirection(Direction.RIGHT);
+        break;
+      case 'ArrowDown':
+        setDirection(Direction.DOWN);
+        break;
+      case 'ArrowLeft':
+        setDirection(Direction.LEFT);
+        break;
+      default:
+        break;
+    }
+  });
 }
