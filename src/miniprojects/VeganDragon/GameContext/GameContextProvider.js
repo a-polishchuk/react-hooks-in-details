@@ -1,7 +1,8 @@
 import { useReducer } from 'react';
 import { useInterval } from 'HooksCollection/Chapter-27/useInterval';
 import { useEventListener } from 'HooksCollection/Chapter-18/useEventListener';
-import { reducer, INITIAL_STATE } from './reducer';
+import { reducer } from './reducer';
+import { INITIAL_STATE } from './reducer/initialState';
 import {
   ActionType,
   GameStatus,
