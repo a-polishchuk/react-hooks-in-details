@@ -7,7 +7,11 @@ function Chapter({ title, component }) {
   const className = `master-button ${isSelected ? 'selected' : ''}`;
 
   const handleClick = () => {
-    selectChapter(title, component);
+    if (isSelected) {
+      selectChapter(null, null);
+    } else {
+      selectChapter(title, component);
+    }
   };
 
   return (
