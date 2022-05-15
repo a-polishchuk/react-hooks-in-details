@@ -1,23 +1,17 @@
-import { lazy } from 'react';
 import { Section, Chapter } from 'MasterDetail';
-
-const OrderedList = lazy(() => import('./KeysExample/OrderedListExample'));
-const GeneratedKey = lazy(() => import('./KeysExample/GeneratedKeyExample'));
-const ConditionalKey = lazy(() =>
-  import('./KeysExample/ConditionalKeyExample')
-);
-const RandomContainerTest = lazy(() =>
-  import('./Lifecycle/RandomContainerTest')
-);
-const MemoContainerTest = lazy(() => import('./Lifecycle/MemoContainerTest'));
-const DataRequestTest = lazy(() => import('./Conditional/DataRequestTest'));
-const SwitchTest = lazy(() => import('./Conditional/SwitchTest'));
-const UpdatesBatching = lazy(() => import('./UpdatesBatching'));
-const DomManipulation = lazy(() => import('./DomManipulation'));
-const StrictMode = lazy(() => import('./StrictMode'));
-const Children = lazy(() => import('./Children'));
-const Events = lazy(() => import('./Events'));
-const EventDelegation = lazy(() => import('./EventDelegation'));
+import OrderedList from './KeysExample/OrderedListExample';
+import GeneratedKey from './KeysExample/GeneratedKeyExample';
+import ConditionalKey from './KeysExample/ConditionalKeyExample';
+import RandomContainerTest from './Lifecycle/RandomContainerTest';
+import MemoContainerTest from './Lifecycle/MemoContainerTest';
+import DataRequestTest from './Conditional/DataRequestTest';
+import SwitchTest from './Conditional/SwitchTest';
+import UpdatesBatching from './UpdatesBatching';
+import DomManipulation from './DomManipulation';
+import StrictMode from './StrictMode';
+import Children from './Children';
+import Events from './Events';
+import EventDelegation from './EventDelegation';
 
 export default function BonusSection() {
   return (
