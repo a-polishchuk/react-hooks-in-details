@@ -1,29 +1,25 @@
 import { lazy } from 'react';
-import { Section, Chapter } from '../MasterDetail';
+import { Section, Chapter } from 'MasterDetail';
 
-const OrderedList = lazy(() => import('Bonus/KeysExample/OrderedListExample'));
-const GeneratedKey = lazy(() =>
-  import('Bonus/KeysExample/GeneratedKeyExample')
-);
+const OrderedList = lazy(() => import('./KeysExample/OrderedListExample'));
+const GeneratedKey = lazy(() => import('./KeysExample/GeneratedKeyExample'));
 const ConditionalKey = lazy(() =>
-  import('Bonus/KeysExample/ConditionalKeyExample')
+  import('./KeysExample/ConditionalKeyExample')
 );
 const RandomContainerTest = lazy(() =>
-  import('Bonus/Lifecycle/RandomContainerTest')
+  import('./Lifecycle/RandomContainerTest')
 );
-const MemoContainerTest = lazy(() =>
-  import('Bonus/Lifecycle/MemoContainerTest')
-);
-const DataRequestTest = lazy(() => import('Bonus/Conditional/DataRequestTest'));
-const SwitchTest = lazy(() => import('Bonus/Conditional/SwitchTest'));
-const UpdatesBatching = lazy(() => import('Bonus/UpdatesBatching'));
-const DomManipulation = lazy(() => import('Bonus/DomManipulation'));
-const StrictMode = lazy(() => import('Bonus/StrictMode'));
-const Children = lazy(() => import('Bonus/Children'));
-const Events = lazy(() => import('Bonus/Events'));
-const EventDelegation = lazy(() => import('Bonus/EventDelegation'));
+const MemoContainerTest = lazy(() => import('./Lifecycle/MemoContainerTest'));
+const DataRequestTest = lazy(() => import('./Conditional/DataRequestTest'));
+const SwitchTest = lazy(() => import('./Conditional/SwitchTest'));
+const UpdatesBatching = lazy(() => import('./UpdatesBatching'));
+const DomManipulation = lazy(() => import('./DomManipulation'));
+const StrictMode = lazy(() => import('./StrictMode'));
+const Children = lazy(() => import('./Children'));
+const Events = lazy(() => import('./Events'));
+const EventDelegation = lazy(() => import('./EventDelegation'));
 
-export function BonusSection() {
+export default function BonusSection() {
   return (
     <Section title="Bonus">
       <Section title="Keys">

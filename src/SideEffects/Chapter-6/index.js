@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useCounter } from '../Chapter-3';
+import { useCounter } from 'HooksBasics/Chapter-3';
 
 function updateClicksCount(clicksCount) {
   return new Promise((resolve) => {

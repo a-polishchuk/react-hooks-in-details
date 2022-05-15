@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from 'react';
-import { useCounter } from '../Chapter-3';
+import { useCounter } from 'HooksBasics/Chapter-3';
 
 function useUpdateEffect(callback) {
   const firstRender = useRef(true);
