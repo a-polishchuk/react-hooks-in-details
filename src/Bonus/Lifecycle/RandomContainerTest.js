@@ -38,14 +38,15 @@ export default function RandomContainerTest() {
       <LoggedLifecycle tag="Button" color="orange">
         <Button text="RE-render" onClick={rerender} />
       </LoggedLifecycle>
+
       <RandomContainer>
-        <LoggedLifecycle tag="First" color="red">
+        <LoggedLifecycle key={1} tag="First" color="red">
           <p style={paragraphStyle('red')}>First random paragraph</p>
         </LoggedLifecycle>
-        <LoggedLifecycle tag="Second" color="green">
+        <LoggedLifecycle key={2} tag="Second" color="green">
           <p style={paragraphStyle('green')}>Second random paragraph</p>
         </LoggedLifecycle>
-        <LoggedLifecycle tag="Third" color="blue">
+        <LoggedLifecycle key={3} tag="Third" color="blue">
           <p style={paragraphStyle('blue')}>Third random paragraph</p>
         </LoggedLifecycle>
       </RandomContainer>
