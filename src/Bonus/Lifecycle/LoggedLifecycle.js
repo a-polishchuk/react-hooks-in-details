@@ -15,7 +15,8 @@ export function useLoggedLifecycle(tag, color) {
     return () => {
       logColored(tag, '-- Unmounting', color);
     };
-  }, [color, tag]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   logColored(tag, 'Rendering', color);
 }
