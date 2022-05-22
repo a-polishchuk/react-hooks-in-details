@@ -37,7 +37,6 @@ div {
 }
 .section {
   padding-top: 10;
-  font-family: Arial;
   display: flex;
   flex-direction: row;
   align-items: center;
