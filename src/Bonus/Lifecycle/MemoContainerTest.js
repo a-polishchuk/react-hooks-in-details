@@ -14,61 +14,76 @@ const MemoRenderFunc = memo(({ renderContent }) => {
   return renderContent();
 });
 
-export default function MemoContainerTest() {
-  const [, setDummyState] = useState(null);
+const containerStyle = {
+  marginBottom: 16,
+  padding: 16,
+  backgroundColor: '#FFEEFF',
+  borderRadius: 8,
+};
 
-  const rerender = () => {
-    setDummyState({});
-  };
+export default function MemoContainerTest() {
+  const [, rerender] = useState();
 
   const useMemoText = useMemo(
-    () => (
-      <MemoText
-        text="4. Text wrapped with useMemo"
-        tag="useMemo"
-        color="blue"
-      />
-    ),
+    () => <MemoText text="4. Text wrapped with useMemo" tag="4" color="blue" />,
     []
   );
 
-  const renderFunc = useCallback(
+  const renderFunc = () => (
+    <LoggedLifecycle tag="5" color="brown">
+      5. Text rendered with render function
+    </LoggedLifecycle>
+  );
+
+  const memoizedRenderFunc = useCallback(
     () => (
-      <LoggedLifecycle tag="Render func" color="darkcyan">
-        5. Text rendered via renderFunc
+      <LoggedLifecycle tag="6" color="darkcyan">
+        6. Text rendered with memoized render function
       </LoggedLifecycle>
     ),
     []
   );
+
+  console.log('>> RERENDER!');
 
   return (
     <>
-      <div style={{ padding: 16 }}>
-        <MemoLoggedLifecycle tag="text parent" color="orange">
+      <h2>Components lifecycle. Memoization</h2>
+
+      <div style={containerStyle}>
+        <MemoLoggedLifecycle tag="1" color="orange">
           1. Just a static text here.
         </MemoLoggedLifecycle>
-        <MemoLoggedLifecycle tag="div parent" color="red">
-          <div>
-            2. Some text in a <strong>div</strong>.
-          </div>
-        </MemoLoggedLifecycle>
-        <MemoLoggedLifecycle tag="Memoized text parent" color="green">
-          <MemoText
-            text="3. Memoized text component"
-            tag="Memoized text"
-            color="green"
-          />
-        </MemoLoggedLifecycle>
+
         <br />
-        <MemoLoggedLifecycle tag="useMemo parent" color="blue">
+        <MemoLoggedLifecycle tag="2" color="red">
+          <span>
+            2. <strong>&lt;span&gt;</strong>Also text, but inside span
+            <strong>&lt;/span&gt;</strong>
+          </span>
+        </MemoLoggedLifecycle>
+
+        <br />
+        <MemoLoggedLifecycle tag="3" color="green">
+          <MemoText text="3. Memoized text component" tag="3" color="green" />
+        </MemoLoggedLifecycle>
+
+        <br />
+        <MemoLoggedLifecycle tag="4" color="blue">
           {useMemoText}
         </MemoLoggedLifecycle>
+
         <br />
         <MemoRenderFunc renderContent={renderFunc} />
+
+        <br />
+        <MemoRenderFunc renderContent={memoizedRenderFunc} />
       </div>
-      <LoggedLifecycle tag="Button" color="brown">
-        <Button text="RE-render" onClick={rerender} />
-      </LoggedLifecycle>
+
+      <Button
+        text="Click me to trigger new render"
+        onClick={() => rerender(34)}
+      />
     </>
   );
 }
