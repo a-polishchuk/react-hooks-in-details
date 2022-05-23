@@ -6,7 +6,7 @@ import AdvancedHooksSection from 'AdvancedHooks/AdvancedHooksSection';
 import HooksCollectionSection from 'HooksCollection/HooksCollectionSection';
 import DataFecthingSection from 'DataFecthing/DataFetchingSection';
 import BonusSection from 'Bonus/BonusSection';
-import MiniProjectsSection from 'MiniProjects/MiniProjectsSection';
+import MiniAppsSection from 'MiniApps/MiniAppsSection';
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
       <HooksCollectionSection />
       <BonusSection />
       <DataFecthingSection />
-      <MiniProjectsSection />
+      <MiniAppsSection />
     </MasterDetail>
   );
 }
