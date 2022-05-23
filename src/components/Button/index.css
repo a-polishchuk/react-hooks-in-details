@@ -1,0 +1,26 @@
+.button-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 20;
+  font-weight: 400;
+  border: 2px solid #BBBBBB;
+  box-shadow: 5px 5px 0px 0px #eadff9;
+  cursor: default;
+}
+
+.button-component:hover {
+  box-shadow: 5px 5px 0px 0px #E1CCFF;
+}
+
+.button-component:active {
+  transform: translate(5px, 5px);
+  box-shadow: '';
+}
+
+.button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: 5px 5px 0px 0px #e7e7e7;
+}

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
-import Button from './Button';
+import Button from 'components/Button';
 
 export default function DomManipulation() {
   const [id, setId] = useState(() => uuid());
@@ -25,12 +25,14 @@ export default function DomManipulation() {
   return (
     <>
       <h2>Direct DOM manipulation</h2>
-      <div ref={divRef} style={{ color }}>
+      <div ref={divRef} style={{ color, padding: 16 }}>
         {id}
       </div>
-      <Button text="Update DOM manually" onClick={updateDomManually} />
-      <Button text="Related React update" onClick={relatedUpdate} />
-      <Button text="Unrelated React update" onClick={unrelatedUpdate} />
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button text="Update DOM manually" onClick={updateDomManually} />
+        <Button text="Related React update" onClick={relatedUpdate} />
+        <Button text="Unrelated React update" onClick={unrelatedUpdate} />
+      </div>
     </>
   );
 }
