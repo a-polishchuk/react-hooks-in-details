@@ -5,18 +5,19 @@
   padding: 10px 20px;
   font-size: 20;
   font-weight: 400;
-  border: 2px solid #BBBBBB;
+  border: 2px solid #bbbbbb;
   box-shadow: 5px 5px 0px 0px #eadff9;
   cursor: default;
+  user-select: none;
 }
 
 .button-component:hover {
-  box-shadow: 5px 5px 0px 0px #E1CCFF;
+  box-shadow: 5px 5px 0px 0px #e1ccff;
 }
 
 .button-component:active {
   transform: translate(5px, 5px);
-  box-shadow: '';
+  box-shadow: none;
 }
 
 .button-disabled {
