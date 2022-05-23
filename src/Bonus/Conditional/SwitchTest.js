@@ -17,6 +17,7 @@ export default function SwitchTest() {
 
   return (
     <>
+      <h2>Conditional rendering. Switch</h2>
       <div style={{ paddingBottom: 10 }}>
         <input
           ref={inputRef}

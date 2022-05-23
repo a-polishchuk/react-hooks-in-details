@@ -35,8 +35,14 @@ function Content({ data }) {
   );
 }
 
-const containerStyle = {
+const rootStyle = {
   height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const containerStyle = {
+  flex: 1,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -44,13 +50,16 @@ const containerStyle = {
 
 export default function DataRequestTest() {
   return (
-    <div style={containerStyle}>
-      <DataRequest
-        fetcher={fetcher}
-        renderLoading={() => <LoadingState />}
-        renderSuccess={(data) => <Content data={data} />}
-        renderError={(error) => <ErrorState message={error.message} />}
-      />
+    <div style={rootStyle}>
+      <h2>Conditional rendering. Data request</h2>
+      <div style={containerStyle}>
+        <DataRequest
+          fetcher={fetcher}
+          renderLoading={() => <LoadingState />}
+          renderSuccess={(data) => <Content data={data} />}
+          renderError={(error) => <ErrorState message={error.message} />}
+        />
+      </div>
     </div>
   );
 }

@@ -21,8 +21,10 @@ function RandomContainer({ children }) {
 function paragraphStyle(color) {
   return {
     backgroundColor: color,
+    borderRadius: 8,
     color: 'white',
-    padding: 8,
+    padding: 16,
+    marginBottom: 16,
   };
 }
 
@@ -35,9 +37,7 @@ export default function RandomContainerTest() {
 
   return (
     <>
-      <LoggedLifecycle tag="Button" color="orange">
-        <Button text="RE-render" onClick={rerender} />
-      </LoggedLifecycle>
+      <h2>Components lifecycle. Random container</h2>
 
       <RandomContainer>
         <LoggedLifecycle key={1} tag="First" color="red">
@@ -50,6 +50,10 @@ export default function RandomContainerTest() {
           <p style={paragraphStyle('blue')}>Third random paragraph</p>
         </LoggedLifecycle>
       </RandomContainer>
+
+      <LoggedLifecycle tag="Button" color="orange">
+        <Button text="Click me to trigger new render" onClick={rerender} />
+      </LoggedLifecycle>
     </>
   );
 }
