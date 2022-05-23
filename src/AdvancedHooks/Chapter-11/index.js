@@ -39,5 +39,10 @@ const items = [
 ];
 
 export default function Chapter11() {
-  return <List items={items} />;
+  return (
+    <>
+      <h2>Chapter 11. useCallback</h2>
+      <List items={items} />
+    </>
+  );
 }

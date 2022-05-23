@@ -24,6 +24,7 @@ export default function Chapter10() {
 
   return (
     <>
+      <h2>Chapter 10. Higher Order Component</h2>
       <p>
         <LoggedSimpleText text="Some text" />
       </p>

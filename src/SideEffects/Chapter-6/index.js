@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useCounter } from 'HooksBasics/Chapter-3';
+import Button from 'components/Button';
 
 function updateClicksCount(clicksCount) {
   return new Promise((resolve) => {
@@ -48,9 +49,16 @@ export default function Chapter6() {
   }); // deps list is missing
 
   return (
-    <div>
-      <p>Current count: {count}</p>
-      <button onClick={increment}>+1</button>
-    </div>
+    <>
+      <h2>Chapter 6. useEffect</h2>
+
+      <p>
+        Current count: <strong>{count}</strong>
+      </p>
+
+      <div style={{ width: 150 }}>
+        <Button onClick={increment} text="+1" />
+      </div>
+    </>
   );
 }

@@ -93,10 +93,18 @@ const Node = React.memo(
 );
 
 export default function Chapter12() {
-  return React.createElement(Node, {
-    maxLevel: 4,
-    cellWidth: 50,
-    cellHeight: 50,
-  });
-  // return <Node maxLevel={4} cellWidth={50} cellHeight={50} />;
+  return (
+    <>
+      <h2>Chapter 12. useMemo</h2>
+      <h3>How React render works?</h3>
+      <div style={{ position: 'absolute' }}>
+        {/* <Node maxLevel={4} cellWidth={50} cellHeight={50} /> */}
+        {React.createElement(Node, {
+          maxLevel: 4,
+          cellWidth: 50,
+          cellHeight: 50,
+        })}
+      </div>
+    </>
+  );
 }

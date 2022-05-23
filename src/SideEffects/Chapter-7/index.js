@@ -74,11 +74,16 @@ export default function Chapter7() {
 
   return (
     <>
-      <h2>
+      <h2>Chapter 7. useLayoutEffect</h2>
+
+      <h3>
         [{left}, {top}]
-      </h2>
-      <div style={style} />
-      {/* {generateDummies(10000)} */}
+      </h3>
+
+      <div style={{ position: 'relative' }}>
+        <div style={style} />
+        {/* {generateDummies(10000)} */}
+      </div>
     </>
   );
 }

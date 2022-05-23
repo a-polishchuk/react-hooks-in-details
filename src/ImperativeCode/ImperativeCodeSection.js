@@ -6,9 +6,9 @@ import Chapter10 from './Chapter-10';
 export default function ImperativeCodeSection() {
   return (
     <Section title="Imperative code, useRef">
-      <Chapter title="useRef" component={Chapter8} />
-      <Chapter title="useImperativeHandle" component={Chapter9} />
-      <Chapter title="HOCs" component={Chapter10} />
+      <Chapter title="8. useRef" component={Chapter8} />
+      <Chapter title="9. useImperativeHandle" component={Chapter9} />
+      <Chapter title="10. HOCs" component={Chapter10} />
     </Section>
   );
 }

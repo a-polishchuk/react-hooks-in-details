@@ -42,6 +42,8 @@ export default function Chapter2() {
 
   return (
     <>
+      <h2>Chapter 2. Function vs class</h2>
+
       <form>
         <FormField
           name="firstName"

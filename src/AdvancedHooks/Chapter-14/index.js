@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import Button from 'components/Button';
 
 const initialState = {
   count: 0,
@@ -39,11 +40,13 @@ export default function Chapter14() {
 
   return (
     <div>
-      <h2>useReducer example</h2>
+      <h2>14. useReducer</h2>
       <p>Cliks count: {state.count}</p>
-      <button onClick={increment}>+1 Click</button>
-      <button onClick={double}>Double clicks</button>
-      <button onClick={clear}>Clear</button>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button onClick={increment} text="+1 Click" />
+        <Button onClick={double} text="Double clicks" />
+        <Button onClick={clear} text="Clear" />
+      </div>
     </div>
   );
 }

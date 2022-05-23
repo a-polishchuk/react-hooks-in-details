@@ -38,9 +38,11 @@ function DecadesCounter({ initialValue }) {
 
 export default function Chapter3() {
   return (
-    <div>
+    <>
+      <h2>Chapter 3. First custom hook</h2>
+
       <YearsCounter initialValue={1970} />
       <DecadesCounter initialValue={1970} />
-    </div>
+    </>
   );
 }

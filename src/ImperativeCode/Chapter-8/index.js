@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 import { useCounter } from 'HooksBasics/Chapter-3';
+import Button from 'components/Button';
 
 function useUpdateEffect(callback) {
   const firstRender = useRef(true);
@@ -28,5 +29,10 @@ export default function Chapter8() {
 
   useUpdateEffect(callback);
 
-  return <button onClick={increment}>RERENDER</button>;
+  return (
+    <>
+      <h2>Chapter 8. useRef</h2>
+      <Button onClick={increment} text="RERENDER" />
+    </>
+  );
 }

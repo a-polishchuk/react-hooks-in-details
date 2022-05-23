@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from 'components/Button';
 
 function someHeavyFunc(maxNumber, maxPow) {
   const data = [];
@@ -59,10 +60,13 @@ export default function Chapter4() {
 
   return (
     <>
-      <p>
-        <button onClick={removeFirst}>REMOVE FIRST</button>
-        <button onClick={rerender}>RERENDER</button>
-      </p>
+      <h2>Chapter 4. Lazy init</h2>
+
+      <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
+        <Button onClick={removeFirst} text="Remove first" />
+        <Button onClick={rerender} text="Rerender" />
+      </div>
+
       <table>
         <thead>
           <HeaderRow maxPow={MAX_POW} />

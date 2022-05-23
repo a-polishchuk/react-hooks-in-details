@@ -16,12 +16,13 @@ export default function Chapter9() {
   };
 
   return (
-    <div>
+    <>
+      <h2>Chapter 9. useImperativeHandle</h2>
       <PinInput ref={ref} digits={digits} onChange={setDigits} />
-      <p>
+      <div style={{ display: 'flex', gap: 10, margin: 10 }}>
         <button onClick={focus}>FOCUS</button>
         <button onClick={clear}>CLEAR</button>
-      </p>
-    </div>
+      </div>
+    </>
   );
 }

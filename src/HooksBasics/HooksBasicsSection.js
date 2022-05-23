@@ -8,11 +8,11 @@ import Chapter5 from './Chapter-5';
 export default function HooksBasicsSection() {
   return (
     <Section title="Hooks basics, useState">
-      <Chapter title="useState basics" component={Chapter1} />
-      <Chapter title="Function vs class" component={Chapter2} />
-      <Chapter title="First custom hooks" component={Chapter3} />
-      <Chapter title="Lazy init" component={Chapter4} />
-      <Chapter title="Storing functions" component={Chapter5} />
+      <Chapter title="1. useState basics" component={Chapter1} />
+      <Chapter title="2. Function vs class" component={Chapter2} />
+      <Chapter title="3. First custom hooks" component={Chapter3} />
+      <Chapter title="4. Lazy init" component={Chapter4} />
+      <Chapter title="5. Storing functions" component={Chapter5} />
     </Section>
   );
 }

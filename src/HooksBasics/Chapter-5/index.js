@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from 'components/Button';
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -27,12 +28,15 @@ export default function Chapter5() {
 
   return (
     <>
-      <p>
-        <button onClick={applyAction(add, '+')}>ADD</button>
-        <button onClick={applyAction(subtract, '-')}>SUBTRACT</button>
-        <button onClick={applyAction(divide, '/')}>DIVIDE</button>
-        <button onClick={applyAction(multiply, '*')}>MULTIPLY</button>
-      </p>
+      <h2>Chapter 5. Storing function in useState</h2>
+
+      <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
+        <Button onClick={applyAction(add, '+')} text="Add" />
+        <Button onClick={applyAction(subtract, '-')} text="Subtract" />
+        <Button onClick={applyAction(divide, '/')} text="Divide" />
+        <Button onClick={applyAction(multiply, '*')} text="Multiply" />
+      </div>
+
       <p>
         <input type="number" value={a} onChange={onChange(setA)} />
         <span> {sign} </span>
