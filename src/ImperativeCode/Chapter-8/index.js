@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from 'react';
-import { useCounter } from 'HooksBasics/Chapter-3';
+import { useCounter } from 'HooksBasics/Chapter3';
 import Button from 'components/Button';
 
 function useUpdateEffect(callback) {

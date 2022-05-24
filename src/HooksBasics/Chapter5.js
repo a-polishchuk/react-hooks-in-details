@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from 'components/Button';
+import Toolbar from 'components/Toolbar';
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -29,20 +30,18 @@ export default function Chapter5() {
   return (
     <>
       <h2>Chapter 5. Storing function in useState</h2>
-
-      <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
+      <Toolbar>
         <Button onClick={applyAction(add, '+')} text="Add" />
         <Button onClick={applyAction(subtract, '-')} text="Subtract" />
         <Button onClick={applyAction(divide, '/')} text="Divide" />
         <Button onClick={applyAction(multiply, '*')} text="Multiply" />
-      </div>
-
-      <p>
+      </Toolbar>
+      <Toolbar>
         <input type="number" value={a} onChange={onChange(setA)} />
-        <span> {sign} </span>
+        <div style={{ minWidth: 10, textAlign: 'center' }}>{sign}</div>
         <input type="number" value={b} onChange={onChange(setB)} />
         <span> = {action ? action(a, b) : ''}</span>
-      </p>
+      </Toolbar>
     </>
   );
 }

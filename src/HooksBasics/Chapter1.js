@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import Toolbar from 'components/Toolbar';
 import Button from 'components/Button';
+import ValueLabel from 'components/ValueLabel';
 
 const DELAY = 2000;
 
-export default function Chapter1() {
+export function Chapter1() {
   const [clicks, setClicks] = useState(0);
   const [showClicks, setShowClicks] = useState(true);
 
@@ -21,20 +22,14 @@ export default function Chapter1() {
   };
 
   return (
-    <div>
+    <>
       <h2>Chapter 1. useState</h2>
-
-      {showClicks && (
-        <div style={{ fontSize: 64, textShadow: '3px 3px #eadff9' }}>
-          {clicks}
-        </div>
-      )}
-
+      <ValueLabel value={showClicks ? clicks : '?'} />
       <Toolbar>
         <Button onClick={incrementCounter} text="Increment counter" />
         <Button onClick={incrementWithDelay} text="Increment with delay" />
         <Button onClick={toggleShowClicks} text="Toggle show clicks" />
       </Toolbar>
-    </div>
+    </>
   );
 }

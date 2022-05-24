@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from 'components/Button';
+import Toolbar from 'components/Toolbar';
 
 function someHeavyFunc(maxNumber, maxPow) {
   const data = [];
@@ -62,10 +63,10 @@ export default function Chapter4() {
     <>
       <h2>Chapter 4. Lazy init</h2>
 
-      <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
+      <Toolbar>
         <Button onClick={removeFirst} text="Remove first" />
         <Button onClick={rerender} text="Rerender" />
-      </div>
+      </Toolbar>
 
       <table>
         <thead>

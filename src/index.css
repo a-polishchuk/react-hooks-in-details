@@ -1,3 +1,13 @@
 body {
   font-family: Arial;
 }
+
+th {
+  background-color: #eeeeee;
+  padding: 5px;
+}
+
+td {
+  border: 1px solid #eeeeee;
+  padding: 5px;
+}

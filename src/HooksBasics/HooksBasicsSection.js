@@ -1,9 +1,9 @@
 import { Section, Chapter } from 'MasterDetail';
-import Chapter1 from './Chapter-1';
-import Chapter2 from './Chapter-2';
-import Chapter3 from './Chapter-3';
-import Chapter4 from './Chapter-4';
-import Chapter5 from './Chapter-5';
+import { Chapter1 } from './Chapter1';
+import Chapter2 from './Chapter2';
+import { Chapter3 } from './Chapter3';
+import Chapter4 from './Chapter4';
+import Chapter5 from './Chapter5';
 
 export default function HooksBasicsSection() {
   return (
