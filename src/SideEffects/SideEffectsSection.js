@@ -1,6 +1,6 @@
 import { Section, Chapter } from 'MasterDetail';
-import Chapter6 from './Chapter-6';
-import Chapter7 from './Chapter-7';
+import { Chapter6 } from './Chapter6';
+import { Chapter7 } from './Chapter7';
 
 export default function SideEffectsSection() {
   return (

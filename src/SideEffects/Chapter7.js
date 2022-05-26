@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import ValueLabel from 'components/ValueLabel';
 
 function useCharacterPosition(step) {
   const [left, setLeft] = useState(0);
@@ -9,13 +10,13 @@ function useCharacterPosition(step) {
       // eslint-disable-next-line default-case
       switch (event.key) {
         case 'ArrowLeft':
-          setLeft((prev) => prev - step);
+          setLeft((prev) => Math.max(prev - step, 0));
           break;
         case 'ArrowRight':
           setLeft((prev) => prev + step);
           break;
         case 'ArrowUp':
-          setTop((prev) => prev - step);
+          setTop((prev) => Math.max(prev - step, 0));
           break;
         case 'ArrowDown':
           setTop((prev) => prev + step);
@@ -42,15 +43,15 @@ const initialStyle = {
   top: 0,
 };
 
-function generateDummies(count) {
-  const dummies = [];
-  for (let i = 0; i < count; i++) {
-    dummies.push(<span key={i}>i == {i}</span>);
-  }
-  return dummies;
-}
+// function generateDummies(count) {
+//   const dummies = [];
+//   for (let i = 0; i < count; i++) {
+//     dummies.push(<span key={i}>i == {i}</span>);
+//   }
+//   return dummies;
+// }
 
-export default function Chapter7() {
+export function Chapter7() {
   const [left, top] = useCharacterPosition(50);
   // const [style, setStyle] = useState(initialStyle);
 
@@ -75,11 +76,7 @@ export default function Chapter7() {
   return (
     <>
       <h2>Chapter 7. useLayoutEffect</h2>
-
-      <h3>
-        [{left}, {top}]
-      </h3>
-
+      <ValueLabel value={`x: ${left}, y: ${top}`} />
       <div style={{ position: 'relative' }}>
         <div style={style} />
         {/* {generateDummies(10000)} */}

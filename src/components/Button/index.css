@@ -6,22 +6,23 @@
   font-size: 20;
   font-weight: 400;
   border: 2px solid #bbbbbb;
-  box-shadow: 5px 5px 0px 0px #eadff9;
+  box-shadow: 3px 3px 0px 0px #eadff9;
   cursor: default;
   user-select: none;
 }
 
 .button-component:hover {
-  box-shadow: 5px 5px 0px 0px #e1ccff;
+  box-shadow: 3px 3px 0px 0px #e1ccff;
+  text-shadow: 2px 2px #e1ccff;
 }
 
 .button-component:active {
-  transform: translate(5px, 5px);
+  transform: translate(3px, 3px);
   box-shadow: none;
 }
 
 .button-disabled {
   opacity: 0.5;
   pointer-events: none;
-  box-shadow: 5px 5px 0px 0px #e7e7e7;
+  box-shadow: 3px 3px 0px 0px #e7e7e7;
 }
