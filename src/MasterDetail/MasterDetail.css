@@ -34,6 +34,11 @@ div {
   background-color: #fff;
   border: #bbbbbb solid 2px;
   box-shadow: 3px 3px #00000011;
+  cursor: pointer;
+}
+.expand-collapse-button:hover {
+  text-shadow: 2px 2px #eadff9;
+  box-shadow: 3px 3px #e1ccffbb;
 }
 .section {
   padding-top: 10;
@@ -41,6 +46,10 @@ div {
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+.section:hover {
+  text-shadow: 2px 2px #eadff9;
 }
 .section-button {
   margin-right: 5px;
@@ -56,6 +65,11 @@ div {
   padding: 10px;
   box-shadow: 3px 3px #eeeeee;
   text-align: start;
+  cursor: pointer;
+}
+.master-button:hover {
+  text-shadow: 2px 2px #eadff9;
+  box-shadow: 3px 3px #e1ccffbb;
 }
 .master-button:focus {
   outline: 0;

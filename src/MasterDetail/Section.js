@@ -24,9 +24,9 @@ export default function Section({ title, children }) {
 
   return (
     <>
-      <div className="section">
+      <div className="section" onClick={toggleExpanded}>
         <div className="section-button">
-          <ExpandCollapseButton expanded={expanded} onToggle={toggleExpanded} />
+          <ExpandCollapseButton expanded={expanded} />
         </div>
         <div style={titleStyle}>{title}</div>
       </div>
