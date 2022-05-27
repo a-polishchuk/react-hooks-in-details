@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useCounter } from 'HooksBasics/Chapter3';
+import { useCounter } from 'HooksBasics/Chapter3/useCounter';
 import Button from 'components/Button';
 import ValueLabel from 'components/ValueLabel';
 

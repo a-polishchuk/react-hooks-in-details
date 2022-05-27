@@ -5,9 +5,9 @@ import ValueLabel from 'components/ValueLabel';
 
 const DELAY = 2000;
 
-export function Chapter1() {
+export function PreviousStateUpdate() {
   const [clicks, setClicks] = useState(0);
-  const [showClicks, setShowClicks] = useState(true);
+  const [isClicksVisible, setClicksVisible] = useState(true);
 
   const incrementCounter = () => {
     setClicks(clicks + 1);
@@ -18,14 +18,16 @@ export function Chapter1() {
   };
 
   const toggleShowClicks = () => {
-    setShowClicks((prevValue) => !prevValue);
+    setClicksVisible((prevValue) => !prevValue);
   };
 
   return (
     <>
-      <h2>Chapter 1. useState</h2>
-      <ValueLabel value={showClicks ? clicks : '?'} />
+      <h2>Chapter 2. Previous state update</h2>
       <Toolbar>
+        <div style={{ minWidth: 150, marginLeft: 16 }}>
+          <ValueLabel value={isClicksVisible ? clicks : '?'} />
+        </div>
         <Button onClick={incrementCounter} text="Increment counter" />
         <Button onClick={incrementWithDelay} text="Increment with delay" />
         <Button onClick={toggleShowClicks} text="Toggle show clicks" />

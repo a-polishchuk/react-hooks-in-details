@@ -1,5 +1,5 @@
 import { MasterDetail } from 'MasterDetail';
-import HooksBasicsSection from 'HooksBasics/HooksBasicsSection';
+import { HooksBasicsSection } from 'HooksBasics/HooksBasicsSection';
 import SideEffectsSection from 'SideEffects/SideEffectsSection';
 import ImperativeCodeSection from 'ImperativeCode/ImperativeCodeSection';
 import AdvancedHooksSection from 'AdvancedHooks/AdvancedHooksSection';
