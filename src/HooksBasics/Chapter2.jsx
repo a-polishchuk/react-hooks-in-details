@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Toolbar from 'components/Toolbar';
-import Button from 'components/Button';
-import ValueLabel from 'components/ValueLabel';
+import { Toolbar } from 'components/Toolbar';
+import { Button } from 'components/Button';
+import { ValueLabel } from 'components/ValueLabel';
 
 const DELAY = 2000;
 const FIBONACCI = [1, 1];

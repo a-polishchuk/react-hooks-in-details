@@ -1,5 +1,5 @@
 import { useTodoList } from '../hooks/useTodoList';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 import './index.css';
 
 function TodoRow({ number, data }) {

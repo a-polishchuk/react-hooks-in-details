@@ -1,5 +1,5 @@
 import { useQueryClient } from 'react-query';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 
 export default function RefreshAll() {
   const queryClient = useQueryClient();

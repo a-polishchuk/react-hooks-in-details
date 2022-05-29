@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Button from 'components/Button';
-import Toolbar from 'components/Toolbar';
+import { Button } from 'components/Button';
+import { Toolbar } from 'components/Toolbar';
 
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;

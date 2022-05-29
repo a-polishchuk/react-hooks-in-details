@@ -1,4 +1,4 @@
-import Toolbar from 'components/Toolbar';
+import { Toolbar } from 'components/Toolbar';
 import { useState } from 'react';
 
 import { AnimatedEmoji } from './AnimatedEmoji';

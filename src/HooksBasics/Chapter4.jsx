@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Button from 'components/Button';
-import Toolbar from 'components/Toolbar';
+import { Button } from 'components/Button';
+import { Toolbar } from 'components/Toolbar';
 
 const MAX_NUMBER = 30;
 const MAX_POWER = 5;

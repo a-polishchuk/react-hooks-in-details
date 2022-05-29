@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 import { LoggedLifecycle, useLoggedLifecycle } from './LoggedLifecycle';
 import { useRerender } from './useRerender';
 

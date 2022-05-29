@@ -1,4 +1,7 @@
 import { useState, useRef } from 'react';
+import { Toolbar } from 'components/Toolbar';
+import { Button } from 'components/Button';
+
 import PinInput from './PinInput';
 
 const initialDigits = ['', '', '', ''];
@@ -18,11 +21,15 @@ export default function Chapter9() {
   return (
     <>
       <h2>Chapter 9. useImperativeHandle</h2>
-      <PinInput ref={ref} digits={digits} onChange={setDigits} />
-      <div style={{ display: 'flex', gap: 10, margin: 10 }}>
-        <button onClick={focus}>FOCUS</button>
-        <button onClick={clear}>CLEAR</button>
-      </div>
+
+      <Toolbar>
+        <PinInput ref={ref} digits={digits} onChange={setDigits} />
+      </Toolbar>
+
+      <Toolbar>
+        <Button text="Focus" onClick={focus} />
+        <Button text="Clear" onClick={clear} />
+      </Toolbar>
     </>
   );
 }

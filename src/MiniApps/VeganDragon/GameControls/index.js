@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 import { Switch, Case } from 'Bonus/Conditional/Switch';
 import { useLocalStorage } from 'HooksCollection/Chapter-21/useLocalStorage';
 import { useGameContext } from '../GameContext/GameContext';

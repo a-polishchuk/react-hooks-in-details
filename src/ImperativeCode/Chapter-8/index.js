@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 import { useCounter } from 'HooksBasics/Chapter3/useCounter';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 
 // TODO: store callback in useRef as well
 function useUpdateEffect(callback) {

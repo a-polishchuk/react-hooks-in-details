@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 
 export default function DomManipulation() {
   const [id, setId] = useState(() => uuid());

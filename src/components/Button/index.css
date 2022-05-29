@@ -1,27 +1,24 @@
-.button-component {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.button {
+  background-color: white;
   padding: 10px 20px;
-  font-size: 20;
-  font-weight: 400;
   border: 2px solid #bbbbbb;
   box-shadow: 3px 3px 0px 0px #eadff9;
-  cursor: default;
-  user-select: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.2s ease-in-out;
 }
-
-.button-component:hover {
+.button:hover {
   box-shadow: 3px 3px 0px 0px #e1ccff;
   text-shadow: 2px 2px #e1ccff;
 }
-
-.button-component:active {
+.button:focus {
+  outline: none;
+}
+.button:active {
   transform: translate(3px, 3px);
   box-shadow: none;
 }
-
-.button-disabled {
+.button:disabled {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: 3px 3px 0px 0px #e7e7e7;

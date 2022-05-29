@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Button from 'components/Button';
-import ValueLabel from 'components/ValueLabel';
+import { Button } from 'components/Button';
+import { ValueLabel } from 'components/ValueLabel';
 
 const STORAGE_KEY = 'chapter-6-current-count';
 

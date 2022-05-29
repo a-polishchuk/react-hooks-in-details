@@ -1,6 +1,6 @@
 import { useSWRConfig } from 'swr';
 import { useAppContext } from '../../AppContext';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 
 export default function RefreshAll() {
   const { userId } = useAppContext();

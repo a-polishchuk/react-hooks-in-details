@@ -1,5 +1,5 @@
 import './index.css';
 
-export default function ValueLabel({ value }) {
+export function ValueLabel({ value }) {
   return <div className="value-label">{value}</div>;
 }

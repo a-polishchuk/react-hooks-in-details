@@ -1,5 +1,5 @@
 import './index.css';
 
-export default function Toolbar({ children }) {
+export function Toolbar({ children }) {
   return <div className="toolbar">{children}</div>;
 }

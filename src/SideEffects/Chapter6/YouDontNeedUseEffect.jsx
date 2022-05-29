@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Toolbar from 'components/Toolbar';
-import Button from 'components/Button';
+import { Toolbar } from 'components/Toolbar';
+import { Button } from 'components/Button';
 
 function useBallPosition(step) {
   const [left, setLeft] = useState(0);

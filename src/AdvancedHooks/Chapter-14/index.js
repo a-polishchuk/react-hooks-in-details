@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 
 const initialState = {
   count: 0,

@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 import { useState, useRef } from 'react';
 import { Switch, Case, DefaultCase } from './Switch';
 

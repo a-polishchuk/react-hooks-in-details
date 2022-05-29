@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import { Button } from 'components/Button';
 import { useTodoList } from '../hooks/useTodoList';
 import './index.css';
 
