@@ -33,7 +33,8 @@ function DecadePicker({ initialValue }) {
 export function UseCounterExample() {
   return (
     <>
-      <h2>Chapter 3. First custom hook</h2>
+      <h2>Chapter 3. First custom hooks</h2>
+      <h3>useCounter</h3>
       <ClicksCounter />
       <DecadePicker initialValue={1970} />
     </>

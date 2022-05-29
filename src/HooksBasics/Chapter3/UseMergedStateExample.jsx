@@ -38,7 +38,8 @@ export function UseMergedStateExample() {
 
   return (
     <>
-      <h2>Chapter 2. Function vs class</h2>
+      <h2>Chapter 3. First custom hooks</h2>
+      <h3>useMergedState</h3>
 
       <form>
         <FormField

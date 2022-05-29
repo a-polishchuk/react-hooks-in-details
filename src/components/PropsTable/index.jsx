@@ -24,7 +24,7 @@ export function PropsTable({ title, data }) {
       )}
       <tbody>
         {Object.entries(data).map((entry) => (
-          <Entry entry={entry} />
+          <Entry key={entry[0]} entry={entry} />
         ))}
       </tbody>
     </table>

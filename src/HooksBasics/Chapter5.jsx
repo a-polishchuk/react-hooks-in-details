@@ -18,7 +18,7 @@ export function StoringFunctions() {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [action, setAction] = useState(() => add);
-  const [sign, setSign] = useState('+');
+  const [sign, setSign] = useState('➕');
 
   const applyAction = (fn, fnSign) => {
     return () => {
@@ -32,10 +32,10 @@ export function StoringFunctions() {
       <h2>Chapter 5. Storing function in useState</h2>
 
       <Toolbar>
-        <Button onClick={applyAction(add, '+')} text="Add" />
-        <Button onClick={applyAction(subtract, '-')} text="Subtract" />
-        <Button onClick={applyAction(divide, '/')} text="Divide" />
-        <Button onClick={applyAction(multiply, '*')} text="Multiply" />
+        <Button onClick={applyAction(add, '➕')} text="➕ Add" />
+        <Button onClick={applyAction(subtract, '➖')} text="➖ Subtract" />
+        <Button onClick={applyAction(divide, '➗')} text="➗ Divide" />
+        <Button onClick={applyAction(multiply, '✖️')} text="✖️ Multiply" />
       </Toolbar>
 
       <Toolbar>

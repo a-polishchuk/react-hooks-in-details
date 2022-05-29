@@ -1,0 +1,6 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "default-case": "off"
+  }
+}

@@ -81,9 +81,9 @@ export function LazyInitialization() {
       <h2>Chapter 4. Lazy initialization</h2>
 
       <Toolbar>
-        <Button text="Sort ⬆️" onClick={sortAscending} />
-        <Button text="Sort ⬇️" onClick={sortDescending} />
-        <Button text="Shuffle 🔀" onClick={shuffle} />
+        <Button text="⬆️ Sort" onClick={sortAscending} />
+        <Button text="⬇️ Sort" onClick={sortDescending} />
+        <Button text="🔀 Shuffle" onClick={shuffle} />
       </Toolbar>
 
       <table>

@@ -3,6 +3,8 @@ import Toolbar from 'components/Toolbar';
 import Button from 'components/Button';
 import ValueLabel from 'components/ValueLabel';
 
+const FIBONACCI = [1, 1];
+
 /**
  * React function component should answer a question
  * "How I should look like for a specified input?"
@@ -12,7 +14,7 @@ export function UseStateBasics() {
   const [clicks, setClicks] = useState(0);
   const [isClicksVisible, setClicksVisible] = useState(true);
   const [someText, setSomeText] = useState('');
-  const [fibonacci, setFibonacci] = useState([1, 1, 2, 3]);
+  const [fibonacci, setFibonacci] = useState(FIBONACCI);
 
   const incrementCounter = () => setClicks(clicks + 1);
   const showClicks = () => setClicksVisible(true);
@@ -57,7 +59,7 @@ export function UseStateBasics() {
       <Toolbar>
         <Button text="Add Fibonacci number" onClick={addFibonacci} />
       </Toolbar>
-      <div>{fibonacci.join(', ')}</div>
+      <div>Fibonacci sequence: {fibonacci.join(', ')}</div>
     </>
   );
 }
