@@ -40,7 +40,8 @@ function EmojiSection({ emojis }) {
 export function UseEffectAndInterval() {
   return (
     <>
-      <h2>Chapter 6.2. useEffect + setInterval</h2>
+      <h2>Chapter 6. useEffect</h2>
+      <h3>useEffect + setInterval</h3>
 
       <EmojiSection emojis={MOON_EMOJIS} />
       <EmojiSection emojis={EARTH_EMOJIS} />

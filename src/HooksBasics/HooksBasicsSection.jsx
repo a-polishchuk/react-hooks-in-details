@@ -1,4 +1,4 @@
-import { Section, Chapter } from 'MasterDetail';
+import { Section, Chapter } from 'components/MasterDetail';
 import { UseStateBasics } from './Chapter1';
 import { PreviousStateUpdate } from './Chapter2';
 import { UseCounterExample } from './Chapter3/UseCounterExample';
@@ -15,11 +15,8 @@ export function HooksBasicsSection() {
         component={PreviousStateUpdate}
       />
       <Section title="3. First custom hooks">
-        <Chapter title="3.1. useCounter" component={UseCounterExample} />
-        <Chapter
-          title="3.2. useMergedState"
-          component={UseMergedStateExample}
-        />
+        <Chapter title="useCounter" component={UseCounterExample} />
+        <Chapter title="useMergedState" component={UseMergedStateExample} />
       </Section>
       <Chapter title="4. Lazy initialization" component={LazyInitialization} />
       <Chapter title="5. Storing functions" component={StoringFunctions} />

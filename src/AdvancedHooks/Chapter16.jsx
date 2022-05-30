@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { Toolbar } from 'components/Toolbar';
 
 function createMappedState(mapper) {
   return function (initialValue) {
@@ -20,42 +21,34 @@ const useUppercaseState = createMappedState((newValue) => {
   return newValue?.toUpperCase();
 });
 
-const useTrimmedState = createMappedState((newValue) => {
-  return newValue?.trim();
+const useNoSpacesState = createMappedState((newValue) => {
+  return newValue?.replaceAll(/\s/, '');
 });
 
-function Field({ label, value, setValue }) {
+function Field({ label, value, onChange }) {
   return (
-    <div style={{ margin: 10 }}>
-      <span style={{ marginRight: 10 }}>{label}</span>
+    <Toolbar>
+      <div style={{ minWidth: 200 }}>{label}</div>
       <input
         type="text"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
       />
-    </div>
+    </Toolbar>
   );
 }
 
-export default function Chapter16() {
+export function HooksFactory() {
   const [lowercase, setLowercase] = useLowercaseState('SOME VALUE');
   const [uppercase, setUppercase] = useUppercaseState('some value');
-  const [trimmed, setTrimmed] = useTrimmedState('  SOME VALUE    ');
+  const [noSpaces, setNoSpaces] = useNoSpacesState('  SOME VALUE    ');
 
   return (
     <>
       <h2>Chapter 16: Hooks Factory</h2>
-      <Field
-        label="Lowercase only:"
-        value={lowercase}
-        setValue={setLowercase}
-      />
-      <Field
-        label="Uppercase only:"
-        value={uppercase}
-        setValue={setUppercase}
-      />
-      <Field label="No spaces here:" value={trimmed} setValue={setTrimmed} />
+      <Field label="lowercase only" value={lowercase} onChange={setLowercase} />
+      <Field label="UPPERCASE ONLY" value={uppercase} onChange={setUppercase} />
+      <Field label="NoSpacesHere" value={noSpaces} onChange={setNoSpaces} />
     </>
   );
 }

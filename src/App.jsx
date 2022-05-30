@@ -1,8 +1,9 @@
-import { MasterDetail } from 'MasterDetail';
+import { MasterDetail } from 'components/MasterDetail';
 import { HooksBasicsSection } from 'HooksBasics/HooksBasicsSection';
 import { SideEffectsSection } from 'SideEffects/SideEffectsSection';
 import ImperativeCodeSection from 'ImperativeCode/ImperativeCodeSection';
-import AdvancedHooksSection from 'AdvancedHooks/AdvancedHooksSection';
+import { MemoizationSection } from 'Memoization/MemoizationSection';
+import { AdvancedHooksSection } from 'AdvancedHooks/AdvancedHooksSection';
 import HooksCollectionSection from 'HooksCollection/HooksCollectionSection';
 import DataFecthingSection from 'DataFecthing/DataFetchingSection';
 import BonusSection from 'Bonus/BonusSection';
@@ -14,6 +15,7 @@ export default function App() {
       <HooksBasicsSection />
       <SideEffectsSection />
       <ImperativeCodeSection />
+      <MemoizationSection />
       <AdvancedHooksSection />
       <HooksCollectionSection />
       <BonusSection />

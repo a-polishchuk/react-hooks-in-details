@@ -1,4 +1,4 @@
-import { Section, Chapter } from 'MasterDetail';
+import { Section, Chapter } from 'components/MasterDetail';
 import OrderedList from './KeysExample/OrderedListExample';
 import GeneratedKey from './KeysExample/GeneratedKeyExample';
 import ConditionalKey from './KeysExample/ConditionalKeyExample';

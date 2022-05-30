@@ -31,7 +31,7 @@ function reducer(state, action) {
   }
 }
 
-export default function Chapter14() {
+export function UseReducerExample() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const increment = () => dispatch({ type: Types.INCREMENT });

@@ -1,4 +1,5 @@
 import { useCallback, useDebugValue, useState } from 'react';
+import { Button } from 'components/Button';
 
 function useToggle(initialValue) {
   const [value, setValue] = useState(initialValue || false);
@@ -15,9 +16,9 @@ function useToggle(initialValue) {
 function ToggleButton({ toggled, handleToggle }) {
   const caption = toggled ? 'ON' : 'OFF';
   return (
-    <button style={{ width: 100 }} onClick={handleToggle}>
-      {caption}
-    </button>
+    <div style={{ width: 100 }}>
+      <Button text={caption} onClick={handleToggle} />
+    </div>
   );
 }
 
@@ -31,7 +32,7 @@ function SettingsToggle({ label, initialValue }) {
   );
 }
 
-export default function Chapter15() {
+export function UseDebugValueExample() {
   return (
     <>
       <h2>Chapter 15: useDebugValue, React Dev Tools</h2>

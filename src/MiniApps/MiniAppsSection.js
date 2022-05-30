@@ -1,4 +1,4 @@
-import { Section, Chapter } from 'MasterDetail';
+import { Section, Chapter } from 'components/MasterDetail';
 import VeganDragon from './VeganDragon';
 
 export default function MiniAppsSection() {

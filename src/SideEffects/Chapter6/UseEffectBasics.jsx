@@ -61,7 +61,8 @@ export function UseEffectBasics() {
 
   return (
     <>
-      <h2>Chapter 6. useEffect basics</h2>
+      <h2>Chapter 6. useEffect</h2>
+      <h3>useEffect basics</h3>
 
       <div style={{ marginTop: 24, marginBottom: 24 }}>
         Current count:

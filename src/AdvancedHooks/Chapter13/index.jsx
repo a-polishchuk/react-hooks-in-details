@@ -3,7 +3,7 @@ import { ThemeToolbar } from './ThemeToolbar';
 import { ThemeLabel } from './ThemeLabel';
 import { UserPanel } from './User/UserPanel';
 
-export default function Chapter13() {
+export function UseContextExample() {
   return (
     <>
       <h2>Chapter 13. useContext</h2>

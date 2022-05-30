@@ -1,4 +1,4 @@
-import { Section, Chapter } from 'MasterDetail';
+import { Section, Chapter } from 'components/MasterDetail';
 import Chapter8 from './Chapter-8';
 import Chapter9 from './Chapter-9';
 import Chapter10 from './Chapter-10';

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
+import { useRerender } from 'hooks/useRerender';
 
 function useBallPosition(step) {
   const [left, setLeft] = useState(0);
@@ -46,14 +47,14 @@ function buildStyle(left, top) {
 }
 
 export function YouDontNeedUseEffect() {
-  const [, setDummyState] = useState();
   const [left, top] = useBallPosition(50);
   const style = buildStyle(left, top);
-  const rerender = () => setDummyState({});
+  const rerender = useRerender();
 
   return (
     <>
-      <h2>Chapter 6.3. You don't need useEffect</h2>
+      <h2>Chapter 6. useEffect</h2>
+      <h3>You don't need useEffect</h3>
 
       <Toolbar>
         <Button text="Click me to re-render the component" onClick={rerender} />

@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Section, Chapter } from 'MasterDetail';
+import { Section, Chapter } from 'components/MasterDetail';
 // import UsingContext from './UsingContext';
 // import UsingSwr from './UsingSwr';
 // import UsingReactQuery from './UsingReactQuery';
