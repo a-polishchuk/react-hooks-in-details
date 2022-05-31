@@ -2,7 +2,8 @@ import { Section, Chapter } from 'components/MasterDetail';
 import { UseEffectBasics } from './Chapter6/UseEffectBasics';
 import { UseEffectAndInterval } from './Chapter6/UseEffectAndInterval';
 import { YouDontNeedUseEffect } from './Chapter6/YouDontNeedUseEffect';
-import { Chapter7 } from './Chapter7';
+import { EffectsSequence } from './Chapter7/EffectsSequence';
+import { UseLayoutEffectExample } from './Chapter7/UseLayoutEffectExample';
 
 export function SideEffectsSection() {
   return (
@@ -18,7 +19,10 @@ export function SideEffectsSection() {
           component={YouDontNeedUseEffect}
         />
       </Section>
-      <Chapter title="7. useLayoutEffect" component={Chapter7} />
+      <Section title="7. useLayoutEffect">
+        <Chapter title="Effects sequence" component={EffectsSequence} />
+        <Chapter title="Batching effects" component={UseLayoutEffectExample} />
+      </Section>
     </Section>
   );
 }
