@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef } from 'react';
+import { useLayoutEffect, useState, useRef } from 'react';
 
 import { buildDotStyle } from './buildDotStyle';
 import { generateDummies } from './generateDummies';

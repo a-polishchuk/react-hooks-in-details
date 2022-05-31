@@ -1,6 +1,6 @@
 import { useImperativeHandle, useRef, forwardRef } from 'react';
 
-const inputStyle = {
+const INPUT_STYLE = {
   width: 30,
   height: 30,
   fontSize: 20,
@@ -14,8 +14,14 @@ function updateArray(array, index, newValue) {
   return copy;
 }
 
-function PinInput({ digits, onChange }, ref) {
+export const PinInput = forwardRef(({ digits, onChange }, ref) => {
   const inputRefs = useRef(new Array(digits.length));
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRefs.current[0].focus();
+    },
+  }));
 
   const handleChange = (index, newValue) => {
     const oldDigit = digits[index];
@@ -46,28 +52,18 @@ function PinInput({ digits, onChange }, ref) {
     }
   };
 
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRefs.current[0].focus();
-    },
-  }));
-
   return (
     <div>
       {digits.map((digit, index) => (
         <input
           key={index}
-          style={inputStyle}
+          style={INPUT_STYLE}
           value={digit}
           onChange={(event) => handleChange(index, event.target.value)}
           onKeyDown={(event) => handleKeyDown(index, event.nativeEvent.key)}
-          ref={(ref) => {
-            inputRefs.current[index] = ref;
-          }}
+          ref={(ref) => (inputRefs.current[index] = ref)}
         />
       ))}
     </div>
   );
-}
-
-export default forwardRef(PinInput);
+});

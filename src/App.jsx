@@ -1,7 +1,7 @@
 import { MasterDetail } from 'components/MasterDetail';
 import { HooksBasicsSection } from 'HooksBasics/HooksBasicsSection';
 import { SideEffectsSection } from 'SideEffects/SideEffectsSection';
-import ImperativeCodeSection from 'ImperativeCode/ImperativeCodeSection';
+import { ImperativeCodeSection } from 'ImperativeCode/ImperativeCodeSection';
 import { MemoizationSection } from 'Memoization/MemoizationSection';
 import { AdvancedHooksSection } from 'AdvancedHooks/AdvancedHooksSection';
 import HooksCollectionSection from 'HooksCollection/HooksCollectionSection';

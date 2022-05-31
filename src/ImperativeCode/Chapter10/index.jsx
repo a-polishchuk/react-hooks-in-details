@@ -2,11 +2,11 @@ import { useState, useRef } from 'react';
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
 
-import PinInput from './PinInput';
+import { PinInput } from './PinInput';
 
 const initialDigits = ['', '', '', ''];
 
-export default function Chapter9() {
+export function UseImperativeHandleExample() {
   const [digits, setDigits] = useState(initialDigits);
   const ref = useRef();
 
