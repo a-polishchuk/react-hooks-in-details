@@ -1,3 +1,4 @@
+import { memo, useMemo } from 'react';
 import { useRerender } from 'hooks/useRerender';
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
@@ -5,8 +6,10 @@ import { Button } from 'components/Button';
 import { Leaf } from './Leaf';
 import { buildStyle } from './buildStyle';
 
-function Node({ level, maxLevel, path }) {
+const MemoizedNode = memo(({ level, maxLevel, path }) => {
   const rerender = useRerender();
+  const leftPath = useMemo(() => [...path, 'left'], [path]);
+  const rightPath = useMemo(() => [...path, 'right'], [path]);
 
   const handleClick = (event) => {
     event.stopPropagation();
@@ -19,19 +22,19 @@ function Node({ level, maxLevel, path }) {
 
   return (
     <div style={buildStyle()} onClick={handleClick}>
-      <Node level={level + 1} maxLevel={maxLevel} path={[...path, 'left']} />
-      <Node level={level + 1} maxLevel={maxLevel} path={[...path, 'right']} />
+      <MemoizedNode level={level + 1} maxLevel={maxLevel} path={leftPath} />
+      <MemoizedNode level={level + 1} maxLevel={maxLevel} path={rightPath} />
     </div>
   );
-}
+});
 
-export function WhenReactRenderComponents() {
+export function UseMemoExample() {
   const rerender = useRerender();
 
   return (
     <>
       <h2>Chapter 12. useMemo</h2>
-      <h3>When React render components?</h3>
+      <h3>React.memo + useMemo</h3>
 
       <Toolbar>
         <Button
@@ -40,7 +43,7 @@ export function WhenReactRenderComponents() {
         />
       </Toolbar>
 
-      <Node level={0} maxLevel={2} path={['root']} />
+      <MemoizedNode level={0} maxLevel={2} path={['root']} />
     </>
   );
 }

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export function useRerender() {
   const [, setDummyState] = useState();
 
-  const rerender = () => setDummyState({});
+  const rerender = useCallback(() => setDummyState({}), []);
 
   return rerender;
 }
