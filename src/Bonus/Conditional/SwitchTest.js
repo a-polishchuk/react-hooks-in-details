@@ -1,54 +1,51 @@
-import { Button } from 'components/Button';
-import { useState, useRef } from 'react';
-import { Switch, Case, DefaultCase } from './Switch';
+import { useState } from 'react';
+import { Toolbar } from 'components/Toolbar';
+import { Switch, Case } from './Switch';
 
-export default function SwitchTest() {
-  const [value, setValue] = useState(0);
-  const inputRef = useRef(null);
-
+function Field({ label, value, setValue }) {
   const handleChange = (event) => {
     setValue(parseInt(event.target.value));
   };
 
-  const handleReset = () => {
-    setValue(0);
-    inputRef.current?.focus();
-  };
+  return (
+    <Toolbar>
+      <div style={{ minWidth: 150 }}>{label}</div>
+      <input type="number" value={value} onChange={handleChange} />
+    </Toolbar>
+  );
+}
+
+export default function SwitchTest() {
+  const [temperature, setTemperature] = useState(0);
+  const [windSpeed, setWindSpeed] = useState(0);
 
   return (
     <>
       <h2>Conditional rendering. Switch</h2>
-      <div style={{ paddingBottom: 10 }}>
-        <input
-          ref={inputRef}
-          type="number"
-          value={value}
-          onChange={handleChange}
-        />
+
+      <Field
+        label="Temperature"
+        value={temperature}
+        setValue={setTemperature}
+      />
+      <Field label="Wind speed" value={windSpeed} setValue={setWindSpeed} />
+
+      <div style={{ fontSize: 64 }}>
+        <Toolbar>
+          <Switch value={temperature}>
+            <Case condition={(val) => val < -10}>☃️</Case>
+            <Case condition={(val) => val < 0}>❄️</Case>
+            <Case value={0}>🌡️</Case>
+            <Case condition={(val) => val > 0}>☀️</Case>
+            <Case condition={(val) => val > 15}>☀️</Case>
+            <Case condition={(val) => val > 25}>🔥</Case>
+          </Switch>
+          <Switch value={windSpeed}>
+            <Case condition={(val) => val >= 20 && val < 60}>🌬</Case>
+            <Case condition={(val) => val >= 60}>🌪</Case>
+          </Switch>
+        </Toolbar>
       </div>
-      <Switch value={value}>
-        <Case condition={(val) => val < 0}>
-          <Button text="Reset" onClick={handleReset} />
-        </Case>
-        <Case condition={(val) => val < -10}>
-          <div style={{ marginTop: 16 }}>This is very low value</div>
-        </Case>
-        <Case value={0}>
-          <strong>Zero</strong>
-        </Case>
-        <Case value={1}>
-          <i>First</i>
-        </Case>
-        <Case value={2}>
-          <span style={{ color: 'red' }}>Second</span>
-        </Case>
-        <Case value={3}>
-          <span style={{ color: 'orange' }}>Third</span>
-        </Case>
-        <DefaultCase>
-          <span style={{ fontSize: 10 + value }}>{`${value}th`}</span>
-        </DefaultCase>
-      </Switch>
     </>
   );
 }

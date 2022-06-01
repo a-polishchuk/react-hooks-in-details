@@ -1,4 +1,5 @@
 import { useAnimatedText } from 'HooksCollection/Chapter-23/useAnimatedText';
+import { PropsTable } from 'components/PropsTable';
 import { DataRequest } from './DataRequest';
 
 function fetcher() {
@@ -27,14 +28,6 @@ function ErrorState({ message }) {
   return <div style={{ color: 'red', fontSize: '24px' }}>{message}</div>;
 }
 
-function Content({ data }) {
-  return (
-    <div style={{ color: 'green', fontSize: '18px' }}>
-      {JSON.stringify(data)}
-    </div>
-  );
-}
-
 const rootStyle = {
   height: '100%',
   display: 'flex',
@@ -56,7 +49,7 @@ export default function DataRequestTest() {
         <DataRequest
           fetcher={fetcher}
           renderLoading={() => <LoadingState />}
-          renderSuccess={(data) => <Content data={data} />}
+          renderSuccess={(data) => <PropsTable title="Response" data={data} />}
           renderError={(error) => <ErrorState message={error.message} />}
         />
       </div>
