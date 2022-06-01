@@ -4,7 +4,7 @@ import { ValueLabel } from 'components/ValueLabel';
 import { useCounter } from './useCounter';
 
 function ClicksCounter() {
-  const { value: clicks, increase } = useCounter(0, 1);
+  const { value: clicks, increase } = useCounter(0, 5);
   const text = 'Click me! '.repeat(clicks + 1);
   return (
     <div
@@ -22,9 +22,9 @@ function DecadePicker({ initialValue }) {
     <div style={{ padding: 10 }}>
       <div style={{ fontSize: 24 }}>Pick a decade:</div>
       <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-        <Button onClick={decrease} text="-" />
+        <Button onClick={() => decrease()} text="-" />
         <ValueLabel value={`${year}'s`} />
-        <Button onClick={increase} text="+" />
+        <Button onClick={() => increase()} text="+" />
       </div>
     </div>
   );
