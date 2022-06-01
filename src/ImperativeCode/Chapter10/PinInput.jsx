@@ -26,13 +26,10 @@ export const PinInput = forwardRef(({ digits, onChange }, ref) => {
   const handleChange = (index, newValue) => {
     const oldDigit = digits[index];
     const newDigit = newValue.trim().replace(oldDigit, '');
-
     if (newDigit < '0' || newDigit > '9') {
       return;
     }
-
     onChange(updateArray(digits, index, newDigit));
-
     const inputs = inputRefs.current;
     if (index < inputs.length - 1) {
       inputs[index + 1].focus();
