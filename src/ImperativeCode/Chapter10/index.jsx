@@ -21,6 +21,7 @@ export function UseImperativeHandleExample() {
   return (
     <>
       <h2>Chapter 9. useImperativeHandle</h2>
+      <h3>PinInput component</h3>
 
       <Toolbar>
         <PinInput ref={ref} digits={digits} onChange={setDigits} />

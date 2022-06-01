@@ -19,13 +19,8 @@ function EmojiOption({ value, selectedValue, onSelect }) {
 }
 
 function RockScissorsPaperInput({ currentValue, onChange }) {
-  const style = {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 8,
-  };
   return (
-    <div style={style}>
+    <>
       <EmojiOption
         value={'✊'}
         selectedValue={currentValue}
@@ -41,7 +36,7 @@ function RockScissorsPaperInput({ currentValue, onChange }) {
         selectedValue={currentValue}
         onSelect={onChange}
       />
-    </div>
+    </>
   );
 }
 
