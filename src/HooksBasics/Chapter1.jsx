@@ -5,11 +5,6 @@ import { ValueLabel } from 'components/ValueLabel';
 
 const FIBONACCI = [1, 1];
 
-/**
- * React function component should answer a question
- * "How I should look like for a specified input?"
- * where input = props + internal local state
- */
 export function UseStateBasics() {
   const [clicks, setClicks] = useState(0);
   const [isClicksVisible, setClicksVisible] = useState(true);
@@ -33,6 +28,7 @@ export function UseStateBasics() {
   return (
     <>
       <h2>Chapter 1. useState basics</h2>
+      <h3>General hooks rules</h3>
 
       <Toolbar>
         <div style={{ minWidth: 150, marginLeft: 16 }}>
