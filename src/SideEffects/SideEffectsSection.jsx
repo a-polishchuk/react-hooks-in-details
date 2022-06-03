@@ -21,7 +21,7 @@ export function SideEffectsSection() {
           component={FetchDataInUseEffect}
         />
         <Chapter
-          title="Beware of max update depth"
+          title="Beware of infinite loops"
           component={BewareOfInfiniteLoops}
         />
         <Chapter
