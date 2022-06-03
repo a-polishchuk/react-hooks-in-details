@@ -31,6 +31,14 @@ function FormField({ name, label, value, onChange, type = 'text' }) {
   );
 }
 
+function validatePositiveNumber(stringValue) {
+  if (!stringValue) {
+    return null;
+  }
+  // do not allow negative numbers
+  return Math.max(parseInt(stringValue), 0);
+}
+
 export function UseMergedStateExample() {
   const [data, setData] = useMergedState(INITIAL_STATE);
 
@@ -58,7 +66,7 @@ export function UseMergedStateExample() {
           name="age"
           label="Age"
           value={data.age}
-          onChange={(age) => setData({ age: age ? parseInt(age) : '' })}
+          onChange={(age) => setData({ age: validatePositiveNumber(age) })}
           type="number"
         />
         <FormField
@@ -77,7 +85,9 @@ export function UseMergedStateExample() {
           name="house"
           label="House"
           value={data.address.house}
-          onChange={(house) => setData({ address: { house } })}
+          onChange={(house) =>
+            setData({ address: { house: validatePositiveNumber(house) } })
+          }
           type="number"
         />
       </form>
