@@ -2,6 +2,7 @@ import { Section, Chapter } from 'components/MasterDetail';
 import { UseEffectBasics } from './Chapter6/UseEffectBasics';
 import { UseEffectAndInterval } from './Chapter6/UseEffectAndInterval';
 import { FetchDataInUseEffect } from './Chapter6/FetchDataInUseEffect';
+import { BewareOfInfiniteLoops } from './Chapter6/BewareOfInfiniteLoops';
 import { YouDontNeedUseEffect } from './Chapter6/YouDontNeedUseEffect';
 import { EffectsSequence } from './Chapter7/EffectsSequence';
 import { UseLayoutEffectExample } from './Chapter7/UseLayoutEffectExample';
@@ -18,6 +19,10 @@ export function SideEffectsSection() {
         <Chapter
           title="Fetch data in useEffect"
           component={FetchDataInUseEffect}
+        />
+        <Chapter
+          title="Beware of max update depth"
+          component={BewareOfInfiniteLoops}
         />
         <Chapter
           title="You don't need useEffect"

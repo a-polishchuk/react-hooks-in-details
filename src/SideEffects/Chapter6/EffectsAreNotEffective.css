@@ -1,0 +1,10 @@
+.animal-emoji {
+  font-size: 48px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.animal-emoji:hover {
+  opacity: 1;
+  text-shadow: 2px 2px #e1ccff;
+}
