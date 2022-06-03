@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Toolbar } from 'components/Toolbar';
 
-import './EffectsAreNotEffective.css';
+import './BewareOfInfiniteLoops.css';
 
 const EMOJIS = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐻‍❄️', '🐨'];
 
