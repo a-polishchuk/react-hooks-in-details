@@ -22,7 +22,7 @@ const useUppercaseState = createMappedState((newValue) => {
 });
 
 const useNoSpacesState = createMappedState((newValue) => {
-  return newValue?.replaceAll(/\s/, '');
+  return newValue?.replaceAll(/\s/g, '');
 });
 
 function Field({ label, value, onChange }) {

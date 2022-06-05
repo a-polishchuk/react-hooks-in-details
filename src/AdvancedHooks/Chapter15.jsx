@@ -1,4 +1,5 @@
 import { useCallback, useDebugValue, useState } from 'react';
+import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
 
 function useToggle(initialValue) {
@@ -25,10 +26,10 @@ function ToggleButton({ toggled, handleToggle }) {
 function SettingsToggle({ label, initialValue }) {
   const [isEnabled, toggleEnabled] = useToggle(initialValue);
   return (
-    <div style={{ margin: 10 }}>
+    <Toolbar>
       <ToggleButton toggled={isEnabled} handleToggle={toggleEnabled} />
       <span style={{ marginLeft: 10 }}>{label}</span>
-    </div>
+    </Toolbar>
   );
 }
 
