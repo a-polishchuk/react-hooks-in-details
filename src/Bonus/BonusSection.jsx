@@ -8,10 +8,10 @@ import DataRequestTest from './Conditional/DataRequestTest';
 import SwitchTest from './Conditional/SwitchTest';
 import UpdatesBatching from './UpdatesBatching';
 import DomManipulation from './DomManipulation';
-import StrictMode from './StrictMode';
-import Children from './Children';
+import { StrictModeExample } from './SctricMode';
+import { ChildrenExample } from './Children';
 import Events from './Events';
-import EventDelegation from './EventDelegation';
+import { EventDelegation } from './EventDelegation';
 import { ThreeJsDemo } from './ThreeJs';
 
 export function BonusSection() {
@@ -32,8 +32,8 @@ export function BonusSection() {
       </Section>
       <Chapter title="Updated batching" component={UpdatesBatching} />
       <Chapter title="DOM manipulation" component={DomManipulation} />
-      <Chapter title="Strict mode" component={StrictMode} />
-      <Chapter title="Children" component={Children} />
+      <Chapter title="Strict mode" component={StrictModeExample} />
+      <Chapter title="Children" component={ChildrenExample} />
       <Chapter title="Events" component={Events} />
       <Chapter title="Event delegation" component={EventDelegation} />
       <Chapter title="three.js" component={ThreeJsDemo} />

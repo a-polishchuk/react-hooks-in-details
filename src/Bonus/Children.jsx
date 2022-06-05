@@ -1,17 +1,20 @@
 import { Children } from 'react';
+import { getRandomColor } from 'utils/getRandomColor';
 
 const styles = {
   row: {
     display: 'flex',
     flexDirection: 'row',
   },
-  cell: {
+  cellContainer: {
     flex: 1,
     margin: 10,
   },
-  redBlock: {
+  cell: {
     height: 40,
-    backgroundColor: 'red',
+    borderRadius: 8,
+    border: '1px solid #0005',
+    boxShadow: '3px 3px 0px 0px #0002',
   },
 };
 
@@ -21,7 +24,7 @@ function FlexRow({ children }) {
   return (
     <div style={styles.row}>
       {Children.map(children, (child, index) => (
-        <div key={index} style={styles.cell}>
+        <div key={index} style={styles.cellContainer}>
           {child}
         </div>
       ))}
@@ -30,10 +33,17 @@ function FlexRow({ children }) {
 }
 
 function Cell() {
-  return <div style={styles.redBlock} />;
+  return (
+    <div
+      style={{
+        ...styles.cell,
+        backgroundColor: getRandomColor(),
+      }}
+    />
+  );
 }
 
-export default function ChildrenExample() {
+export function ChildrenExample() {
   return (
     <>
       <h2>Children</h2>

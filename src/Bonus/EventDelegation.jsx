@@ -1,25 +1,18 @@
 import { memo, useCallback, useState } from 'react';
-
-function getRandomCssColor() {
-  const r = Math.random() * 255;
-  const g = Math.random() * 255;
-  const b = Math.random() * 255;
-  return `rgb(${r}, ${g}, ${b})`;
-}
+import { getRandomColor } from 'utils/getRandomColor';
 
 function Cell({ id, col, row, selected, onClick }) {
-  const cellColor = getRandomCssColor();
-  const borderColor = selected ? 'white' : cellColor;
+  const cellColor = getRandomColor();
+  const borderColor = selected ? '#0008' : '#0003';
   const style = {
     gridColumn: col,
     gridRow: row,
     backgroundColor: cellColor,
-    border: `4px solid ${borderColor}`,
+    border: `1px solid ${borderColor}`,
+    borderRadius: 8,
+    boxShadow: '2px 2px 0px 0px #0005',
   };
-  const handleClick = () => {
-    onClick(id);
-  };
-  return <div id={id} style={style} onClick={handleClick} />;
+  return <div id={id} style={style} onClick={() => onClick(id)} />;
 }
 
 const MemoCell = memo(Cell);
@@ -63,6 +56,6 @@ function Grid({ cols, rows }) {
   return <div style={style}>{cells}</div>;
 }
 
-export default function EventDelegationExample() {
+export function EventDelegation() {
   return <Grid cols={30} rows={20} />;
 }
