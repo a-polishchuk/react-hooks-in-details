@@ -1,15 +1,17 @@
-import { buildStyle } from './buildStyle';
+import { ColoredBlock } from 'components/ColoredBlock';
+
+import { nodeStyle } from './nodeStyle';
 
 export function Leaf({ path, onClick }) {
   const leafStyle = {
-    ...buildStyle(),
+    ...nodeStyle,
     justifyContent: 'center',
     alignItems: 'center',
   };
 
   return (
-    <div style={leafStyle} onClick={onClick}>
+    <ColoredBlock style={leafStyle} onClick={onClick}>
       {path.join(', ')}
-    </div>
+    </ColoredBlock>
   );
 }

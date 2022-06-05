@@ -1,0 +1,9 @@
+.colored-block {
+  border-radius: 8px;
+  border: 1px solid #0005;
+  padding: 16px;
+  box-shadow: 3px 3px 0px 0px #0002;
+  color: #fff;
+  text-shadow: 1px 1px #0009;
+  transition: all 0.5s ease-in-out;
+}

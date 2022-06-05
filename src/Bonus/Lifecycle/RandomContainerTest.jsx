@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
+import { ColoredBlock } from 'components/ColoredBlock';
+
 import { LoggedLifecycle, useLoggedLifecycle } from './LoggedLifecycle';
 
 function getRandomElement(array) {
@@ -18,17 +21,15 @@ function RandomContainer({ children }) {
   return children;
 }
 
-function paragraphStyle(color) {
-  return {
-    backgroundColor: color,
-    borderRadius: 8,
-    color: 'white',
-    padding: 16,
-    marginBottom: 16,
-  };
+function Child({ tag, tagColor }) {
+  return (
+    <LoggedLifecycle tag={tag} color={tagColor}>
+      <ColoredBlock>{tag}</ColoredBlock>
+    </LoggedLifecycle>
+  );
 }
 
-export default function RandomContainerTest() {
+export function RandomContainerTest() {
   const [, setDummyState] = useState(null);
 
   const rerender = () => {
@@ -40,19 +41,16 @@ export default function RandomContainerTest() {
       <h2>Components lifecycle. Random container</h2>
 
       <RandomContainer>
-        <LoggedLifecycle key={1} tag="First" color="red">
-          <p style={paragraphStyle('red')}>First random paragraph</p>
-        </LoggedLifecycle>
-        <LoggedLifecycle key={2} tag="Second" color="green">
-          <p style={paragraphStyle('green')}>Second random paragraph</p>
-        </LoggedLifecycle>
-        <LoggedLifecycle key={3} tag="Third" color="blue">
-          <p style={paragraphStyle('blue')}>Third random paragraph</p>
-        </LoggedLifecycle>
+        <Child key={1} tag="First" tagColor="red" />
+        <Child key={2} tag="Second" tagColor="green" />
+        <Child key={3} tag="Third" tagColor="blue" />
+        <Child key={4} tag="Fourth" tagColor="orange" />
       </RandomContainer>
 
       <LoggedLifecycle tag="Button" color="orange">
-        <Button text="Click me to trigger new render" onClick={rerender} />
+        <Toolbar>
+          <Button text="Click me to trigger new render" onClick={rerender} />
+        </Toolbar>
       </LoggedLifecycle>
     </>
   );

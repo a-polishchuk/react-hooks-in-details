@@ -1,9 +1,10 @@
 import { useRerender } from 'hooks/useRerender';
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
+import { ColoredBlock } from 'components/ColoredBlock';
 
 import { Leaf } from './Leaf';
-import { buildStyle } from './buildStyle';
+import { nodeStyle } from './nodeStyle';
 
 function Node({ level, maxLevel, path }) {
   const rerender = useRerender();
@@ -18,10 +19,10 @@ function Node({ level, maxLevel, path }) {
   }
 
   return (
-    <div style={buildStyle()} onClick={handleClick}>
+    <ColoredBlock style={nodeStyle} onClick={handleClick}>
       <Node level={level + 1} maxLevel={maxLevel} path={[...path, 'left']} />
       <Node level={level + 1} maxLevel={maxLevel} path={[...path, 'right']} />
-    </div>
+    </ColoredBlock>
   );
 }
 

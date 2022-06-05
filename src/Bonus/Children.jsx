@@ -1,5 +1,5 @@
 import { Children } from 'react';
-import { getRandomColor } from 'utils/getRandomColor';
+import { ColoredBlock } from 'components/ColoredBlock';
 
 const styles = {
   row: {
@@ -9,12 +9,6 @@ const styles = {
   cellContainer: {
     flex: 1,
     margin: 10,
-  },
-  cell: {
-    height: 40,
-    borderRadius: 8,
-    border: '1px solid #0005',
-    boxShadow: '3px 3px 0px 0px #0002',
   },
 };
 
@@ -32,35 +26,29 @@ function FlexRow({ children }) {
   );
 }
 
-function Cell() {
-  return (
-    <div
-      style={{
-        ...styles.cell,
-        backgroundColor: getRandomColor(),
-      }}
-    />
-  );
-}
-
 export function ChildrenExample() {
   return (
     <>
       <h2>Children</h2>
       <FlexRow></FlexRow>
       <FlexRow>
-        <Cell />
+        <ColoredBlock />
       </FlexRow>
       <FlexRow>
-        <Cell />
-        <Cell />
+        <ColoredBlock />
+        <ColoredBlock />
       </FlexRow>
       <FlexRow>
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
+        <ColoredBlock />
+        <ColoredBlock />
+        <ColoredBlock />
+        <ColoredBlock />
+        <ColoredBlock />
+      </FlexRow>
+      <FlexRow>
+        <ColoredBlock />
+        <ColoredBlock />
+        <ColoredBlock />
       </FlexRow>
     </>
   );

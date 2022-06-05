@@ -1,4 +1,7 @@
-import { useToggle } from '../../../HooksCollection/Chapter-17/useToggle';
+import { Toolbar } from 'components/Toolbar';
+import { Button } from 'components/Button';
+import { useToggle } from 'HooksCollection/Chapter-17/useToggle';
+
 import LoggedLifecycle from '../GeneratedKeyExample/LoggedLifecycle';
 
 export default function ConditionalKeyExample() {
@@ -8,9 +11,9 @@ export default function ConditionalKeyExample() {
     <>
       <h2>How React keys really works?</h2>
 
-      <button style={{ margin: 20 }} onClick={toggle}>
-        Toggle
-      </button>
+      <Toolbar>
+        <Button text="Toggle" onClick={toggle} />
+      </Toolbar>
 
       {isToggled ? (
         <>

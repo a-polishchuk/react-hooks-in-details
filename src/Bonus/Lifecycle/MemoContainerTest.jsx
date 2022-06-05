@@ -1,5 +1,8 @@
 import { memo, useCallback, useMemo } from 'react';
+import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
+import { ColoredBlock } from 'components/ColoredBlock';
+
 import { LoggedLifecycle, useLoggedLifecycle } from './LoggedLifecycle';
 import { useRerender } from './useRerender';
 
@@ -15,14 +18,7 @@ const MemoRenderFunc = memo(({ tag, color, renderContent }) => {
   return renderContent();
 });
 
-const containerStyle = {
-  marginBottom: 16,
-  padding: 16,
-  backgroundColor: '#FFEEFF',
-  borderRadius: 8,
-};
-
-export default function MemoContainerTest() {
+export function MemoContainerTest() {
   const rerender = useRerender();
 
   const useMemoText = useMemo(
@@ -55,7 +51,7 @@ export default function MemoContainerTest() {
     <>
       <h2>Components lifecycle. Memoization</h2>
 
-      <div style={containerStyle}>
+      <ColoredBlock>
         <MemoLoggedLifecycle tag="1. Static text parent" color="orange">
           1. Just a static text here.
         </MemoLoggedLifecycle>
@@ -95,9 +91,11 @@ export default function MemoContainerTest() {
           color="magenta"
           renderContent={memoizedRenderFunc}
         />
-      </div>
+      </ColoredBlock>
 
-      <Button text="Click me to trigger new render" onClick={rerender} />
+      <Toolbar>
+        <Button text="Click me to trigger new render" onClick={rerender} />
+      </Toolbar>
     </>
   );
 }
