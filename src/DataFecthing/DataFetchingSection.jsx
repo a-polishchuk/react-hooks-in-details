@@ -8,7 +8,7 @@ const UsingContext = lazy(() => import('./UsingContext'));
 const UsingSwr = lazy(() => import('./UsingSwr'));
 const UsingReactQuery = lazy(() => import('./UsingReactQuery'));
 
-export default function DataFecthingSection() {
+export function DataFecthingSection() {
   return (
     <Section title="Data fecthing">
       <Chapter title="Context" component={UsingContext} />

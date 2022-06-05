@@ -15,7 +15,7 @@ import Chapter29 from './Chapter-29';
 import Chapter30 from './Chapter-30';
 import Chapter31 from './Chapter-31';
 
-export default function HooksCollectionSection() {
+export function HooksCollectionSection() {
   return (
     <Section title="Custom hooks collection">
       <Chapter title="useToggle 2.0" component={Chapter17} />

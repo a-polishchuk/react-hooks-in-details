@@ -1,13 +1,4 @@
-function generateColorComponent() {
-  return 120 + Math.random() * 135;
-}
-
-function generateRandomColor() {
-  const r = generateColorComponent();
-  const g = generateColorComponent();
-  const b = generateColorComponent();
-  return `rgb(${r}, ${g}, ${b})`;
-}
+import { getRandomColor } from 'utils/getRandomColor';
 
 export function buildStyle() {
   return {
@@ -23,6 +14,6 @@ export function buildStyle() {
     transition: 'all 0.5s ease-in-out',
     color: 'white',
     textShadow: '1px 1px #00000099',
-    backgroundColor: generateRandomColor(),
+    backgroundColor: getRandomColor(),
   };
 }

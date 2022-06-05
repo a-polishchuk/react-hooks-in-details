@@ -12,8 +12,9 @@ import StrictMode from './StrictMode';
 import Children from './Children';
 import Events from './Events';
 import EventDelegation from './EventDelegation';
+import { ThreeJsDemo } from './ThreeJs';
 
-export default function BonusSection() {
+export function BonusSection() {
   return (
     <Section title="Bonus">
       <Section title="Keys">
@@ -35,6 +36,7 @@ export default function BonusSection() {
       <Chapter title="Children" component={Children} />
       <Chapter title="Events" component={Events} />
       <Chapter title="Event delegation" component={EventDelegation} />
+      <Chapter title="three.js" component={ThreeJsDemo} />
     </Section>
   );
 }
