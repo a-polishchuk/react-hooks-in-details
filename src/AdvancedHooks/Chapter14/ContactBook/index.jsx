@@ -2,7 +2,7 @@ import { ContactsProvider } from './ContactsContext';
 import { ContactsGrid } from './ContactsGrid';
 import { ContactsToolbar } from './ContactsToolbar';
 
-export default function ContactBook() {
+export function ContactBook() {
   return (
     <ContactsProvider>
       <ContactsGrid />
