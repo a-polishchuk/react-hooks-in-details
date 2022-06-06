@@ -1,40 +1,31 @@
-import { useContacts, Types } from './ContactsContext';
+import { Toolbar } from 'components/Toolbar';
+import { Button } from 'components/Button';
+
+import { useContacts } from './ContactsContext';
+import { Types } from './contactsReducer';
 
 export function ContactsToolbar() {
   const [state, dispatch] = useContacts();
   const { selectedId } = state;
 
-  const removeSelected = () => {
+  const add = () => dispatch({ type: Types.ADD });
+
+  const removeSelected = () =>
     dispatch({
       type: Types.REMOVE,
       payload: { id: selectedId },
     });
-  };
 
-  const rollbackChanges = () => {
+  const rollbackChanges = () =>
     dispatch({
       type: Types.ROLLBACK,
     });
-  };
-
-  const buttonStyle = {
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#FFF',
-    border: 'cadetblue 1px solid',
-    borderRadius: 6,
-  };
 
   return (
-    <div>
-      {selectedId ? (
-        <button style={buttonStyle} onClick={removeSelected}>
-          REMOVE SELECTED
-        </button>
-      ) : null}
-      <button style={buttonStyle} onClick={rollbackChanges}>
-        ROLLBACK CHANGES
-      </button>
-    </div>
+    <Toolbar>
+      <Button text="Add" onClick={add} />
+      {selectedId && <Button text="Remove" onClick={removeSelected} />}
+      <Button text="Rollback changes" onClick={rollbackChanges} />
+    </Toolbar>
   );
 }

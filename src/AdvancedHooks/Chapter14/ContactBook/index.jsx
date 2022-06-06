@@ -1,12 +1,17 @@
 import { ContactsProvider } from './ContactsContext';
-import { ContactsGrid } from './ContactsGrid';
+import { ContactsList } from './ContactsList';
 import { ContactsToolbar } from './ContactsToolbar';
 
 export function ContactBook() {
   return (
-    <ContactsProvider>
-      <ContactsGrid />
-      <ContactsToolbar />
-    </ContactsProvider>
+    <>
+      <h2>Chapter 14. useReducer</h2>
+      <h3>useContext + useReducer</h3>
+
+      <ContactsProvider>
+        <ContactsList />
+        <ContactsToolbar />
+      </ContactsProvider>
+    </>
   );
 }
