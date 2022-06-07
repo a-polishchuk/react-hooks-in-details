@@ -1,16 +1,27 @@
-import { ThemeProvider } from './ThemeContext';
-import { ThemeToolbar } from './ThemeToolbar';
-import { ThemeLabel } from './ThemeLabel';
-import { UserPanel } from './User/UserPanel';
+import { Toolbar } from 'components/Toolbar';
+
+import { ThemeProvider } from './Theme/ThemeContext';
+import { ThemeButton } from './Theme/ThemeButton';
+import { ThemeToolbar } from './Theme/ThemeToolbar';
+import { UserProvider } from './User/UserContext';
+import { UserProfile } from './User/UserProfile';
 
 export function UseContextExample() {
   return (
     <>
       <h2>Chapter 13. useContext</h2>
+
       <ThemeProvider>
-        <UserPanel />
-        <ThemeLabel />
+        {/* you can get current theme in any component here */}
         <ThemeToolbar />
+        <Toolbar>
+          <ThemeButton text="Primary Button" />
+          <ThemeButton text="Disabled Button" disabled />
+        </Toolbar>
+        <UserProvider userId={1}>
+          {/* you can get user details in any component here */}
+          <UserProfile />
+        </UserProvider>
       </ThemeProvider>
     </>
   );
