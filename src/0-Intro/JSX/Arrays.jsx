@@ -32,7 +32,7 @@ function EmojisTable({ emojis }) {
   for (let i = 0; i < emojis.length; i++) {
     const emoji = emojis[i];
     rows.push(
-      <tr>
+      <tr key={i}>
         <td>{i + 1}</td>
         <td>{emoji}</td>
         <td>
