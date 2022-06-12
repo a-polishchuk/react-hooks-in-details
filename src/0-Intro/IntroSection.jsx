@@ -6,7 +6,7 @@ import { Fragments } from './JSX/Fragments';
 import { Arrays } from './JSX/Arrays';
 import { EventHandlers } from './JSX/EventHandlers';
 import { PropsAndChildren } from './PropsAndChildren';
-import { VirtualDOM } from './VirtualDOM';
+import { RenderingProcess } from './RenderingProcess';
 
 export function IntroSection() {
   return (
@@ -23,7 +23,7 @@ export function IntroSection() {
         title="Components, props, children"
         component={PropsAndChildren}
       />
-      <Chapter title="Virtual DOM" component={VirtualDOM} />
+      <Chapter title="Rendering process" component={RenderingProcess} />
     </Section>
   );
 }
