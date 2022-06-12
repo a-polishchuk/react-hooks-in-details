@@ -20,7 +20,7 @@ export function SameThingWithJsx() {
       <h2>Introduction to JSX</h2>
       <h3>React.createElement()</h3>
       <p style={{ fontSize: '18px' }}>
-        You don't have to use JSX, but the code is much harder to work without
+        You don't have to use JSX, but the code is much harder to read without
         it
       </p>
     </div>

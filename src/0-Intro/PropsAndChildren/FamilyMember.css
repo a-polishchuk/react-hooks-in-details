@@ -1,0 +1,15 @@
+.member-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #0001;
+  border-radius: 4px;
+  padding: 8px;
+  gap: 8px;
+}
+
+.member-children {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+}

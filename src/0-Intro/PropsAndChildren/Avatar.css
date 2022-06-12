@@ -1,0 +1,22 @@
+.member-avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.member-avatar-image {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+}
+
+.member-avatar-caption {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  text-shadow: 1px 1px #000;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
