@@ -1,16 +1,17 @@
+import { useEventListener } from '6-HooksCollection/Chapter-18/useEventListener';
+import { useInterval } from '6-HooksCollection/Chapter-27/useInterval';
 import { useReducer } from 'react';
-import { useInterval } from 'HooksCollection/Chapter-27/useInterval';
-import { useEventListener } from 'HooksCollection/Chapter-18/useEventListener';
-import { reducer } from './reducer';
-import { INITIAL_STATE } from './reducer/initialState';
+
 import {
   ActionType,
-  GameStatus,
   Direction,
+  GameStatus,
   MOVE_DELAY,
   SPAWN_DELAY,
 } from '../constants';
 import GameContext from './GameContext';
+import { reducer } from './reducer';
+import { INITIAL_STATE } from './reducer/initialState';
 
 export default function GameContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);

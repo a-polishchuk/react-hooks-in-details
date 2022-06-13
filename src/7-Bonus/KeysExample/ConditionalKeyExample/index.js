@@ -1,6 +1,6 @@
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
-import { useToggle } from 'HooksCollection/Chapter-17/useToggle';
+import { useToggle } from '6-HooksCollection/Chapter-17/useToggle';
 
 import LoggedLifecycle from '../GeneratedKeyExample/LoggedLifecycle';
 

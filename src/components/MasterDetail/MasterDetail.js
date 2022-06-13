@@ -1,4 +1,4 @@
-import { useToggle } from 'HooksCollection/Chapter-17/useToggle';
+import { useToggle } from '6-HooksCollection/Chapter-17/useToggle';
 import {
   createContext,
   useCallback,
@@ -7,6 +7,7 @@ import {
   useState,
   Suspense,
 } from 'react';
+
 import Loading from './Loading';
 import ExpandCollapseButton from './ExpandCollapseButton';
 import './MasterDetail.css';

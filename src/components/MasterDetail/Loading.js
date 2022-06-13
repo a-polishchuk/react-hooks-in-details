@@ -1,4 +1,4 @@
-import { useAnimatedText } from 'HooksCollection/Chapter-23/useAnimatedText';
+import { useAnimatedText } from '6-HooksCollection/Chapter-23/useAnimatedText';
 import './MasterDetail.css';
 
 export default function Loading() {

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
 import { ValueLabel } from 'components/ValueLabel';
-import { useCounter } from 'HooksBasics/Chapter3/useCounter';
+import { useCounter } from '1-HooksBasics/Chapter3/useCounter';
 
 function useUpdateEffect(callback) {
   const firstRenderRef = useRef(true);

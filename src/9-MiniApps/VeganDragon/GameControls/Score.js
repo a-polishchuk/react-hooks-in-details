@@ -1,4 +1,4 @@
-import { useInterval } from 'HooksCollection/Chapter-27/useInterval';
+import { useInterval } from '6-HooksCollection/Chapter-27/useInterval';
 import { useCallback, useState } from 'react';
 
 export default function Score({ value, delay, step }) {

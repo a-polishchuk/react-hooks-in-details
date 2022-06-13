@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'components/Button';
-import { Switch, Case } from 'Bonus/Conditional/Switch';
-import { useLocalStorage } from 'HooksCollection/Chapter-21/useLocalStorage';
+import { Switch, Case } from '7-Bonus/Conditional/Switch';
+import { useLocalStorage } from '6-HooksCollection/Chapter-21/useLocalStorage';
+
 import { useGameContext } from '../GameContext/GameContext';
 import { ActionType, GameStatus, HIGH_SCORE_KEY } from '../constants';
 import Modal from './Modal';

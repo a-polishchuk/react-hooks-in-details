@@ -1,14 +1,15 @@
 import { MasterDetail } from 'components/MasterDetail';
+
 import { IntroSection } from '0-Intro/IntroSection';
-import { HooksBasicsSection } from 'HooksBasics/HooksBasicsSection';
-import { SideEffectsSection } from 'SideEffects/SideEffectsSection';
-import { ImperativeCodeSection } from 'ImperativeCode/ImperativeCodeSection';
-import { MemoizationSection } from 'Memoization/MemoizationSection';
-import { AdvancedHooksSection } from 'AdvancedHooks/AdvancedHooksSection';
-import { HooksCollectionSection } from 'HooksCollection/HooksCollectionSection';
-import { DataFecthingSection } from 'DataFecthing/DataFetchingSection';
-import { BonusSection } from 'Bonus/BonusSection';
-import { MiniAppsSection } from 'MiniApps/MiniAppsSection';
+import { HooksBasicsSection } from '1-HooksBasics/HooksBasicsSection';
+import { SideEffectsSection } from '2-SideEffects/SideEffectsSection';
+import { ImperativeCodeSection } from '3-ImperativeCode/ImperativeCodeSection';
+import { MemoizationSection } from '4-Memoization/MemoizationSection';
+import { AdvancedHooksSection } from '5-AdvancedHooks/AdvancedHooksSection';
+import { HooksCollectionSection } from '6-HooksCollection/HooksCollectionSection';
+import { BonusSection } from '7-Bonus/BonusSection';
+import { DataFecthingSection } from '8-DataFecthing/DataFetchingSection';
+import { MiniAppsSection } from '9-MiniApps/MiniAppsSection';
 
 export default function App() {
   return (
