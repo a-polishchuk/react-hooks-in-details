@@ -8,7 +8,7 @@ export function ReactWithoutJsx() {
     createElement('h3', null, 'React.createElement()'),
     createElement(
       'p',
-      { fontSize: '18px' },
+      { style: { fontSize: '18px' } },
       `You don't have to use JSX, but the code is much harder to work without it`
     )
   );
