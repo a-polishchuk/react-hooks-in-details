@@ -30,24 +30,26 @@ export function RenderingProcess() {
         <div style={getSectionStyle(2)}>
           <h3 className="rendering-header">Virtual DOM / React Realm</h3>
           <ColoredBlock>
-            Render starts. Component functions are called one by one starting
-            from the root component.
+            New render has been triggered (because of some change in the state
+            of the app). React calls the root component function. Children
+            component function will be called recursively.
           </ColoredBlock>
           <Emoji>⬇️</Emoji>
           <ColoredBlock>
-            New React Elements tree is created. React Element is a lightweight
-            javascript object which sits in memory and has no direct connection
-            to the browser DOM.
+            New Virtual DOM tree is created now. It consists of React Elements -
+            lightweight javascript object which sits in memory and stores
+            representation of a component. They have no direct connection to the
+            real DOM elements.
           </ColoredBlock>
           <Emoji>⬇️</Emoji>
           <ColoredBlock>
-            New elements tree is being compared to the previous one. Diff is
-            calculated. Only this diff will be applied to the real DOM.
+            New VDOM now should be compared to the old one (if it exists, of
+            course). Calculated diff will be applied to the real DOM.
           </ColoredBlock>
           <div className="rendering-bottom-label">
             Virtual DOM is a tree data structure of lightweight React Element
-            objects. React can generate thousands of React Elemenets on each
-            renders with a great performance.
+            objects. React can generate thousands of React Elements on each
+            render with a great performance.
           </div>
         </div>
 
