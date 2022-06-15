@@ -11,6 +11,7 @@ import {
 import Loading from './Loading';
 import ExpandCollapseButton from './ExpandCollapseButton';
 import './MasterDetail.css';
+import { EasterEgg } from './EasterEgg';
 
 const EXPANDED_WIDTH = '25%';
 const COLLAPSED_WIDTH = '25px';
@@ -20,6 +21,12 @@ const Context = createContext();
 
 export function useMasterDetailContext() {
   return useContext(Context);
+}
+
+function useDocumentTitle(title) {
+  useEffect(() => {
+    document.title = title || DEFAULT_TITLE;
+  }, [title]);
 }
 
 export default function MasterDetail({ children }) {
@@ -49,30 +56,30 @@ export default function MasterDetail({ children }) {
   };
 
   return (
-    <div className="container">
-      <div className="master" style={masterStyle}>
-        {expanded && (
-          <Context.Provider value={contextValue}>{children}</Context.Provider>
-        )}
-      </div>
+    <>
+      <div className="container">
+        <div className="master" style={masterStyle}>
+          {expanded && (
+            <Context.Provider value={contextValue}>{children}</Context.Provider>
+          )}
+        </div>
 
-      <div className="detail">
-        <Suspense fallback={<Loading />}>
-          {DetailComponent && <DetailComponent />}
-        </Suspense>
-      </div>
+        <div className="detail">
+          <Suspense fallback={<Loading />}>
+            {DetailComponent && <DetailComponent />}
+          </Suspense>
+        </div>
 
-      <div className="master-expand-container" style={masterStyle}>
-        <div className="master-expand-button">
-          <ExpandCollapseButton expanded={expanded} onToggle={toggleExpanded} />
+        <div className="master-expand-container" style={masterStyle}>
+          <div className="master-expand-button">
+            <ExpandCollapseButton
+              expanded={expanded}
+              onToggle={toggleExpanded}
+            />
+          </div>
         </div>
       </div>
-    </div>
+      <EasterEgg />
+    </>
   );
-}
-
-function useDocumentTitle(title) {
-  useEffect(() => {
-    document.title = title || DEFAULT_TITLE;
-  }, [title]);
 }
