@@ -94,3 +94,25 @@ div {
   align-items: center;
   font-size: 48px;
 }
+
+.empty-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty-screen-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.empty-screen-message {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.empty-screen-avatar {
+  font-size: 32px;
+  text-shadow: 1px 1px #0002;
+}

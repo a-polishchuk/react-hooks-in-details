@@ -67,8 +67,8 @@ function buildStyle(position, side, visible) {
   };
 }
 
-const SHOW_TIME = 4 * 1000;
-const PAUSE_TIME = 30 * 1000;
+const SHOW_TIME = 3 * 1000;
+const PAUSE_TIME = 20 * 1000;
 
 export function EasterEgg() {
   const [position, setPosition] = useState(getRandomPosition());

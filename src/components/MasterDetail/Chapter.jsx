@@ -1,7 +1,7 @@
 import { useMasterDetailContext } from './MasterDetail';
 import './MasterDetail.css';
 
-export default function Chapter({ title, component }) {
+export function Chapter({ title, component }) {
   const { selectedTitle, selectChapter } = useMasterDetailContext();
   const isSelected = selectedTitle === title;
   const className = `master-button ${isSelected ? 'selected' : ''}`;

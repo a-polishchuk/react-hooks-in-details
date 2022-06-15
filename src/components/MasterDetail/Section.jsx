@@ -1,9 +1,9 @@
 import { useEffect, useState, Children } from 'react';
 import { useMasterDetailContext } from './MasterDetail';
-import ExpandCollapseButton from './ExpandCollapseButton';
+import { ExpandCollapseButton } from './ExpandCollapseButton';
 import './MasterDetail.css';
 
-export default function Section({ title, children }) {
+export function Section({ title, children }) {
   const [expanded, setExpanded] = useState(false);
   const { selectedTitle } = useMasterDetailContext();
 

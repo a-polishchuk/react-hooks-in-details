@@ -8,10 +8,11 @@ import {
   Suspense,
 } from 'react';
 
-import Loading from './Loading';
-import ExpandCollapseButton from './ExpandCollapseButton';
-import './MasterDetail.css';
+import { Loading } from './Loading';
+import { ExpandCollapseButton } from './ExpandCollapseButton';
 import { EasterEgg } from './EasterEgg';
+import { EmptyScreen } from './EmptyScreen';
+import './MasterDetail.css';
 
 const EXPANDED_WIDTH = '25%';
 const COLLAPSED_WIDTH = '25px';
@@ -29,7 +30,7 @@ function useDocumentTitle(title) {
   }, [title]);
 }
 
-export default function MasterDetail({ children }) {
+export function MasterDetail({ children }) {
   const [selectedTitle, setSelectedTitle] = useState();
   const [DetailComponent, setDetailComponent] = useState();
   const [expanded, toggleExpanded] = useToggle(true);
@@ -66,7 +67,7 @@ export default function MasterDetail({ children }) {
 
         <div className="detail">
           <Suspense fallback={<Loading />}>
-            {DetailComponent && <DetailComponent />}
+            {DetailComponent ? <DetailComponent /> : <EmptyScreen />}
           </Suspense>
         </div>
 
