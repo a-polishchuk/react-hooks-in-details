@@ -3,7 +3,7 @@ import { styles } from './styles';
 
 const SHOW_DELAY = 1000;
 
-export default function EventsTest({ capturePhase, stopPropagation }) {
+export function EventsTest({ capturePhase, stopPropagation }) {
   const [redClicked, setRedClicked] = useState(false);
   const [greenClicked, setGreenClicked] = useState(false);
   const [blueClicked, setBlueClicked] = useState(false);

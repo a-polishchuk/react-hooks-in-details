@@ -1,6 +1,6 @@
 import { styles } from './styles';
 
-export default function Field({ name, label, value, onChange }) {
+export function Field({ name, label, value, onChange }) {
   return (
     <div style={styles.field}>
       <input

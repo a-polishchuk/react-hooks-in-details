@@ -5,7 +5,7 @@ const style = {
   fontSize: 20,
 };
 
-export default function ListItem({ id, item, onClick }) {
+export function ListItem({ id, item, onClick }) {
   const prevItemRef = useRef();
 
   useEffect(() => {

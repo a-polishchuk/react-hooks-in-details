@@ -2,9 +2,9 @@ import { Toolbar } from 'components/Toolbar';
 import { Button } from 'components/Button';
 import { useToggle } from '6-HooksCollection/Chapter-17/useToggle';
 
-import LoggedLifecycle from '../GeneratedKeyExample/LoggedLifecycle';
+import { LoggedLifecycle } from './LoggedLifecycle';
 
-export default function ConditionalKeyExample() {
+export function ConditionalKeyExample() {
   const [isToggled, toggle] = useToggle(true);
 
   return (

@@ -41,7 +41,7 @@ const containerStyle = {
   alignItems: 'center',
 };
 
-export default function DataRequestTest() {
+export function DataRequestTest() {
   return (
     <div style={rootStyle}>
       <h2>Conditional rendering. Data request</h2>

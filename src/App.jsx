@@ -11,7 +11,7 @@ import { BonusSection } from '7-Bonus/BonusSection';
 import { DataFecthingSection } from '8-DataFecthing/DataFetchingSection';
 import { MiniAppsSection } from '9-MiniApps/MiniAppsSection';
 
-export default function App() {
+export function App() {
   return (
     <MasterDetail>
       <IntroSection />

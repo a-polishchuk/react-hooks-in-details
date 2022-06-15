@@ -1,10 +1,10 @@
 import { Button } from 'components/Button';
 import { useRerender } from 'hooks/useRerender';
 
-import LoggedLifecycle from './LoggedLifecycle';
-import Margin from './Margin';
+import { LoggedLifecycle } from '../LoggedLifecycle';
+import { Margin } from './Margin';
 
-export default function GeneratedKeyExample() {
+export function GeneratedKeyExample() {
   const rerender = useRerender();
   const randomKey = generateRandomKey();
 

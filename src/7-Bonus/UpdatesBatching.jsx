@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-export default function UpdatesBatchingExample() {
+export function UpdatesBatching() {
   const [clicksCount, setClicksCount] = useState(0);
   const [isEvenClick, setEvenClick] = useState(true);
   const buttonRef = useRef();

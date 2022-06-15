@@ -1,6 +1,6 @@
-import ListItem from './ListItem';
+import { ListItem } from './ListItem';
 
-export default function OrderedList({ data, onItemClick }) {
+export function OrderedList({ data, onItemClick }) {
   return (
     <ol>
       {data.map((item, index) => {

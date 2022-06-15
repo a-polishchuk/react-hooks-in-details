@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Field from './Field';
-import EventsTest from './EventsTest';
+import { Field } from './Field';
+import { EventsTest } from './EventsTest';
 
-export default function EventsExample() {
+export function EventsExample() {
   const [capturePhase, setCapturePhase] = useState(false);
   const [stopPropagation, setStopPropagation] = useState(false);
 

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import OrderedList from './OrderedList';
+import { OrderedList } from './OrderedList';
 
 const DATA = ['one', 'two', 'three', 'four', 'five', 'six', 'seven'];
 
-export default function OrderedListExample() {
+export function OrderedListExample() {
   const [data, setData] = useState(DATA);
 
   const onItemClick = (item) => {

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Button } from 'components/Button';
 
-export default function DomManipulation() {
+export function DomManipulation() {
   const [id, setId] = useState(() => uuid());
   const [color, setColor] = useState('black');
   const divRef = useRef();

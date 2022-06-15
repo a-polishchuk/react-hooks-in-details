@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function LoggedLifecycle({ name }) {
+export function LoggedLifecycle({ name }) {
   const nameRef = useRef(name);
 
   useEffect(() => {

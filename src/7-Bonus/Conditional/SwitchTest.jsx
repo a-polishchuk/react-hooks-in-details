@@ -15,7 +15,7 @@ function Field({ label, value, setValue }) {
   );
 }
 
-export default function SwitchTest() {
+export function SwitchTest() {
   const [temperature, setTemperature] = useState(0);
   const [windSpeed, setWindSpeed] = useState(0);
 
