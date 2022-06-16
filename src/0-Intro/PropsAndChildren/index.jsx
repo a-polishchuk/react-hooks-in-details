@@ -8,7 +8,10 @@ export function PropsAndChildren() {
         <FamilyMember name="John">
           <FamilyMember name="Leo">
             <FamilyMember name="Bella" />
-            <FamilyMember name="Loki" />
+            <FamilyMember name="Loki">
+              <FamilyMember name="Mia" />
+              <FamilyMember name="Candy" />
+            </FamilyMember>
           </FamilyMember>
         </FamilyMember>
         <FamilyMember name="Jill">

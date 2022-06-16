@@ -5,9 +5,11 @@
 }
 
 .member-avatar-image {
-  max-width: 100px;
-  max-height: 100px;
+  width: 64px;
+  height: 64px;
   border-radius: 4px;
+  object-fit: cover;
+  background-color: #0004;
 }
 
 .member-avatar-caption {
@@ -17,5 +19,4 @@
   text-shadow: 1px 1px #000;
   width: 100%;
   text-align: center;
-  font-weight: 600;
 }
