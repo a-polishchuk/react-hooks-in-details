@@ -9,11 +9,11 @@ import {
   MOVE_DELAY,
   SPAWN_DELAY,
 } from '../constants';
-import GameContext from './GameContext';
+import { GameContext } from './GameContext';
 import { reducer } from './reducer';
 import { INITIAL_STATE } from './reducer/initialState';
 
-export default function GameContextProvider({ children }) {
+export function GameContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   const isPlaying = state.gameStatus === GameStatus.PLAYING;
 

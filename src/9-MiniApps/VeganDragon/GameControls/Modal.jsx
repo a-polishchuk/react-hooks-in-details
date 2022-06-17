@@ -35,7 +35,7 @@ const styles = {
   },
 };
 
-export default function Modal({ title, message, buttons }) {
+export function Modal({ title, message, buttons }) {
   return (
     <div style={styles.root}>
       <div style={styles.body}>

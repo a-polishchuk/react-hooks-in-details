@@ -5,9 +5,9 @@ import { useLocalStorage } from '6-HooksCollection/Chapter-21/useLocalStorage';
 
 import { useGameContext } from '../GameContext/GameContext';
 import { ActionType, GameStatus, HIGH_SCORE_KEY } from '../constants';
-import Modal from './Modal';
-import Score from './Score';
-import CurrentDirection from './CurrentDirection';
+import { Modal } from './Modal';
+import { Score } from './Score';
+import { CurrentDirection } from './CurrentDirection';
 
 const styles = {
   root: {
@@ -39,7 +39,7 @@ const styles = {
   },
 };
 
-export default function GameControls() {
+export function GameControls() {
   const [state, dispatch] = useGameContext();
   const { gameStatus, points, direction } = state;
 

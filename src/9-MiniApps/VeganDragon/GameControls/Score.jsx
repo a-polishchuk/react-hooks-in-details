@@ -1,7 +1,7 @@
 import { useInterval } from '6-HooksCollection/Chapter-27/useInterval';
 import { useCallback, useState } from 'react';
 
-export default function Score({ value, delay, step }) {
+export function Score({ value, delay, step }) {
   const animatedValue = useAnimatedValue(value, delay, step);
 
   return <span>{animatedValue} pts</span>;

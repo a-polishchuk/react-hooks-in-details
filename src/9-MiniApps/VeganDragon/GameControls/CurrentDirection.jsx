@@ -1,6 +1,6 @@
 import { Direction } from '../constants';
 
-export default function CurrentDirection({ direction }) {
+export function CurrentDirection({ direction }) {
   const emoji = getDirectionEmoji(direction);
 
   return <span>{emoji.repeat(3)}</span>;

@@ -1,5 +1,5 @@
 import { useGameContext } from '../GameContext/GameContext';
-import Cell from './Cell';
+import { Cell } from './Cell';
 import { styles } from './styles';
 
 function mapCells(grid) {
@@ -21,7 +21,7 @@ function mapCells(grid) {
   return cells;
 }
 
-export default function Grid() {
+export function Grid() {
   const [state] = useGameContext();
   const { grid } = state;
 
