@@ -1,18 +1,19 @@
+import './MasterDetail.css';
+
 import { useToggle } from '6-HooksCollection/Chapter-17/useToggle';
 import {
   createContext,
+  Suspense,
   useCallback,
   useContext,
   useEffect,
   useState,
-  Suspense,
 } from 'react';
 
-import { Loading } from './Loading';
-import { ExpandCollapseButton } from './ExpandCollapseButton';
 import { EasterEgg } from './EasterEgg';
 import { EmptyScreen } from './EmptyScreen';
-import './MasterDetail.css';
+import { ExpandCollapseButton } from './ExpandCollapseButton';
+import { Loading } from './Loading';
 
 const EXPANDED_WIDTH = '25%';
 const COLLAPSED_WIDTH = '25px';

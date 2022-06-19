@@ -114,5 +114,8 @@ div {
 }
 .empty-screen-avatar {
   font-size: 32px;
-  text-shadow: 1px 1px #0002;
+}
+.empty-screen-timestamp {
+  font-size: 12px;
+  color: #0006;
 }
