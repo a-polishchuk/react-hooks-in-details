@@ -14,6 +14,7 @@ import { ChildrenExample } from './Children';
 import { EventsExample } from './Events';
 import { EventDelegation } from './EventDelegation';
 import { ThreeJsDemo } from './ThreeJs';
+import { BrownianMotion } from './BrownianMotion/BrownianMotion';
 
 export function BonusSection() {
   return (
@@ -38,6 +39,7 @@ export function BonusSection() {
       <Chapter title="Events" component={EventsExample} />
       <Chapter title="Event delegation" component={EventDelegation} />
       <Chapter title="three.js" component={ThreeJsDemo} />
+      <Chapter title="Brownian motion" component={BrownianMotion} />
     </Section>
   );
 }
