@@ -1,0 +1,17 @@
+.typical-component-child {
+  position: absolute;
+  top: calc(100% + 24px);
+  left: 16px;
+  right: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.typical-component-arrow {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #0008;
+  text-shadow: 1px 1px #0002;
+}

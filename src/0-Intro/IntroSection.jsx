@@ -1,4 +1,6 @@
 import { Section, Chapter } from 'components/MasterDetail';
+
+import { ReactTraits } from './ReactTraits';
 import { HelloWorld } from './HelloWorld';
 import { JsxBasics } from './JSX/JsxBasics';
 import { ReactWithoutJsx } from './JSX/ReactWithoutJsx';
@@ -11,6 +13,7 @@ import { RenderingProcess } from './RenderingProcess';
 export function IntroSection() {
   return (
     <Section title="Intro">
+      <Chapter title="React traits" component={ReactTraits} />
       <Chapter title="Hello, world!" component={HelloWorld} />
       <Section title="JSX">
         <Chapter title="JSX Basics" component={JsxBasics} />
