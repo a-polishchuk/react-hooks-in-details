@@ -1,7 +1,7 @@
 import { useTodoList } from '../../hooks/useTodoList';
 import './index.css';
 
-export default function TodoCounter() {
+export function TodoCounter() {
   const { data } = useTodoList();
   const todoCount = data?.length ?? 0;
 

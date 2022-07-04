@@ -1,7 +1,7 @@
 import { useUserContext } from '8-DataFecthing/UsingContext/UserContext';
 import './index.css';
 
-export default function UserName() {
+export function UserName() {
   const { data } = useUserContext();
 
   return (

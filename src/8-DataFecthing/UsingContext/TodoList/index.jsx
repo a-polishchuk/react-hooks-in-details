@@ -1,5 +1,4 @@
-import { useTodoList } from '../hooks/useTodoList';
-import { Button } from 'components/Button';
+import { useTodoContext } from '../TodoContext';
 import './index.css';
 
 function TodoRow({ number, data }) {
@@ -13,25 +12,14 @@ function TodoRow({ number, data }) {
   );
 }
 
-function TodoList() {
-  const { loading, data, invalidate } = useTodoList();
+export function TodoList() {
+  const { loading, data } = useTodoContext();
   const todos = loading ? [] : data;
 
-  const handleRefresh = () => {
-    invalidate();
-  };
-
   return (
-    <div className="rq-todo-list">
+    <div className="dfc-todo-list">
       <table>
         <thead>
-          <tr>
-            <th></th>
-            <th className="title">Todos List</th>
-            <th>
-              <Button text="Refresh" onClick={handleRefresh} />
-            </th>
-          </tr>
           <tr>
             <th>#</th>
             <th>Title</th>
@@ -47,5 +35,3 @@ function TodoList() {
     </div>
   );
 }
-
-export default TodoList;

@@ -13,7 +13,7 @@ function TodoRow({ number, data }) {
   );
 }
 
-function TodoList() {
+export function TodoList() {
   const { loading, data, mutate } = useTodoList();
   const todos = loading ? [] : data;
 
@@ -47,5 +47,3 @@ function TodoList() {
     </div>
   );
 }
-
-export default TodoList;

@@ -1,7 +1,7 @@
 import { useQueryClient } from 'react-query';
 import { Button } from 'components/Button';
 
-export default function RefreshAll() {
+export function RefreshAll() {
   const queryClient = useQueryClient();
 
   const handleClick = () => {

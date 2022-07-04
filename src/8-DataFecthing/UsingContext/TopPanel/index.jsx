@@ -1,9 +1,9 @@
-import Avatar from './Avatar';
-import UserName from './UserName';
-import TodoCounter from './TodoCounter';
+import { Avatar } from './Avatar';
+import { UserName } from './UserName';
+import { TodoCounter } from './TodoCounter';
 import './index.css';
 
-export default function TopPanel() {
+export function TopPanel() {
   return (
     <div className="dfc-top-panel">
       <div className="avatar-container">

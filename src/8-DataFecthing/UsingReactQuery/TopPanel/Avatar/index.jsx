@@ -11,8 +11,8 @@ function useUserInitials() {
     .join('');
 }
 
-export default function Avatar() {
+export function Avatar() {
   const initials = useUserInitials();
 
-  return <div className="swr-avatar">{initials}</div>;
+  return <div className="rq-avatar">{initials}</div>;
 }

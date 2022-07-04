@@ -1,7 +1,7 @@
 import { useUserContext } from '../../UserContext';
 import './index.css';
 
-export default function Avatar() {
+export function Avatar() {
   const { data } = useUserContext();
   const userName = data?.name ?? '';
 

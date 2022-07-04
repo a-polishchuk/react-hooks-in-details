@@ -1,13 +1,13 @@
-import Avatar from './Avatar';
-import UserName from './UserName';
-import TodoCounter from './TodoCounter';
-import LastUpdated from './LastUpdated';
-import RefreshAll from './RefreshAll';
+import { Avatar } from './Avatar';
+import { UserName } from './UserName';
+import { TodoCounter } from './TodoCounter';
+import { LastUpdated } from './LastUpdated';
+import { RefreshAll } from './RefreshAll';
 import './index.css';
 
-export default function TopPanel() {
+export function TopPanel() {
   return (
-    <div className="swr-top-panel">
+    <div className="rq-top-panel">
       <div className="avatar-container">
         <Avatar />
       </div>

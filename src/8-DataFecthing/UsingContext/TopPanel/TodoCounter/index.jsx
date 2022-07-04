@@ -1,7 +1,7 @@
 import { useTodoContext } from '../../TodoContext';
 import './index.css';
 
-export default function TodoCounter() {
+export function TodoCounter() {
   const { data } = useTodoContext();
   const todoCount = data?.length ?? 0;
 

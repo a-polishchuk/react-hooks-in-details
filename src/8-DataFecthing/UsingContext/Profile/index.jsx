@@ -10,7 +10,7 @@ function ProfileRow({ param, value }) {
   );
 }
 
-function Profile() {
+export function Profile() {
   const { loading, data, error } = useUserContext();
 
   if (loading) {
@@ -44,5 +44,3 @@ function Profile() {
     </div>
   );
 }
-
-export default Profile;

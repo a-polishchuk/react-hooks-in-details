@@ -1,12 +1,12 @@
 import { useLastUpdated } from '../../hooks/useLastUpdated';
 import './index.css';
 
-export default function LastUpdated() {
+export function LastUpdated() {
   const { data } = useLastUpdated();
   const formattedTime = data?.toLocaleTimeString() ?? '--';
 
   return (
-    <div className="swr-last-updated">
+    <div className="rq-last-updated">
       Last updated:
       <br />
       <strong>{formattedTime}</strong>

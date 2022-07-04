@@ -1,7 +1,7 @@
 import { useUser } from '../../hooks/useUser';
 import './index.css';
 
-export default function UserName() {
+export function UserName() {
   const { data } = useUser();
 
   return (
