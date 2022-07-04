@@ -1,11 +1,10 @@
 import './BrownianMotion.css';
 
 import { useInterval } from '6-HooksCollection/Chapter-27/useInterval';
+import { ReactLogo } from 'components/ReactLogo';
 import { useRerender } from 'hooks/useRerender';
 import { getRandomArrayElement } from 'utils/getRandomArrayElement';
 import { getRandomNumber } from 'utils/getRandomNumber';
-
-import { ReactLogo } from './ReactLogo';
 
 const DURATION = 10;
 const MONOKAI_PALETTE = [
@@ -22,7 +21,7 @@ function getLogoStyle(left, top) {
   return {
     position: 'absolute',
     transition: `all ${DURATION}s linear`,
-    opacity: Math.random() * 0.7 + 0.3,
+    opacity: getRandomNumber(0.3, 0.8),
     transform: `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`,
     left,
     top,
@@ -32,8 +31,8 @@ function getLogoStyle(left, top) {
 function buildLogos() {
   const logos = [];
   for (let i = 0; i < 10; i++) {
-    const left = `${Math.random() * 100}%`;
-    const top = `${Math.random() * 100}%`;
+    const left = `${getRandomNumber(10, 90)}%`;
+    const top = `${getRandomNumber(10, 90)}%`;
     logos.push(
       <ReactLogo
         key={i}
@@ -51,5 +50,5 @@ export function BrownianMotion() {
 
   useInterval(rerender, DURATION * 1000);
 
-  return <div className="promo-container">{buildLogos()}</div>;
+  return <div className="brownian-motion-container">{buildLogos()}</div>;
 }

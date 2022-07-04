@@ -5,6 +5,7 @@ import { useInterval } from '6-HooksCollection/Chapter-27/useInterval';
 import { useMemo, useState } from 'react';
 import { getRandomColor } from 'utils/getRandomColor';
 
+import { Background } from './Background';
 import { AlienMessage } from './AlienMessage';
 import { DotsMessage } from './DotsMessage';
 
@@ -39,6 +40,7 @@ export function EmptyScreen() {
 
   return (
     <div className="empty-screen">
+      <Background logosNumber={3} />
       <div className="empty-screen-messages">
         {messages.map((message) => (
           <AlienMessage
