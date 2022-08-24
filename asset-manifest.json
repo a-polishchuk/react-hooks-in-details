@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-hooks-in-details/static/css/main.adbb9bde.css",
+    "main.js": "/react-hooks-in-details/static/js/main.3b46c4df.js",
+    "static/css/663.33ecbc36.chunk.css": "/react-hooks-in-details/static/css/663.33ecbc36.chunk.css",
+    "static/js/663.e635a568.chunk.js": "/react-hooks-in-details/static/js/663.e635a568.chunk.js",
+    "static/css/581.02119ef0.chunk.css": "/react-hooks-in-details/static/css/581.02119ef0.chunk.css",
+    "static/js/581.109b219d.chunk.js": "/react-hooks-in-details/static/js/581.109b219d.chunk.js",
+    "static/css/386.64636242.chunk.css": "/react-hooks-in-details/static/css/386.64636242.chunk.css",
+    "static/js/386.491f0eac.chunk.js": "/react-hooks-in-details/static/js/386.491f0eac.chunk.js",
+    "static/js/933.c4d7db4b.chunk.js": "/react-hooks-in-details/static/js/933.c4d7db4b.chunk.js",
+    "index.html": "/react-hooks-in-details/index.html",
+    "main.adbb9bde.css.map": "/react-hooks-in-details/static/css/main.adbb9bde.css.map",
+    "main.3b46c4df.js.map": "/react-hooks-in-details/static/js/main.3b46c4df.js.map",
+    "663.33ecbc36.chunk.css.map": "/react-hooks-in-details/static/css/663.33ecbc36.chunk.css.map",
+    "663.e635a568.chunk.js.map": "/react-hooks-in-details/static/js/663.e635a568.chunk.js.map",
+    "581.02119ef0.chunk.css.map": "/react-hooks-in-details/static/css/581.02119ef0.chunk.css.map",
+    "581.109b219d.chunk.js.map": "/react-hooks-in-details/static/js/581.109b219d.chunk.js.map",
+    "386.64636242.chunk.css.map": "/react-hooks-in-details/static/css/386.64636242.chunk.css.map",
+    "386.491f0eac.chunk.js.map": "/react-hooks-in-details/static/js/386.491f0eac.chunk.js.map",
+    "933.c4d7db4b.chunk.js.map": "/react-hooks-in-details/static/js/933.c4d7db4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adbb9bde.css",
+    "static/js/main.3b46c4df.js"
+  ]
+}
