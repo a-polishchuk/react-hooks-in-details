@@ -1,13 +1,16 @@
 {
   "name": "hooks",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
+  "homepage": "https://a-polishchuk.github.io/react-hooks-in-details/",
   "scripts": {
-    "build": "react-scripts build",
-    "check-deps": "npx npm-check",
-    "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "build": "react-scripts build",
+    "preview": "serve ./build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
+    "check-deps": "npx npm-check"
   },
   "browserslist": {
     "production": [
@@ -46,6 +49,8 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.4.3",
-    "@types/react": "^18.0.17"
+    "@types/react": "^18.0.17",
+    "gh-pages": "^4.0.0",
+    "serve": "^14.0.1"
   }
 }

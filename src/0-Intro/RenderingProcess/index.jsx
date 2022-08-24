@@ -21,6 +21,7 @@ function Emoji({ children }) {
 }
 
 export function RenderingProcess() {
+  const { PUBLIC_URL } = process.env;
   return (
     <>
       <h2>React rendering process</h2>
@@ -59,7 +60,7 @@ export function RenderingProcess() {
           <h3 className="rendering-header">Real DOM / Browser Realm</h3>
           <img
             alt="Real DOM"
-            src="/real-dom.png"
+            src={`${PUBLIC_URL}/real-dom.png`}
             className="rendering-real-dom-image"
           />
           <div className="rendering-bottom-label">
