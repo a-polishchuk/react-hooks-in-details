@@ -24,7 +24,7 @@
 | Крок                      | npm         | yarn     | pnpm         |
 | ------------------------- | ----------- | -------- | ------------ |
 | Устанавливаем зависимости | npm install | yarn     | pnpm install |
-| Запускаем dev сервер      | npm run dev | yarn dev | pnpm dev     |
+| Запускаем dev сервер      | npm run dev | yarn start | pnpm dev     |
 
 Команды не сильно отличаются друг от друга.
 
